@@ -1,0 +1,12 @@
+
+<div class="form-group <%= required %>">
+    <label for="obj-<%= attr %>" class="col-sm-2 control-label"><%= title %></label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <input type="hidden" id="obj-<%= attr %>" name="obj-<%= attr %>">
+            <input type="text" class="form-control form-datepicker" placeholder="Дата" readonly>
+            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+        </div>
+        <p class="error-block"></p>
+    </div>
+</div>

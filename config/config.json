@@ -1,0 +1,65 @@
+{
+  "parametrised": true,
+  "sysTitle": "[[sys.title]]",
+  "environment": "[[sys.env]]",
+  "addressCatalog": {
+    "path": "addressCatalog",
+    "feedbackStep": "1000"
+  },
+  "dashboard": {
+    "modules": {
+      "dashboard": {
+        "config": {
+          "ionadmin": {
+            "root": "modules/ionadmin/modules/dashboard"
+          }
+        }
+      }
+    }
+  },
+  "profiling": {
+    "slowQuery": {
+      "sources": [
+          {
+            "collection": "system.profile"
+          }
+      ]
+    }
+  },
+  "di" : {
+    "backupProvider": {
+      "module": "./backend/backupProvider",
+      "initMethod": "init",
+      "initLevel": 2,
+      "options": {
+        "backupDir": "../ion-backups",
+        "zlib": {
+          "level": 1
+        },
+        "dataRepo": "ion://dataRepo",
+        "metaRepo": "ion://metaRepo",
+        "bg": "ion://background",
+        "workflows": "ion://workflows",
+        "sequences": "ion://sequenceProvider",
+        "log": "ion://sysLog",
+        "accounts": "ion://accounts",
+        "accessManager": "ion://roleAccessManager",
+        "step": "[[backup.step]]",
+        "maxOldMemory": "[[backup.maxOldMemory]]"
+      }
+    },
+    "changelogFactory": {
+      "module": "core/impl/changelogger/DsChangelogFactory",
+      "options": {
+        "dataSource": "ion://Db"
+      }
+    },
+    "schedulerAgent": {
+      "module": "core/impl/SchedulerAgent",
+      "options": {
+        "settings": "ion://settings",
+        "repo": "ion://kvRepo"
+      }
+    }
+  }
+}

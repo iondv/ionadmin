@@ -1,0 +1,33 @@
+
+<div class="form-group <%= required %>">
+    <label for="obj-<%= attr %>" class="col-sm-2 control-label"><%= title %></label>
+    <div class="col-sm-10">
+        <div id="ajaxUploader" class="ajax-uploader">
+            <input type="hidden" id="obj-<%= attr %>" name="obj-<%= attr %>" data-type="image">
+            <div class="ajax-uploader-input">
+                <input type="file" class="ajax-uploader-input-file" accept="image/jpeg,image/png,image/gif">
+                <div class="ajax-uploader-dropzone">
+                    <div class="ajax-uploader-dropzone-h1">Перетащите изображение сюда</div>
+                    <div class="ajax-uploader-dropzone-h2">или выберите из папки</div>
+                </div>
+            </div>
+            <ul class="ajax-uploader-list clearfix">
+                <li class="ajax-uploader-item sample" style="display:none;">
+                    <div class="ajax-uploader-thumb"><img src=""></div>
+                    <div class="ajax-uploader-info-wrapper">
+                        <div class="ajax-uploader-info-container">
+                            <div class="ajax-uploader-info"></div>
+                        </div>
+                    </div>
+                    <div class="ajax-uploader-remove photo-thumb-control" title="Удалить">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </div>
+                    <div class="ajax-uploader-progress-bar">
+                        <div class="ajax-uploader-progress-fill"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <p class="error-block"></p>
+    </div>
+</div>

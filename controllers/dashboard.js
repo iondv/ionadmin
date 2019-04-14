@@ -1,0 +1,67 @@
+'use strict';
+
+const di = require('core/di');
+const config = require('../config');
+const ionAdmin = require('../index');
+const accessResources = require('../access-resources');
+const moduleName = require('../module-name');
+const respond = require('../backend/respond');
+const onError = require('../backend/error');
+
+module.exports = function (req, res, next) {
+  ionAdmin.can(req, res, accessResources.dashboard.id).then(()=> {
+    respond(res, scope => {
+      try {
+        let params = {
+          req, res,
+          title: 'Контрольная панель',
+          modules: [],
+          currentModule: req.cookies ? req.cookies['ionadmin-dashboard-module'] : '',
+          currentApp: moduleName,
+          dashboardContent: ''
+        };
+        const TEMPLATE = 'dashboard/default';
+        let conf = config.dashboard;
+        let modules = conf && conf.modules ? conf.modules : {};
+        let selModule, selModuleData;
+        for (let module in modules) {
+          let id = module;
+          params.modules.push(id);
+          if (!params.currentModule || params.currentModule === id) {
+            selModule = module;
+            selModuleData = modules[module];
+            params.currentModule = id;
+            break;
+          }
+        }
+        if (selModule) {
+          try {
+            let module = require(`modules/${selModule}`);
+            module.configurate(selModuleData.config, err => {
+              if (err) {
+                onError(scope, err, res);
+              } else {
+                module.render(params, (err, result)=> {
+                  if (err) {
+                    onError(scope, err, res);
+                  } else {
+                    params.dashboardContent = result;
+                  }
+                  ionAdmin.render(TEMPLATE, params);
+                });
+              }
+            });
+          } catch (err) {
+            onError(scope, err, res);
+          }
+        } else {
+          ionAdmin.render(TEMPLATE, params);
+        }
+      } catch (err) {
+        onError(scope, err, res, true);
+      }
+    });
+  }).catch(err => {
+    ionAdmin.renderError(req, res, err);
+  });
+};

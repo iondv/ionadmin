@@ -1,0 +1,49 @@
+<%%>
+<header class="main-header">
+
+  <a href="ionadmin" class="logo">
+    <span class="logo-mini"><b>ION</b></span><span class="logo-lg"><b>Admin</b> ION</span>
+  </a>
+  <nav class="navbar navbar-static-top" role="navigation">
+
+    <div class="navbar-left">
+      <ul class="nav navbar-nav">
+        <li class="dropdown module-switcher">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
+          <ul class="dropdown-menu">
+            <% sysMenu.forEach(function (m) { %>
+            <li><a href="<%= m.name %>" title="<%= m.description %>"><%= m.description %></a></li>
+            <% }); %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <% let avatar = user.properties().avatar; %>
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <% if (avatar) { %>
+            <img src="<%= avatar.link %>" class="user-image" alt="User avatar">
+            <% } %>
+            <%= user.name() %>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-header">
+              <% if (avatar) { %>
+              <img src="<%= avatar.link %>" class="img-circle" alt="User avatar">
+              <% } %>
+              <div><%= user.name() %></div>
+            </li>
+            <li class="user-footer">
+              <div class="text-center">
+                <a href="ionadmin/sign-out?url=<%=baseUrl%>ionadmin" class="btn btn-danger btn-flat">Выйти</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

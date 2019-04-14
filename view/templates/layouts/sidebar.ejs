@@ -1,0 +1,63 @@
+<%
+%>
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <div class="user-panel">
+      <% let avatar = user.properties().avatar; %>
+      <% if (avatar) { %>
+      <div class="pull-left image">
+        <img src="<%= avatar.link %>" class="img-circle" alt="User avatar">
+      </div>
+      <% } %>
+      <div class="pull-left info">
+        <p><%= user.name() %></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Онлайн</a>
+      </div>
+    </div>
+
+    <ul id="sidebar-menu" class="sidebar-menu">
+      <li class="header">ГЛАВНОЕ МЕНЮ</li>
+
+      <% include security-menu %>
+
+      <li class="treeview">
+        <a href="#"><i class="fa fa-cogs"></i> <span>Профилирование</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li id="sidemenu-item-security-user">
+            <a href="ionadmin/profiling/slow-query"><i class="fa fa-circle-o text-green"></i> Медленные запросы</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="ionadmin/changelog"><i class="fa fa-history"></i> <span>Журнал изменений</span></a>
+      </li>
+
+      <li>
+        <a href="ionadmin/backup"><i class="fa fa-hdd-o"></i> <span>Резервирование</span></a>
+      </li>
+      <li>
+        <a href="ionadmin/schedule"><i class="fa fa-clock-o"></i> <span>Задания по расписанию</span></a>
+      </li>
+      <li>
+        <a href="ionadmin/token"><i class="fa fa-history"></i> <span>Ключи безопасности веб-сервисов</span></a>
+      </li>
+      <li>
+        <a href="ionadmin/recache"><i class="fa fa-history"></i> <span>Пересчет кешей семантики</span></a>
+      </li>
+      <li>
+        <a href="ionadmin/notifications"><i class="fa fa-bell"></i> <span>Уведомления</span></a>
+      </li>
+      <% menuExt.forEach(function (entry) { %>
+      <li class="treeview">
+        <a href="<%=entry.url%>"><i class="<%=entry.style%>"></i> <%=entry.text%></a>
+      </li>
+      <% }); %>
+    </ul>
+  </section>
+
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="fa"></span><span class="fa"></span>
+  </a>
+
+</aside>

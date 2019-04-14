@@ -1,0 +1,36 @@
+<% layout('../layouts/content') -%>
+
+<div class="dashboard-wrapper">
+
+  <div class="dashboard-tools clearfix">
+    <div class="pull-left">
+      Модуль:
+      <select class="dashboard-select-module form-control mr10">
+        <% for (let id of modules) { %>
+        <% var checked = id === currentModule ? 'selected' : ''%>
+        <option value="<%- id %>" <%- checked %>><%- id %></option>
+        <% } %>
+      </select>
+    </div>
+  </div>
+
+  <%- dashboardContent %>
+
+</div>
+
+<script>
+  jQuery(function () {
+    var $tools = $('.dashboard-tools');
+    var $modules = $tools.find('.dashboard-select-module');
+    var cookieData = {
+      expires:30,
+      path:'/registry'
+    };
+    $modules.change(save);
+
+    function save () {
+      Cookies.set('dashboard-module', $modules.val(), cookieData);
+      location.reload();
+    }
+  });
+</script>

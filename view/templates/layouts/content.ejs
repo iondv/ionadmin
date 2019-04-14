@@ -1,0 +1,22 @@
+<% layout('./main') -%>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1><%= title %></h1>
+
+        <ol class="breadcrumb">
+            <li><a href="ionadmin"><i class="fa fa-dashboard"></i> Главная</a></li>
+            <%- blocks.breadcrumbs %>
+        </ol>
+    </section>
+
+    <section class="content">
+
+      <div id="message-callout" class="message-callout alert">
+        <h4 class="message-callout-title"></h4>
+        <p class="message-callout-content"></p>
+      </div>
+
+        <%- body -%>
+    </section>
+</div>

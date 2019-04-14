@@ -1,0 +1,15 @@
+<%
+    options = typeof options === 'undefined' ? [] : options;
+%>
+<div class="form-group <%= required %>">
+    <label for="obj-<%= attr %>" class="col-sm-2 control-label"><%= title %></label>
+    <div class="col-sm-10">
+        <div class="form-control-box">
+            <select id="obj-<%= attr %>" name="obj-<%= attr %>" class="form-control">
+                <% options.forEach(function (option) { %>
+                <option value="<%= option.value %>"><%= option.label %></option>
+                <% }); %>
+            </select>
+        </div>
+    </div>
+</div>

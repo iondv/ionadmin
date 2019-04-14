@@ -1,0 +1,152 @@
+<% layout('../layouts/content') -%>
+
+<% script(`/${module}/js/changelog/index.js`) -%>
+
+<%
+var _params = typeof params === 'undefined' ? {} : params;
+%>
+
+<div class="box">
+  <div class="list-loader overlay" style="display: none;">
+    <i class="fa fa-refresh fa-spin"></i>
+  </div>
+  <div class="box-body">
+    <div class="list-tools">
+      <div class="row">
+
+        <div class="col-lg-2">
+          <div class="form-group filter-form-group">
+            <label>Период</label>
+            <input type="text" class="period-filter form-control">
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label>Пользователь</label>
+            <select class="user-filter form-control">
+              <option value="">-</option>
+                <% for (let user of users) { %>
+              <option value="<%- user.id %>@<%- user.type %>">
+                  <%- user.name || user.id %>
+              </option>
+                <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>Действие</label>
+            <select class="type-filter form-control">
+              <option value="">-</option>
+              <option value="CREATE">Создание</option>
+              <option value="UPDATE">Изменение</option>
+              <option value="DELETE">Удаление</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label>Класс</label>
+            <select class="class-filter form-control">
+              <option value="">-</option>
+                <% for (let cls of classes) { %>
+              <option value="<%- cls.name %>@<%- cls.namespace %>">
+                  <%- cls.caption %> [<%- cls.name %>@<%- cls.namespace %>]
+              </option>
+                <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>Объект</label>
+            <input class="id-filter form-control">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="filter btn btn-primary">Фильтровать</button>
+        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped multi-selectable changelog-table">
+        <thead>
+        <tr></tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="changelog-view" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Запись журнала</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form form-horizontal view-form">
+          <div class="form-group">
+            <label class="control-label col-sm-3">Дата</label>
+            <div class="col-sm-9">
+              <p class="timestamp-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Пользователь</label>
+            <div class="col-sm-9">
+              <p class="user-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Класс</label>
+            <div class="col-sm-9">
+              <p class="class-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Версия класса</label>
+            <div class="col-sm-9">
+              <p class="version-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Объект</label>
+            <div class="col-sm-9">
+              <p class="id-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Действие</label>
+            <div class="col-sm-9">
+              <p class="type-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">До</label>
+            <div class="col-sm-9">
+              <p class="base-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">После</label>
+            <div class="col-sm-9">
+              <p class="data-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group text-right mb0">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

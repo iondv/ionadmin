@@ -1,0 +1,62 @@
+<% layout('../../layouts/content') -%>
+
+<% script(`/${module}/js/list/manager.js`) -%>
+<% script(`/${module}/js/profiling/slow-query/list.js`) -%>
+
+<%
+var _params = typeof params === 'undefined' ? {} : params;
+%>
+
+<div class="box">
+  <div class="list-loader overlay"><i class="fa fa-refresh fa-spin"></i></div>
+  <div class="box-body">
+    <div class="list-tools">
+      <button class="reload-btn btn btn-default" title="Обновить"><span class="fa fa-refresh"></span></button>
+      <% if (permissions[Permissions.WRITE]) { %>
+      <button id="import-slow-query" class="btn btn-success">Загрузить новые логи</button>
+      <button id="import-all" class="btn btn-default">Перезагрузить все</button>
+      <% } %>
+      <button id="slow-settings" class="btn btn-default" disabled>Настройки</button>
+    </div>
+    <table id="object-list" class="table table-bordered table-striped multi-selectable">
+      <thead><tr></tr></thead>
+    </table>
+  </div>
+</div>
+
+<div id="slow-settings-form" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Настройка профилирования запросов</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group">
+            <label class="form-control-label">
+              Уровень профилирования
+            </label>
+            <select id="slow-settings-level" class="form-control">
+              <option value="0">Отключено</option>
+              <option value="1">Записывать медленные запросы</option>
+              <option value="2">Записывать все запросы</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">
+              Порог медленного запроса (мс)
+            </label>
+            <input id="slow-settings-threshold" class="form-control" value="45">
+          </div>
+          <div class="form-group text-right">
+            <% if (permissions[Permissions.WRITE]) { %>
+            <button type="button" class="save btn btn-primary">Сохранить</button>
+            <% } %>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

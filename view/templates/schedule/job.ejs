@@ -1,0 +1,88 @@
+<% layout('../layouts/content') %>
+
+<%
+  let name = title;
+  if (typeof job === 'undefined') {
+    name = "";
+    job = {
+      description: '',
+      launch : {},
+      worker: '',
+      di: {}
+    };
+  }
+%>
+
+<div class="box box-info">
+  <form action="<%= module %>/api/schedule/save"
+        method="POST"
+        class="job form-horizontal">
+    <div class="box-header with-border">
+      <button type="submit" class="btn btn-success">Сохранить</button>
+      <button type="reset" class="btn btn-warning">Отмена</button>
+      <button id="back" type="button" class="btn btn-warning">Назад</button>
+    </div>
+    <div class="box-body">
+
+      <div class="form-group required">
+        <label for="nameField" class="col-sm-2 control-label">Название</label>
+        <div class="col-sm-10">
+          <input id="nameField" type="text" class="form-control"
+                 name="job" value="<%= name %>" placeholder="Название">
+        </div>
+      </div>
+
+      <div class="form-group required">
+        <label for="nameField" class="col-sm-2 control-label">Описание</label>
+        <div class="col-sm-10">
+          <textarea id="descrField" type="text" class="form-control"
+                 name="description" rows="6"><%=job.description || '' %></textarea>
+        </div>
+      </div>
+
+      <div class="form-group required">
+        <label for="nameField" class="col-sm-2 control-label">Расписание</label>
+        <div class="col-sm-10">
+          <input type="hidden" name="launch" value="<%= JSON.stringify(job.launch) %>">
+          <div class="jsoneditor"></div>
+        </div>
+      </div>
+
+      <div class="form-group required">
+        <label for="workerField" class="col-sm-2 control-label">Обработчик</label>
+        <div class="col-sm-10">
+          <input id="workerField" type="text" class="form-control"
+                 name="worker" value="<%= job.worker %>" placeholder="Обработчик">
+        </div>
+      </div>
+
+      <div class="form-group required">
+        <label for="nameField" class="col-sm-2 control-label">Контекст</label>
+        <div class="col-sm-10">
+          <input type="hidden" name="di" value="<%= JSON.stringify(job.di) %>">
+          <div class="jsoneditor"></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#back').click(function () {
+      window.location.pathname = '/<%=module%>/schedule';
+    });
+    $('.jsoneditor').each(function (i, e) {
+      var input = $(e).prev();
+      var editor = new JSONEditor(
+        e,
+        {
+          search: false,
+          onChange: function () {
+            input.val(editor.getText());
+          }
+        },
+        JSON.parse(input.val()));
+    });
+  });
+</script>

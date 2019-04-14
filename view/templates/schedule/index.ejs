@@ -1,0 +1,165 @@
+
+<% layout('../layouts/content') %>
+
+<div class="scheduler box">
+  <div class="list-loader overlay"><i class="fa fa-refresh fa-spin"></i></div>
+  <div class="box-body">
+    <div class="list-tools">
+      <button class="create btn btn-success" title="Создать"><span class="fa fa-plus"></span></button>
+      <button class="start-all btn btn-success" title="Запустить все"><span class="fa fa-play"></span></button>
+      <button class="stop-all btn btn-warning" title="Остановить все"><span class="fa fa-stop"></span></button>
+      <button class="restart-all btn btn-primary" title="Перезапустить все"><span class="fa fa-refresh"></span></button>
+    </div>
+    <table id="object-list" class="table table-bordered table-striped multi-selectable">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Описание</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let nm in jobs) { %>
+          <tr class="job" data-job-name="<%= nm %>" data-job="<%= JSON.stringify(jobs[nm]) %>">
+            <td class="name"><%= nm %></td>
+            <td class="description"><%= jobs[nm].description || '' %></td>
+            <td style="width: 200px">
+              <button class="stop btn btn-warning" title="Остановить"><span class="fa fa-stop"></span></button>
+              <button class="start btn btn-success" title="Запустить"><span class="fa fa-play"></span></button>
+              <button class="manually btn btn-primary" title="Запустить сейчас"><span class="fa fa-hand-o-right"></span></button>
+              <button class="edit btn btn-primary" title="Редактировать"><span class="fa fa-pencil"></span></button>
+              <button class="remove btn btn-danger" title="Удалить"><span class="fa fa-times"></span></button>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    var scheduler = $('.scheduler');
+    var loader = $('.list-loader', scheduler);
+    loader.hide();
+    var modes = <%-JSON.stringify(runningModes)%>;
+    var manuallyCheckInterval = parseInt("<%= manuallyCheckInterval %>");
+
+    $('.jsoneditor').each(function (i , e) {
+        var elem = $(e);
+        var json = elem.text() ? JSON.parse(elem.text()) : {};
+        elem.empty();
+        new JSONEditor(e, {
+          mode: "view",
+          search: false
+        }, json);
+    });
+
+    scheduler.on('click', 'button.start', function () {
+      var job = $(this).closest('.job');
+      startStopHandler('ionadmin/api/schedule/start', job);
+    }).on('click', 'button.manually', function () {
+      var job = $(this).closest('.job');
+      startStopHandler('ionadmin/api/schedule/manually', job);
+    }).on('click', 'button.stop', function () {
+      var job = $(this).closest('.job');
+      startStopHandler('ionadmin/api/schedule/stop', job);
+    }).on('click', 'button.remove', function () {
+      var elem = $(this).closest('.job');
+      loader.show();
+      $.post('ionadmin/api/schedule/remove', {
+        job: elem.data('jobName'),
+      }, function (data) {
+        if (data) {
+          elem.remove();
+        }
+        loader.hide();
+      });
+    }).on('click', 'button.edit', function () {
+      $(location).attr('href', 'ionadmin/schedule/' + $(this).closest('.job').data('jobName'));
+    }).on('click', 'button.create', function () {
+      $(location).attr('href', 'ionadmin/schedule/new');
+    }).on('click', 'button.start-all', function () {
+      groupCommandsHandler('ionadmin/api/schedule/startAll');
+    }).on('click', 'button.stop-all', function () {
+      groupCommandsHandler('ionadmin/api/schedule/stopAll');
+    }).on('click', 'button.restart-all', function () {
+      groupCommandsHandler('ionadmin/api/schedule/restartAll');
+    }).find('.job').each(function (i, e) {
+      renderJob(e);
+    });
+
+    function renderJob(domElem) {
+      var elem = $(domElem);
+      var job = elem.data('job');
+      switch (job.status) {
+        case modes.STARTING:
+        case modes.RESTARTING:
+        case modes.MANUALLY_STARTING:
+        case modes.STOPPING:
+        {
+          $('button.start', elem).hide();
+          $('button.manually', elem).hide();
+          $('button.stop', elem).hide();
+        }
+          ;
+          break;
+        case modes.STOPPED: {
+          $('button.start', elem).show();
+          $('button.manually', elem).show();
+          $('button.stop', elem).hide();
+        }; break;
+        case modes.RUNNING:
+        {
+          $('button.start', elem).hide();
+          $('button.manually', elem).hide();
+          $('button.stop', elem).show();
+        }; break;
+      }
+    }
+
+    function startStopHandler (url, elem, callback) {
+      loader.show();
+      $.post(url, {
+        job: elem.data('jobName'),
+      }, function (data) {
+        var job = elem.data('job');
+        job.status = data;
+        elem.data('job', job);
+        renderJob(elem[0]);
+        loader.hide();
+        callback && callback();
+      });
+    }
+
+    function groupCommandsHandler (url) {
+      loader.show();
+      $.post(url, {}, function (data) {
+        var jobs = $('.job', scheduler);
+        jobs.each(function (i, e) {
+          var elem = $(e);
+          var d = data[elem.data('jobName')] || modes.STOPPED;
+          elem.data('job', d);
+          renderJob(e);
+        });
+        loader.hide();
+      });
+    }
+
+    function modeListener() {
+      $.post('ionadmin/api/schedule/runningMode', {}, function (data) {
+        var jobs = $('.job', scheduler);
+        jobs.each(function (i, e) {
+          var elem = $(e);
+          var status = data[elem.data('jobName')] || modes.STOPPED;
+          var job = elem.data('job');
+          job.status = status;
+          elem.data('job', job);
+          renderJob(e);
+        });
+      });
+    }
+
+    window.setInterval(modeListener, manuallyCheckInterval);
+  });
+</script>

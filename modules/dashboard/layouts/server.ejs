@@ -1,0 +1,67 @@
+
+<link href="dashboard/vendor/gridster-js/jquery.gridster.min.css" rel="stylesheet">
+<link href="dashboard/css/server.css" rel="stylesheet">
+<link href="dashboard/css/gridster.css" rel="stylesheet">
+
+<script src="dashboard/vendor/moment/moment.min.js"></script>
+<script src="dashboard/vendor/chartjs/Chart.min.js"></script>
+<script src="dashboard/vendor/gridster-js/jquery.gridster.min.js"></script>
+<script src="dashboard/vendor/gridster-js/jquery.gridster.with-extras.min.js"></script>
+<script src="dashboard/js/gridster-helper.js"></script>
+<script src="dashboard/js/dashboard.js"></script>
+<script src="dashboard/js/snapshot.js"></script>
+
+<div id="gridster" class="gridster" data-app="<%= app %>" data-layout="<%= layout %>">
+  <ul>
+    <li data-sizey="2" data-sizex="2" data-col="1" data-row="1">
+      <% var cpu = dashboard.getWidget('CpuSnapshot'); %>
+      <%- partial(cpu.view, {
+        widget: cpu,
+        params: {
+          id: 'CpuSnapshot',
+          title: 'Нагрузка CPU'
+        },
+        cssBackground: 'bg-white'
+      })%>
+    </li>
+
+    <li data-sizey="1" data-sizex="2" data-col="3" data-row="1">
+      <% var ram = dashboard.getWidget('RamSnapshot'); %>
+      <%- partial(ram.view, {
+        widget: ram,
+        params: {
+          id: 'RamSnapshot',
+          title: 'Нагрузка RAM'
+        },
+        cssBackground: 'bg-white'
+      })%>
+    </li>
+
+    <li data-sizey="1" data-sizex="2" data-col="3" data-row="2">
+      <% var hdd = dashboard.getWidget('HddSnapshot'); %>
+      <%- partial(hdd.view, {
+        widget: hdd,
+        params: {
+          id: 'HddSnapshot',
+          title: 'Нагрузка HDD'
+        },
+        cssBackground: 'bg-white'
+      })%>
+    </li>
+  </ul>
+</div>
+
+<script>
+  (function () {
+    new GridsterHelper($('#gridster'), {
+      widget_base_dimensions: ['auto', 240],
+      autogenerate_stylesheet: true,
+      min_cols: 1,
+      max_cols: 4,
+      widget_margins: [10, 10],
+      resize: {
+        enabled: true
+      }
+    });
+  })();
+</script>

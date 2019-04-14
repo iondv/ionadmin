@@ -1,0 +1,16 @@
+<% layout('../layouts/content') -%>
+<div class="box box-info">
+    <div id="object-loader" class="overlay"><i class="fa fa-refresh fa-spin"></i></div>
+    <div class="box-header with-border">
+      <%if (typeof readOnly == 'undefined' || !readOnly) {%>
+      <button id="save-form" type="button" class="btn btn-primary">Сохранить</button>
+      <%}%>
+        <button id="close-form" type="button" class="btn btn-default">Закрыть</button>
+    </div>
+    <form class="form-horizontal" id="object-form" enctype="multipart/form-data">
+        <div class="box-body">
+            <input type="hidden" id="obj-_id" name="obj-_id">
+            <%- body -%>
+        </div>
+    </form>
+</div>

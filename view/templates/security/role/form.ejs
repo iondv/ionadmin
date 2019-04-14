@@ -1,0 +1,26 @@
+<% layout('../../crud/object') -%>
+
+<% script(`/${module}/js/object/resource-access.js`) -%>
+<% script(`/${module}/js/object/manager.js`) -%>
+<% script(`/${module}/js/security/role/object.js`) -%>
+
+<%- partial('../../attrs/_input', {
+  attr: 'id',
+  title: 'Идентификатор',
+  required:'required'
+}) %>
+
+<%- partial('../../attrs/_input', {
+  attr: 'name',
+  title: 'Название',
+  required:''
+}) %>
+
+<%- partial('../../attrs/_resource-access', {
+  attr: 'access',
+  title: 'Права доступа',
+  required:'',
+  resourceTypes: Object.assign({
+    '*': {title: 'Общие'}
+  }, securityParams.resourceTypes)
+}) %>

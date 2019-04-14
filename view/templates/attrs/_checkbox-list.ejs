@@ -1,0 +1,12 @@
+
+<div class="form-group <%= required %>">
+  <label for="obj-<%= attr %>" class="col-sm-2 control-label"><%= title %></label>
+  <div class="col-sm-10">
+    <div class="form-control-box">
+      <div class="overlay"><i class="fa fa-refresh fa-spin"></i></div>
+      <input type="hidden" class="form-control" id="obj-<%= attr %>" name="obj-<%= attr %>">
+      <div class="checkbox-list"></div>
+    </div>
+    <p class="error-block"></p>
+  </div>
+</div>

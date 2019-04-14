@@ -1,0 +1,21 @@
+<%layout('../crud/object') -%>
+<%script(`/${module}/js/object/manager.js`) -%>
+<%script(`/${module}/js/notify/object.js`) -%>
+<%-partial('../attrs/_input', {
+  attr: 'subject',
+  title: 'Заголовок',
+  required: 'required',
+  readonly: (typeof readOnly !== 'undefined') ? readOnly : false
+})%>
+<%-partial('../attrs/_text', {
+  attr: 'message',
+  title: 'Сообщение',
+  required: 'required',
+  readonly: (typeof readOnly !== 'undefined') ? readOnly : false
+})%>
+<%-partial('../attrs/_text', {
+  attr: 'recievers',
+  title: 'Получатели',
+  required: '',
+  readonly: (typeof readOnly !== 'undefined') ? readOnly : false
+})%>

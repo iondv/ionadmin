@@ -1,0 +1,46 @@
+{
+  "name": "ionadmin",
+  "version": "0.0.3",
+  "authors": [
+    "Андрей Куминов <akuminov@mail.ru>"
+  ],
+  "description": "Amdin for ION.portal",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "bootstrap-daterangepicker": "~2.1.27",
+    "bootstrap3-wysihtml5-bower": "*",
+    "bootstrap3-datepicker": "*",
+    "bower-jvectormap": "*",
+    "chartjs": "*",
+    "eonasdan-bootstrap-datetimepicker": "4.17.37",
+    "DataTables": "^1.10",
+    "font-awesome-min": "",
+    "jquery": "^2",
+    "jquery-knob": "*",
+    "jquery-ui": "*",
+    "js-cookie": "*",
+    "icheck": "*",
+    "ionicons": "~2.0.1",
+    "moment": "2.9.0",
+    "slimScroll": "*",
+    "select2": "~4.0.0",
+    "store-js": "~1.3.20",
+    "jquery.inputmask": "^3.3.1",
+    "jsoneditor": "*"
+  },
+  "resolutions": {
+    "bootstrap": "3.3.5"
+  }
+}

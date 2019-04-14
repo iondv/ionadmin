@@ -1,0 +1,7 @@
+<% layout('./layouts/content') -%>
+
+<div class="alert alert-<%- alert %>">
+  <% if (typeof message === 'string') { %>
+    <%= message %>
+  <% } %>
+</div>

@@ -1,0 +1,115 @@
+<%layout('../layouts/content') -%>
+
+<%script(`/${module}/js/list/listManager.js`) -%>
+
+<script>
+  $(document).ready(function () {
+    $('#notifications .list-tools .filter.autocomplete').autocomplete({
+      source: function(request, response) {
+        messageCallout.hide();
+        $.get('/<%= module %>/api/notifications/userSearch', {search: request.term})
+          .done(function (data) {
+            response($.map(data, function(item){
+              return {value: item}
+            }));
+          })
+          .fail(function (xhr, textStatus, errorThrown) {
+            messageCallout.error(xhr.responseText || errorThrown);
+          });
+      }
+    });
+    $('#notifications .list-tools .filter[name="since"]').datetimepicker({
+      locale: "<%= locale.lang %>",
+      format: "<%= locale.dateTimeFormat %>"
+    });
+
+    $('#notifications').listManager({
+      urls: {
+        list: "/<%= module %>/api/notifications",
+        create: "/<%= module %>/notifications/create",
+        edit: "/<%= module %>/notifications",
+        delete: "/<%= module %>/api/delete-list/notifications"
+      },
+      keyProp: "id",
+      params: {
+        since: function () {
+          var s = $('.list-tools .filter[name="since"]', this).data("DateTimePicker").date();
+          return s ? s.format() : null;
+        },
+        sender: $('#notifications .list-tools .filter[name="sender"]'),
+        reciever: $('#notifications .list-tools .filter[name="reciever"]')
+      },
+      dt: {
+        columns: [
+          {
+            data: "date",
+            title: "Время отправки",
+            orderable: false,
+            render: function ( data, type, row, meta ) {
+              return moment(data, moment.ISO_8601).format("<%= locale.dateTimeFormat %>");
+            }
+          },
+          {
+            data: "sender",
+            title: "Отправитель",
+            orderable: false
+          },
+          {
+            data: "subject",
+            title: "Заголовок",
+            orderable: false
+          },
+          {
+            data: "message",
+            title: "Сообщение",
+            orderable: false
+          }
+        ],
+        order: [[0, "desc"]],
+        searching: false
+      }
+    });
+  });
+</script>
+
+<div id="notifications" class="box">
+  <div class="list-loader overlay"><i class="fa fa-refresh fa-spin"></i></div>
+  <div class="box-body">
+    <%
+    var _params = typeof params === 'undefined' ? {} : params;
+    var customTools = typeof listTools === 'undefined' ? '' : listTools;
+    %>
+    <div class="list-tools row">
+      <div class="col-lg-6">
+        <div class="form-group filter-form-group">
+          <button class="reload-btn btn btn-default" title="Обновить"><span class="fa fa-refresh"></span></button>
+          <% if (permissions[Permissions.WRITE]) { %>
+          <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="Создать">Создать</button>
+          <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="Редактировать">Править</button>
+          <% } %>
+          <% if (permissions[Permissions.DELETE]) { %>
+          <button class="delete-btn btn btn-danger" title="Удалить">Удалить</button>
+          <% } %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-3">
+          <button class="reload-btn btn btn-primary" title="Фильровать">Применить фильтры</button>
+        </div>
+        <div class="col-lg-3">
+          <input class="filter form-control autocomplete" type="text" name="sender" placeholder="Отправитель"/>
+        </div>
+        <div class="col-lg-3">
+          <input class="filter form-control autocomplete" type="text" name="reciever" placeholder="Получатель"/>
+        </div>
+        <div class="col-lg-3">
+          <input class="filter form-control" type="text" name="since" placeholder="Отправленные после"/>
+        </div>
+      </div>
+    </div>
+
+    <table id="object-list" class="table table-bordered table-striped multi-selectable">
+      <thead><tr></tr></thead>
+    </table>
+  </div>
+</div>
