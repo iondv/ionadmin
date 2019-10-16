@@ -9,7 +9,7 @@ exports.index = function (req, res) {
   ionAdmin.can(req, res, accessResources.profilingSlowQuery.id).then(permissions => {
     ionAdmin.render(path, {
       req, res,
-      title: 'Медленные запросы к базе данных',
+      title: 'Slow database queries',
       pageCode: model,
       permissions
     });

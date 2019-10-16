@@ -4,19 +4,19 @@
     aoColumns: [
       {
         "mData": "type",
-        "sTitle": "Тип"
+        "sTitle": "Type"
       },
       {
         "mData": "login",
-        "sTitle": "Логин"
+        "sTitle": "Login"
       },
       {
         "mData": "name",
-        "sTitle": "Имя"
+        "sTitle": "Name"
       },
       {
         "mData": "roles",
-        "sTitle": "Назначенные роли",
+        "sTitle": "Assigned roles",
         "mRender": dataTableFormatter["userRoles"]
       }
     ],

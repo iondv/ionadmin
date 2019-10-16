@@ -3,54 +3,54 @@
 module.exports = {
   dashboard: {
     id: 'ionadmin:::dashboard',
-    name: 'Контрольная панель'
+    name: 'Control panel'
   },
   securityUsers: {
     id: 'ionadmin:::security-users',
-    name: 'Безопасность Пользователи'
+    name: 'Security Users'
   },
   securityRoles: {
     id: 'ionadmin:::security-roles',
-    name: 'Безопасность Роли'
+    name: 'Security Roles'
   },
   securityResources: {
     id: 'ionadmin:::security-resources',
-    name: 'Безопасность Ресурсы'
+    name: 'Security Resources'
   },
   securitySync: {
     id: 'ionadmin:::security-sync',
-    name: 'Безопасность Синхронизация'
+    name: 'Security Security'
   },
   profilingSlowQuery: {
     id: 'ionadmin:::profiling-slow-query',
-    name: 'Профилирование Медленные запросы'
+    name: 'Profiling Slow queries'
   },
   changelog: {
     id: 'ionadmin:::changelog',
-    name: 'Журнал изменений'
+    name: 'Change log'
   },
   token: {
     id: 'ionadmin:::token',
-    name: 'Генератор токенов безопасности'
+    name: 'Security token generator'
   },
   backup: {
     id: 'ionadmin:::backup',
-    name: 'Резервирование'
+    name: 'Reservation'
   },
   schedule: {
     id: 'ionadmin:::schedule',
-    name: 'Задания по расписанию'
+    name: 'Scheduled tasks'
   },
   wstoken: {
     id: 'ws:::gen-ws-token',
-    name: 'Генерация токенов безопасности посредством веб-сервисов'
+    name: 'Generate security tokens via web services'
   },
   recache: {
     id: 'ionadmin:::recache',
-    name: 'Пересчет кешей семантики'
+    name: 'Recalculation of semantics caches'
   },
   notify: {
     id: 'ionadmin:::notify',
-    name: 'Уведомления'
+    name: 'Notification'
   }
 };

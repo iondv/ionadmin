@@ -4,15 +4,15 @@
     aoColumns: [
       {
         "mData": "id",
-        "sTitle": "Идентификатор"
+        "sTitle": "Identifier"
       },
       {
         "mData": "name",
-        "sTitle": "Название"
+        "sTitle": "Name"
       },
       {
         "mData": "users",
-        "sTitle": "Пользователи",
+        "sTitle": "Users",
         "mRender": dataTableFormatter["list"]
       }
     ],

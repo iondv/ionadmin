@@ -22,18 +22,18 @@ jQuery(function () {
     aoColumns: [
       {
         "mData": "date",
-        "sTitle": "Creation date ",
+        "sTitle": "Date of creation (Mb)",
         "mRender": function (data, type, full) {
           return type === "display" ? (new Date(data)).toLocaleString() : data;
         }
       },
       {
         "mData": "name",
-        "sTitle": "Archive name"
+        "sTitle": "Archive name \(Mb\)"
       },
       {
         "mData": "size",
-        "sTitle": "Archive size (Mb)",
+        "sTitle": "Archive size \(Mb\)",
         "mRender": function (data, type, full) {
           return (data / 1024 / 1024).toFixed(3);
         }

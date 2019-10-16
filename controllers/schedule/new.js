@@ -17,7 +17,7 @@ module.exports = function (req, res) {
       try {
         ionAdmin.render(TEMPLATE, {
           req, res,
-          title: 'Новое задание'
+          title: 'New job'
         });
       } catch (err) {
         onError(scope, err, res, true);

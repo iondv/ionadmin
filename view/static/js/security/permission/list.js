@@ -4,15 +4,15 @@
     aoColumns: [
       {
         "mData": "id",
-        "sTitle": "Идентификатор"
+        "sTitle": "Identifier"
       },
       {
         "mData": "name",
-        "sTitle": "Название"
+        "sTitle": "Name"
       },
       {
         "mData": "description",
-        "sTitle": "Описание"
+        "sTitle": "Description"
       }
     ],
     order: [[1, "asc"]]

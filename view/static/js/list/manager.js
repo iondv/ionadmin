@@ -67,7 +67,7 @@
       var rows = dataTable.rows('.selected');
       var data = rows.data();
       if (!data.length) {
-        messageCallout.warn('Выберите объекты.');
+        messageCallout.warn('Select objects.');
       } else if (typeof addToOpenerList === "function") {
         addToOpenerList(findObjects(getObjectIds(rows), indexedObjects));
         close();
@@ -94,15 +94,15 @@
         // child.refreshOpenerList = reload;
         messageCallout.hide();
       } else {
-        messageCallout.warn('Выберите один объект для редактирования.');
+        messageCallout.warn('Select one object to edit.');
       }
     });
 
     $tools.find(".delete-btn").click(function () {
       var rows = dataTable.rows('.selected');
       if (rows.data().length === 0) {
-        messageCallout.warn('Выберите объекты для удаления.');
-      } else if (confirm("Удалить выбранные объекты?")) {
+        messageCallout.warn('Select objects to delete.');
+      } else if (confirm("Delete selected objects?")) {
         messageCallout.hide();
         $loader.toggle(true);
         restApi.removeList(model, getObjectIds(rows))
@@ -221,7 +221,7 @@
       var rows = dataTable.rows('.selected');
       if (rows.data().length === 0) {
         console.log("Select objects");
-      } else if (confirm("Удалить выбранные объекты?")) {
+      } else if (confirm("Delete selected objects?")) {
         var ids = getObjectIds(rows);
         unsetObjectKeys(indexedObjects, ids);
         removeObjectsByKeyValues(sourceObjects, OBJECT_ID, ids);
@@ -324,7 +324,7 @@
 
   dataTableFormatter = {
     "boolean": function (data, type, full) {
-      return !!data ? "Да" : "Нет";
+      return !!data ? "Yes" : "No";
     },
     "date": function (data, type, full) {
       // format only displayed and filter data, not ordering
@@ -384,7 +384,7 @@
       result += handler(data[i]);
     }
     if (max < data.length) {
-      result += '<span class="" title="Скрыто записей">... ['+ (data.length - max) +']</span>';
+      result += '<span class="" title="Hidden records">... ['+ (data.length - max) +']</span>';
     }
     return result;
   }

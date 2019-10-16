@@ -3,19 +3,19 @@
 <%script(`/${module}/js/notify/object.js`) -%>
 <%-partial('../attrs/_input', {
   attr: 'subject',
-  title: 'Заголовок',
+  title: 'Header',
   required: 'required',
   readonly: (typeof readOnly !== 'undefined') ? readOnly : false
 })%>
 <%-partial('../attrs/_text', {
   attr: 'message',
-  title: 'Сообщение',
+  title: 'Message',
   required: 'required',
   readonly: (typeof readOnly !== 'undefined') ? readOnly : false
 })%>
 <%-partial('../attrs/_text', {
   attr: 'recievers',
-  title: 'Получатели',
+  title: 'Receivers',
   required: '',
   readonly: (typeof readOnly !== 'undefined') ? readOnly : false
 })%>

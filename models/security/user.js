@@ -103,6 +103,7 @@ class User extends Base {
           data.id = data.login;
           delete data.login;
         }
+        data.needPwdReset = true;
         this.scope.accounts.register(data).then(u => cb(null, this.cast(u))).catch(cb);
       },
       (inserted, cb) => {
@@ -133,6 +134,7 @@ class User extends Base {
         }
         data.disabled = !!data.disabled;
         delete data.pwd;
+        data.needPwdReset = true;
         this.scope.accounts.set(id, data).then(u => cb(null, u)).catch(cb);
       },
       (result, cb) => {

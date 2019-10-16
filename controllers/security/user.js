@@ -10,7 +10,7 @@ exports.index = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityUsers.id).then(permissions => {
     ionAdmin.render(path, {
       req, res,
-      title: 'Пользователи',
+      title: 'Users',
       pageCode: model,
       permissions
     });
@@ -23,7 +23,7 @@ exports.create = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityUsers.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Создать пользователя',
+      title: 'Create user',
       pageCode: model,
       scenario: 'create',
       permissions
@@ -37,7 +37,7 @@ exports.update = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityUsers.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Редактировать пользователя',
+      title: 'Edit user',
       pageCode: model,
       scenario: 'update',
       permissions

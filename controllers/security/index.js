@@ -8,7 +8,7 @@ exports.sync = function (req, res) {
     try {
       ionAdmin.render('security/sync', {
         req, res,
-        title: 'Синхронизация',
+        title: 'Synchronization',
         permissions
       });
     } catch (err) {

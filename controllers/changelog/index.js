@@ -19,7 +19,7 @@ exports.index = function (req, res, next) {
         result.classes.sort((a, b)=> a.caption.localeCompare(b.caption));
         ionAdmin.render('changelog/index', Object.assign({
           req, res,
-          title: 'Журнал изменений'
+          title: 'Change log'
         }, result));
       });
     } catch (err) {

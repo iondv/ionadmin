@@ -6,30 +6,30 @@
     aoColumns: [
       {
         "mData": "createdAt",
-        "sTitle": "Создано",
+        "sTitle": "Created",
         "mRender": function (data, type, full) {
           return type === "display" ? (new Date(data)).toLocaleString() : data;
         }
       },
       {
         "mData": "duration",
-        "sTitle": "Длительность (мс)"
+        "sTitle": "Duration (ms)"
       },
       {
         "mData": "reslen",
-        "sTitle": "Размер ответа (байт)"
+        "sTitle": "Response size (bytes)"
       },
       {
         "mData": "op",
-        "sTitle": "Операция"
+        "sTitle": "Operation"
       },
       {
         "mData": "ns",
-        "sTitle": "Класс"
+        "sTitle": "Class"
       },
       {
         "mData": "query",
-        "sTitle": "Запрос"
+        "sTitle": "Request"
       }
     ],
     order: [[0, "desc"]]
@@ -45,7 +45,7 @@
   var $loader = $box.find('.list-loader');
 
   $importAll.click(function () {
-    if (confirm('Перезагрузить все логи?')) {
+    if (confirm('Reload all logs?')) {
       importSlowQuery('ionadmin/api/profiling/slow-query/import-all');
     }
   });

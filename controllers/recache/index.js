@@ -5,21 +5,20 @@ const onError = require('../../backend/error');
 
 const TEMPLATE = 'recache/index';
 
-module.exports = function (req, res) {
+// eslint-disable-next-line func-names
+module.exports = function(req, res) {
   ionAdmin.can(req, res, access.id)
-    .then(()=> {
-      respond(res, scope => {
-        try {
-          ionAdmin.render(TEMPLATE, {
-            req, res,
-            title: 'Пересчет кешей семантики'
-          });
-        } catch (err) {
-          onError(scope, err, res, true);
-        }
-      });
-    })
-    .catch(err => {
+    .then(() => respond(res, (scope) => {
+      try {
+        ionAdmin.render(TEMPLATE, {
+          req, res,
+          title: 'Recalculation of semantics caches'
+        });
+      } catch (err) {
+        onError(scope, err, res, true);
+      }
+    }))
+    .catch((err) => {
       ionAdmin.renderError(req, res, err);
     });
 };

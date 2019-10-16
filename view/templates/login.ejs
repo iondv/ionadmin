@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Вход - AdminION</title>
+  <title>login - AdminION</title>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <base id="baseUrl" href="<%= baseUrl %>">
@@ -23,33 +23,33 @@
             <% }); %>
           </div>
           <% } %>
-          <p class="login-box-msg">Выполнить вход в систему</p>
+          <p class="login-box-msg">Log in</p>
           <form action="<%=module%>/auth" method="post">
             <div class="form-group has-feedback">
-              <input type="login" name="username" class="form-control" placeholder="Логин" />
+              <input type="login" name="username" class="form-control" placeholder="login" />
               <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-              <input type="password" name="password" class="form-control" placeholder="Пароль" />
+              <input type="password" name="password" class="form-control" placeholder="Password" />
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
               <div class="col-xs-8">
                 <!--
                 <div class="checkbox">
-                  <label><input type="checkbox"> Запомнить меня</label>
+                  <label><input type="checkbox"> Remember me</label>
                 </div>
                 -->
               </div>
               <div class="col-xs-4">
                 <input type="hidden" name="moduleName" value="ionadmin">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Войти</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Log in</button>
               </div>
             </div>
           </form>
           <!--
           <div class="social-auth-links text-center">
-              <p>- ВОЙТИ ЧЕРЕЗ -</p>
+              <p>- LOG IN WITH -</p>
               <a href="auth/fb" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Facebook</a>
               <a href="auth/vk" class="btn btn-block btn-social btn-vk btn-flat"><i class="fa fa-vk"></i> VK.com</a>
           </div>
@@ -60,6 +60,6 @@
     <script src="<%= module %>/vendor/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="<%= module %>/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<%= module %>/js/common.js" type="text/javascript"></script>
-    <%- pageEndContent %>
+    <%- typeof pageEndContent !== 'undefined' ? pageEndContent : "" %>
 </body>
 </html>

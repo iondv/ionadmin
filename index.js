@@ -59,9 +59,9 @@ class IonAdmin {
         res.send(err.message);
       } else {
         switch (status) {
-          case 403: res.send('Доступ запрещен'); break;
-          case 404: res.send('Ресурс не найден'); break;
-          default: res.send('Ошибка сервера'); break;
+          case 403: res.send('Access denied'); break;
+          case 404: res.send('Resource not found'); break;
+          default: res.send('Server error'); break;
         }
       }
     } else {

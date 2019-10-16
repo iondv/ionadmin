@@ -65,7 +65,7 @@ module.exports = function (options) {
               }
               fs.stat(file, (err, stat) => {
                 if (stat) {
-                  reject(new Error(`Файл ${name} уже существует`));
+                  reject(new Error(`File ${name} already exists`));
                 }
                 try {
                   resolve(options.bg.start(uid, 'backupProvider', name, opts));
@@ -248,7 +248,7 @@ module.exports = function (options) {
           return false;
         }
         if (!archPath) {
-          throw new Error('Процесс резервирования был прерван.');
+          throw new Error('The reservation process was interrupted.');
         }
         return new Promise((resolve, reject) => {
           fs.stat(

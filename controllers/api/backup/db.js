@@ -100,7 +100,7 @@ exports.delete = function (req, res) {
     let scope = ionAdmin.getScope();
     let names = req.body.names;
     if (!(names instanceof Array)) {
-      throw new Error('Параметр должен быть массивом');
+      throw new Error('Parameter must be an array');
     }
     return scope.backupProvider.delete(names)
       .then(() => {

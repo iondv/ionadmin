@@ -4,20 +4,20 @@
   <div class="box-body">
     <form class="form form-horizontal view-form" method="post">
       <div class="form-group">
-        <label class="control-label col-sm-3">Имя пользователя</label>
+        <label class="control-label col-sm-3">User name</label>
         <div class="col-sm-9">
           <input type="text" name="login" value="<%=login || ''%>" />
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-3">Тип учетной записи</label>
+        <label class="control-label col-sm-3">Account Type</label>
         <div class="col-sm-9">
           <input type="text" name="type" value="<%=type || ''%>" />
         </div>
       </div>
       <% if (typeof token !== 'undefined') { %>
       <div class="form-group">
-        <label class="control-label col-sm-3">Токен</label>
+        <label class="control-label col-sm-3">Token</label>
         <div class="col-sm-9">
           <p><%=token%></p>
         </div>
@@ -25,7 +25,7 @@
       <% } %>
       <div class="form-group">
         <div class="col-sm-9">
-          <button type="submit">Сгенерировать токен</button>
+          <button type="submit">Generate token</button>
         </div>
       </div>
     </form>

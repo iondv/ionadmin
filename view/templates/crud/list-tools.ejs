@@ -3,14 +3,14 @@
   var customTools = typeof listTools === 'undefined' ? '' : listTools;
 %>
 <div class="list-tools">
-    <button id="select-btn" class="btn btn-info">Выбрать</button>
-    <button class="reload-btn btn btn-default" title="Обновить"><span class="fa fa-refresh"></span></button>
+    <button id="select-btn" class="btn btn-info">Select</button>
+    <button class="reload-btn btn btn-default" title="Refresh"><span class="fa fa-refresh"></span></button>
     <% if (permissions[Permissions.WRITE]) { %>
-    <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="Создать">Создать</button>
-    <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="Редактировать">Править</button>
+    <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="Create">Create</button>
+    <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="Edit">Edit</button>
     <% } %>
     <% if (permissions[Permissions.DELETE]) { %>
-    <button class="delete-btn btn btn-danger" title="Удалить">Удалить</button>
+    <button class="delete-btn btn btn-danger" title="Delete">Delete</button>
     <% } %>
     <%- blocks.customTools %>
 </div>

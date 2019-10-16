@@ -4,27 +4,27 @@ const respond = require('../../../backend/respond');
 const onError = require('../../../backend/error');
 const recache = require('lib/util/recache');
 
-module.exports = function (req, res) {
+module.exports = function start(req, res) {
   ionAdmin.can(req, res, access.id)
     .then(() => respond(res, (scope) => {
 
+      /**
+       * @param {*} message 
+       * @param {*} event 
+       */
       function logger(message, event) {
-        if (!event) {
-          res.write('data: ' + message + '\n\n');
-        } else {
-          res.write('event: ' + event + '\ndata: ' + message + '\n\n');
-        }
+        if (event)
+          res.write(`event: ${event}\ndata: ${message}\n\n`);
+        else
+          res.write(`data: ${message}\n\n`);
       }
 
-      let classes = req.query.classes;
-      let recacheOptions = {
-        skipDependencies: req.query.skipcd === 'true'
-      };
+      let {classes} = req.query;
+      const recacheOptions = {skipDependencies: req.query.skipcd === 'true'};
 
       try {
-        classes = new Buffer(classes, 'base64').toString('ascii');
-        classes = JSON.parse(classes);
-      } catch (e) {
+        classes = JSON.parse(new Buffer(classes, 'base64').toString('ascii'));
+      } catch (err) {
         classes = null;
       }
 
@@ -36,14 +36,12 @@ module.exports = function (req, res) {
         recache(classes, recacheOptions, scope.metaRepo, scope.dataRepo, logger)
           .then(() => res.end())
           .catch((err) => {
-            logger('Ошибка импорта!', 'err');
+            logger('Import failed!', 'err');
             onError(scope, err, null, true);
           });
       } else {
         onError(scope, null, null, 'wrong request');
       }
-
     }), ['dataRepo'])
     .catch(err => ionAdmin.renderError(req, res, err));
-
 };

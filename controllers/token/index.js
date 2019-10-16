@@ -11,7 +11,7 @@ module.exports = function (req, res) {
       if (req.method === 'GET') {
         ionAdmin.render('token/index', {
           req, res,
-          title: 'Генератор токенов безопасности',
+          title: 'Security token generator',
           login: '',
           type: UserTypes.SYSTEM,
           permissions
@@ -25,7 +25,7 @@ module.exports = function (req, res) {
               login: req.body.login,
               type: req.body.type,
               token: token,
-              title: 'Генератор токенов безопасности',
+              title: 'Security token generator',
               permissions
             });
           })

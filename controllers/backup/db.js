@@ -15,7 +15,7 @@ exports.index = function (req, res) {
         ionAdmin.render('backup/db', {
           req,
           res,
-          title: 'Резервирование данных',
+          title: 'Data backup',
           permissions: permissions || {},
           namespaces
         });

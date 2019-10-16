@@ -16,7 +16,7 @@ window.commonHelper = {
   formatFileSize: function (size) {
     if (size > 1048576) return parseInt(size / 1048576) + ' Mb';
     if (size > 1024) return parseInt(size / 1024) + ' Kb';
-    return size + ' byte';
+    return size + ' bait';
   }
 };
 
@@ -157,14 +157,14 @@ if ($.fn.dataTable) {
     "autoWidth": false,
     "sDom": "<'row'<'col-sm-6'f><'col-sm-6'l>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
     "language": {
-      "processing": "Pleas wait...",
+      "processing": "Processing...",
       "search": "Search",
       "lengthMenu": "Show _MENU_ records",
       "info": "Records from _START_ to _END_ from _TOTAL_ records",
       "infoEmpty": "Records from 0 to 0 from 0 records",
       "infoFiltered": "(filtered from _MAX_ records)",
       "infoPostFix": "",
-      "loadingRecords": "Загрузка records...",
+      "loadingRecords": " Loading records...",
       "zeroRecords": "No records available.",
       "emptyTable": "No data in the table",
       "paginate": {
@@ -202,12 +202,12 @@ if (window.Inputmask) {
     email: {
       definitions: {
         "*": {
-          validator: "[a-zA-Z0-9A-Za-z!#$%&'*+/=?^_`{|}~-]",
+          validator: "[а-яА-Я0-9A-Za-z!#$%&'*+/=?^_`{|}~-]",
           cardinality: 1,
           casing: "lower"
         },
         "-": {
-          validator: "[a-zA-Z0-9A-Za-z-]",
+          validator: "[а-яА-Я0-9A-Za-z-]",
           cardinality: 1,
           casing: "lower"
         }

@@ -18,7 +18,7 @@ module.exports = function (req, res) {
         .then((jobs) => {
           ionAdmin.render(TEMPLATE, {
             req, res,
-            title: 'Управление расписанием',
+            title: 'Schedule management',
             jobs,
             runningModes: scope.schedulerAgent.statusCodes(),
             manuallyCheckInterval: scope.settings.get(moduleName + '.' + 'manuallyCheckInterval') || 30000

@@ -141,7 +141,7 @@
 
   function formatType (type) {
     switch (type) {
-      case 'UPDATE': return 'Edit';
+      case 'UPDATE': return 'Update';
       case 'CREATE': return 'Create';
       case 'DELETE': return 'Delete';
     }

@@ -4,7 +4,7 @@
 
   <div class="dashboard-tools clearfix">
     <div class="pull-left">
-      Модуль:
+      Module
       <select class="dashboard-select-module form-control mr10">
         <% for (let id of modules) { %>
         <% var checked = id === currentModule ? 'selected' : ''%>
@@ -14,7 +14,13 @@
     </div>
   </div>
 
+  <% if (typeof error !== 'undefined') { %>
+  <div class="alert alert-danger">
+    <%- error %>
+  </div>
+  <% } else { %>
   <%- dashboardContent %>
+  <% } %>
 
 </div>
 

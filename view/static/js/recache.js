@@ -49,7 +49,7 @@
             es = new EventSource('ionadmin/api/recache/start?classes=' + c + (skipDeps ? '&skipcd=true' : ''));
           } catch (e) {
             console.error(e);
-            createLog('err', 'ошибка создания запроса');
+            createLog('err', 'request creation error');
             return;
           }
 

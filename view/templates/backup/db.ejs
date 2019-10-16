@@ -8,15 +8,15 @@
   </div>
   <div class="box-body">
     <div class="list-tools">
-      <button id="reload-backup"  class="reload-btn btn btn-default" title="Обновить"><span class="fa fa-refresh"></span></button>
+      <button id="reload-backup"  class="reload-btn btn btn-default" title="Update"><span class="fa fa-refresh"></span></button>
       <% if (permissions[Permissions.WRITE]) { %>
       <button id="create-backup" class="create btn btn-success">
-        <span class="sozdat">Создать</span>
+        <span class="sozdat">Create</span>
         <span class="loader fa fa-refresh fa-spin" style="display:none"></span>
       </button>
       <% } %>
       <% if (permissions[Permissions.DELETE]) { %>
-      <button id="delete-backup" class="btn btn-danger">Удалить</button>
+      <button id="delete-backup" class="btn btn-danger">Delete</button>
       <% } %>
     </div>
 
@@ -31,12 +31,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Создать резервную копию</h4>
+        <h4 class="modal-title">Create backup</h4>
       </div>
       <div class="modal-body">
         <form class="form">
           <div class="form-group row required">
-            <label for="backup-namespace" class="control-label col-lg-12">Приложение</label>
+            <label for="backup-namespace" class="control-label col-lg-12">Application</label>
             <div class="col-lg-12">
               <select id="backup-namespace"class="namespace form-control">
                 <option value=""></option>
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="form-group row required">
-            <label for="backup-name" class="control-label col-lg-12">Название архива</label>
+            <label for="backup-name" class="control-label col-lg-12">Archive name</label>
             <div class="col-lg-12">
               <input id="backup-name" type="text" class="filename form-control">
             </div>
@@ -56,7 +56,7 @@
           <div class="form-group row mb0">
             <div class="col-sm-6">
               <div class="form-group row">
-                <label for="backup-version" class="control-label col-lg-12">Версия меты</label>
+                <label for="backup-version" class="control-label col-lg-12">Meta version</label>
                 <div class="col-lg-12">
                   <input id="backup-version" type="text" class="version form-control">
                 </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group row">
-                <label for="backup-filedir" class="control-label col-lg-12">Файловая директория</label>
+                <label for="backup-filedir" class="control-label col-lg-12">File directory</label>
                 <div class="col-lg-12">
                   <input id="backup-filedir" type="text" class="filedir form-control">
                 </div>
@@ -73,10 +73,10 @@
           </div>
 
           <div class="form-group row">
-            <label for="backup-namespace" class="control-label col-lg-12">Импорт параметров безопасности</label>
+            <label for="backup-namespace" class="control-label col-lg-12">Import security settings</label>
             <div class="col-lg-12">
               <select id="backup-export-acl" class="namespace form-control">
-                <option value="">не импортировать</option>
+                <option value="">do not import</option>
                 <option value="json">json</option>
                 <option value="yml">yml</option>
               </select>
@@ -88,7 +88,7 @@
               <div class="checkbox">
                 <label>
                   <input id="backup-skip-data" type="checkbox" class="skip-data">
-                  Не экспортировать объекты классов
+                  Do not export class objects
                 </label>
               </div>
             </div>
@@ -99,15 +99,15 @@
               <div class="checkbox">
                 <label>
                   <input id="backup-skip-files" type="checkbox" class="skip-files">
-                  Не экспортировать файлы
+                  Do not export files
                 </label>
               </div>
             </div>
           </div>
 
           <div class="form-group text-right mt20 mr15">
-            <button type="button" class="create btn btn-primary">Создать</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="create btn btn-primary">Create</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </form>
       </div>

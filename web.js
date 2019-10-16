@@ -1,17 +1,14 @@
-'use strict';
 
-// jscs:disable requireCapitalizedComments
 
-let path = require('path');
-let express = require('express');
-let router = express.Router();
-let di = require('core/di');
-let config = require('./config');
-let moduleName = require('./module-name');
-let controllers = require('./controllers');
-let api = controllers.api;
-let id = ':id([-\\w:@]+)';
-let ionAdmin = require('./index');
+const path = require('path');
+const express = require('express');
+const router = express.Router();
+const di = require('core/di');
+const config = require('./config');
+const moduleName = require('./module-name');
+const controllers = require('./controllers');
+const {api} = controllers;
+const ionAdmin = require('./index');
 
 const extendDi = require('core/extendModuleDi');
 const staticRouter = require('lib/util/staticRouter');
@@ -73,51 +70,50 @@ router.get('/api/notifications/userSearch', api.notifications.userSearch);
 router.get('/api/notifications', api.notifications.list);
 router.get('/api/notifications/:id', api.notifications.get);
 router.post('/api/notifications', api.notifications.create);
-// router.put('/api/notifications/:id', api.notifications.update);
+// Router.put('/api/notifications/:id', api.notifications.update);
 router.delete('/api/notifications/:id', api.notifications.delete);
 router.post('/api/delete-list/notifications', api.notifications.deleteList);
 
-let app = express();
+const app = express();
 app.use(`/${moduleName}`, express.static(path.join(__dirname, 'view/static')));
 app.engine('ejs', require('ejs-locals'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view/templates'));
 
-app._init = function () {
-  return new Promise((resolve, reject) => {
-    di(moduleName, extendDi(moduleName, config.di), {module: app}, 'app', [], 'modules/' + moduleName).then((scope) => {
-      extViews(app, scope.settings.get(moduleName + '.templates'));
-      app.use(`/${moduleName}`, router);
-      var statics = staticRouter(scope.settings.get(moduleName + '.statics'));
-      if (statics) {
-        app.use('/' + moduleName, statics);
-      }
-      scope.auth.bindAuth(app, moduleName);
-      for (let key of Object.keys(accessResources)) {
-        scope.roleAccessManager.defineResource(accessResources[key].id, accessResources[key].name);
-      }
-      app.locals.pageTitle = scope.settings.get(moduleName + '.pageTitle')
-        || scope.settings.get('pageTitle')
-        || `ION ${config.sysTitle}`;
-      app.locals.pageEndContent = scope.settings.get(moduleName +'.pageEndContent') || scope.settings.get('pageEndContent') || '';
-      ionAdmin.scope = scope;
-      resolve();
-    }).catch(reject);
-  });
-};
+app._init = () => new Promise((resolve, reject) => {
+  di(moduleName, extendDi(moduleName, config.di), {module: app}, 'app', [], `modules/${moduleName}`).then((scope) => {
+    extViews(app, scope.settings.get(`${moduleName}.templates`));
+    app.use(`/${moduleName}`, router);
+    const statics = staticRouter(scope.settings.get(`${moduleName}.statics`));
+    if (statics)
+      app.use(`/${moduleName}`, statics);
+
+    scope.auth.bindAuth(app, moduleName);
+    for (const key of Object.keys(accessResources))
+      scope.roleAccessManager.defineResource(accessResources[key].id, accessResources[key].name);
+
+    app.locals.pageTitle = scope.settings.get(`${moduleName}.pageTitle`) ||
+        scope.settings.get('pageTitle') ||
+        `ION ${config.sysTitle}`;
+    app.locals.pageEndContent = scope.settings.get(`${moduleName}.pageEndContent`) || scope.settings.get('pageEndContent') || '';
+    ionAdmin.scope = scope;
+    resolve();
+  })
+    .catch(reject);
+});
 
 function attachModelRoutes(name, controller, api) {
   if (controller) {
     controller.index && router.get(`/${name}`, controller.index);
     controller.create && router.get(`/${name}/create`, controller.create);
-    controller.update && router.get(`/${name}/${id}`, controller.update);
+    controller.update && router.get(`/${name}/:id`, controller.update);
   }
   if (api) {
     api.list && router.get(`/api/${name}`, api.list);
-    api.get && router.get(`/api/${name}/${id}`, api.get);
+    api.get && router.get(`/api/${name}/:id`, api.get);
     api.create && router.post(`/api/${name}`, api.create);
-    api.update && router.put(`/api/${name}/${id}`, api.update);
-    api.delete && router.delete(`/api/${name}/${id}`, api.delete);
+    api.update && router.put(`/api/${name}/:id`, api.update);
+    api.delete && router.delete(`/api/${name}/:id`, api.delete);
     api.deleteList && router.post(`/api/delete-list/${name}`, api.deleteList);
   }
 }

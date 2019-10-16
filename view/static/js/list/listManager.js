@@ -134,7 +134,7 @@
       } else if ( typeof method === 'object' || ! method ) {
         return methods.init.apply(this, args);
       } else {
-        $.error( 'Method with name ' +  method + ' не определён для listManager' );
+        $.error( 'Method with name ' +  method + ' is not defined for listManager' );
       }
     });
   }

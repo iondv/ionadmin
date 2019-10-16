@@ -20,7 +20,7 @@ exports.syncAcl = function (req, res) {
         if (err) {
           return res.status(400).send(err.toString());
         }
-        res.send('Синхронизация прав доступа успешно проведена');
+        res.send('Synchronizing permissions successfully held');
       }
     );
   }).catch((err) => {
@@ -46,7 +46,7 @@ exports.importResources = function (req, res) {
               console.error(err);
               return res.status(400).send(err.toString());
             }
-            res.send('Импорт ресурсов успешно проведен');
+            res.send('Resource import successfully completed');
           }
         );
       } catch (err) {

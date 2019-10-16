@@ -43,7 +43,7 @@
         columns: [
           {
             data: "date",
-            title: "Время отправки",
+            title: "Sending time",
             orderable: false,
             render: function ( data, type, row, meta ) {
               return moment(data, moment.ISO_8601).format("<%= locale.dateTimeFormat %>");
@@ -51,17 +51,17 @@
           },
           {
             data: "sender",
-            title: "Отправитель",
+            title: "Sender",
             orderable: false
           },
           {
             data: "subject",
-            title: "Заголовок",
+            title: "Headline",
             orderable: false
           },
           {
             data: "message",
-            title: "Сообщение",
+            title: "Message",
             orderable: false
           }
         ],
@@ -82,28 +82,28 @@
     <div class="list-tools row">
       <div class="col-lg-6">
         <div class="form-group filter-form-group">
-          <button class="reload-btn btn btn-default" title="Обновить"><span class="fa fa-refresh"></span></button>
+          <button class="reload-btn btn btn-default" title="Refresh"><span class="fa fa-refresh"></span></button>
           <% if (permissions[Permissions.WRITE]) { %>
-          <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="Создать">Создать</button>
-          <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="Редактировать">Править</button>
+          <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="Create">Create</button>
+          <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="Edit">Edit</button>
           <% } %>
           <% if (permissions[Permissions.DELETE]) { %>
-          <button class="delete-btn btn btn-danger" title="Удалить">Удалить</button>
+          <button class="delete-btn btn btn-danger" title="Delete">Delete</button>
           <% } %>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="col-lg-3">
-          <button class="reload-btn btn btn-primary" title="Фильровать">Применить фильтры</button>
+          <button class="reload-btn btn btn-primary" title="Filter">Apply filters</button>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control autocomplete" type="text" name="sender" placeholder="Отправитель"/>
+          <input class="filter form-control autocomplete" type="text" name="sender" placeholder="Sender"/>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control autocomplete" type="text" name="reciever" placeholder="Получатель"/>
+          <input class="filter form-control autocomplete" type="text" name="reciever" placeholder="Receiver"/>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control" type="text" name="since" placeholder="Отправленные после"/>
+          <input class="filter form-control" type="text" name="since" placeholder="Sent after"/>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ module.exports = Object.assign(items, {
           let accessKeys = [];
           docs.forEach((d) => {
             if (d.id === '*' && d.name === '*') {
-              d.name = 'Все';
+              d.name = 'All';
             }
             accessKeys.push(d.id);
             let classified = false;

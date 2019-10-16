@@ -60,7 +60,7 @@ module.exports = class SlowQuery extends Base {
     let config = this.constructor.getConfig();
     if (config.sources instanceof Array) {
       if (!config.sources.length) {
-        return cb('Не указан источник логов');
+        return cb('No source specified for logs');
       }
     } else {
       config.sources = [{
@@ -74,7 +74,7 @@ module.exports = class SlowQuery extends Base {
       } else if (source.collection) {
         method = this.importFromCollection;
       } else {
-        return cb('Неизвестный источник логов');
+        return cb('Unknown log source');
       }
       method.call(this, source, lastDate, (err, data)=> {
         err || !data ? cb(err) : this.insert(data, cb);

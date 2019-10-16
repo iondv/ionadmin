@@ -10,7 +10,7 @@ exports.index = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityResources.id).then(permissions => {
     ionAdmin.render(path, {
       req, res,
-      title: 'Ресурсы',
+      title: 'Resources',
       pageCode: model,
       permissions
     });
@@ -23,7 +23,7 @@ exports.create = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityResources.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Создать ресурс',
+      title: 'Create resource',
       pageCode: model,
       scenario: 'create',
       permissions
@@ -37,7 +37,7 @@ exports.update = function (req, res) {
   ionAdmin.can(req, res, accessResources.securityResources.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Редактировать ресурс',
+      title: 'Edit resource',
       pageCode: model,
       scenario: 'update',
       permissions

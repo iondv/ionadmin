@@ -13,7 +13,7 @@ exports.index = function (req, res) {
     let lang = locales[0] ? locales[0].language : 'ru';
     ionAdmin.render(path, {
       req, res,
-      title: 'Уведомления',
+      title: 'Notification',
       pageCode: model,
       permissions
     }, lang);
@@ -26,7 +26,7 @@ exports.create = function (req, res) {
   ionAdmin.can(req, res, accessResources.notify.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Создать уведомление',
+      title: 'Create notification',
       pageCode: model,
       scenario: 'create',
       permissions
@@ -40,7 +40,7 @@ exports.update = function (req, res) {
   ionAdmin.can(req, res, accessResources.notify.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Просмотреть уведомление',
+      title: 'View notification',
       pageCode: model,
       scenario: 'update',
       permissions,

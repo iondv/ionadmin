@@ -73,7 +73,7 @@ module.exports = class Base {
 
   validateRequire (attrName, data, cb, msg) {
     if (data[attrName] === undefined || data[attrName] === null || data[attrName] === '') {
-      cb(msg ?  msg : `Поле <b>${attrName}</b> обязательно для заполнения`);
+      cb(msg ?  msg : `Field <b>${attrName}</b> is required`);
     } else {
       cb();
     }
@@ -85,7 +85,7 @@ module.exports = class Base {
       if (err) {
         cb(err);
       } else if (docs.length > 0) {
-        cb(docs[0]._id.toString() != id ? (msg ?  msg : (`Значение поля <b>${attrName}</b> уже используется`)) : null);
+        cb(docs[0]._id.toString() != id ? (msg ?  msg : (`Field value <b>${attrName}</b> is already in use`)) : null);
       } else {
         cb();
       }

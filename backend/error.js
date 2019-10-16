@@ -9,7 +9,7 @@ module.exports = function (scope, err, res, userMsg) {
     console.error(err);
   }
   if (typeof userMsg === 'boolean' && userMsg) {
-    userMsg = 'Внутренняя ошибка сервера.';
+    userMsg = 'Internal server error.';
   }
   if (res) {
     res.status(500).send(userMsg || (err instanceof Error ? err.message : err));
