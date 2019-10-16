@@ -80,6 +80,6 @@
 <script src="<%=module%>/js/common.js"></script>
 <script src="<%=module%>/vendor/jsoneditor/jsoneditor.min.js"></script>
 <%- scripts %>
-<%- pageEndContent %>
+<%- typeof pageEndContent !== 'undefined' ? pageEndContent : "" %>
 </body>
 </html>

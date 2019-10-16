@@ -14,9 +14,9 @@ $(window).on("resize", function () {
 window.commonHelper = {
 
   formatFileSize: function (size) {
-    if (size > 1048576) return parseInt(size / 1048576) + ' Mb';
-    if (size > 1024) return parseInt(size / 1024) + ' Kb';
-    return size + ' byte';
+    if (size > 1048576) return parseInt(size / 1048576) + ' Мб';
+    if (size > 1024) return parseInt(size / 1024) + ' Кб';
+    return size + ' байт';
   }
 };
 
@@ -133,13 +133,13 @@ window.dateRangePickerDefaults = {
     locale: {
         "format": "DD.MM.YYYY",
         "separator": " - ",
-        "applyLabel": "Apply",
-        "cancelLabel": "Cancel",
-        "fromLabel": "From",
-        "toLabel": "To",
+        "applyLabel": "Применить",
+        "cancelLabel": "Отменить",
+        "fromLabel": "От",
+        "toLabel": "До",
         "customRangeLabel": "Custom",
-        "daysOfWeek": ["Su","Mo","Tu","We","Th","Fr","Sa"],
-        "monthNames": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+        "daysOfWeek": ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
+        "monthNames": ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],
         "firstDay": 1
     }
 };
@@ -157,16 +157,16 @@ if ($.fn.dataTable) {
     "autoWidth": false,
     "sDom": "<'row'<'col-sm-6'f><'col-sm-6'l>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
     "language": {
-      "processing": "Pleas wait...",
-      "search": "Search",
-      "lengthMenu": "Show _MENU_ records",
-      "info": "Records from _START_ to _END_ from _TOTAL_ records",
-      "infoEmpty": "Records from 0 to 0 from 0 records",
-      "infoFiltered": "(filtered from _MAX_ records)",
+      "processing": "Подождите...",
+      "search": "Поиск:",
+      "lengthMenu": "Показать _MENU_ записей",
+      "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
+      "infoEmpty": "Записи с 0 до 0 из 0 записей",
+      "infoFiltered": "(отфильтровано из _MAX_ записей)",
       "infoPostFix": "",
-      "loadingRecords": "Загрузка records...",
-      "zeroRecords": "No records available.",
-      "emptyTable": "No data in the table",
+      "loadingRecords": "Загрузка записей...",
+      "zeroRecords": "Записи отсутствуют.",
+      "emptyTable": "В таблице отсутствуют данные",
       "paginate": {
         "first": "<<",
         "previous": "<",
@@ -174,8 +174,8 @@ if ($.fn.dataTable) {
         "last": ">>"
       },
       "aria": {
-        "sortAscending": ": activate to sort the column in ascending order",
-        "sortDescending": ": activate to sort the column in descending order"
+        "sortAscending": ": активировать для сортировки столбца по возрастанию",
+        "sortDescending": ": активировать для сортировки столбца по убыванию"
       }
     }
   });
@@ -202,12 +202,12 @@ if (window.Inputmask) {
     email: {
       definitions: {
         "*": {
-          validator: "[a-zA-Z0-9A-Za-z!#$%&'*+/=?^_`{|}~-]",
+          validator: "[а-яА-Я0-9A-Za-z!#$%&'*+/=?^_`{|}~-]",
           cardinality: 1,
           casing: "lower"
         },
         "-": {
-          validator: "[a-zA-Z0-9A-Za-z-]",
+          validator: "[а-яА-Я0-9A-Za-z-]",
           cardinality: 1,
           casing: "lower"
         }

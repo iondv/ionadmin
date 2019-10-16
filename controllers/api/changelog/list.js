@@ -40,7 +40,7 @@ exports.list = function (req, res) {
       res.json({
         draw: parseInt(params.draw),
         recordsTotal: result.total,
-        recordsFiltered: result.length,
+        recordsFiltered: result.total,
         data: list
       });
     }).catch((err) => {

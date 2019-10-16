@@ -22,27 +22,27 @@ jQuery(function () {
     aoColumns: [
       {
         "mData": "date",
-        "sTitle": "Creation date ",
+        "sTitle": "Дата создания ",
         "mRender": function (data, type, full) {
           return type === "display" ? (new Date(data)).toLocaleString() : data;
         }
       },
       {
         "mData": "name",
-        "sTitle": "Archive name"
+        "sTitle": "Название архива"
       },
       {
         "mData": "size",
-        "sTitle": "Archive size (Mb)",
+        "sTitle": "Размер архива (Мб)",
         "mRender": function (data, type, full) {
           return (data / 1024 / 1024).toFixed(3);
         }
       },
       {
         "mData": "download",
-        "sTitle": "File",
+        "sTitle": "Файл",
         "mRender": function (data, type, full) {
-          return type === "display" ? '<a href="' + data + '" target="_blank">Download</a>' : data;
+          return type === "display" ? '<a href="' + data + '" target="_blank">Скачать</a>' : data;
         }
       }
     ],
@@ -55,7 +55,7 @@ jQuery(function () {
     $.get('ionadmin/api/backup/db/list').done(function (objects) {
       dataTable.clear().rows.add(objects).draw();
     }).fail(function (xhr) {
-      messageCallout.error('Error occurred while loading the archive list');
+      messageCallout.error('Произошла ошибка при загрузке списка архивов');
     }).always(function () {
       $loader.hide();
     });
@@ -101,7 +101,7 @@ jQuery(function () {
           messageCallout.hide();
           cb();
           if (result.err) {
-            messageCallout.error(result.err || 'Error occurred while creating backup');
+            messageCallout.error(result.err || 'Произошла ошибка при создании резервной копии');
           } else if (result.name || result.download) {
             dataTable.rows.add([result]).draw();
           }
@@ -137,7 +137,7 @@ jQuery(function () {
           $createModalBtn.prop('disabled', false);
         });
       }).fail(function (xhr) {
-        messageCallout.error(xhr.responseText || 'Error occurred while creating backup');
+        messageCallout.error(xhr.responseText || 'Произошла ошибка при создании резервной копии');
       }).always(function () {
         $globalLoader.hide();
         $createModal.modal('hide');
@@ -151,9 +151,9 @@ jQuery(function () {
     messageCallout.hide();
     var names = getSelectedNames();
     if (names.length === 0) {
-      return messageCallout.warn('Select archive to delete');
+      return messageCallout.warn('Выберите архив для удаления');
     }
-    if (confirm('Delete selected archives?')) {
+    if (confirm('Удалить выбранные архивы?')) {
       $loader.show();
       $.post('ionadmin/api/backup/db/delete', {
         names: names
@@ -161,7 +161,7 @@ jQuery(function () {
         $reload.click();
       }).fail(function (xhr) {
         $loader.hide();
-        messageCallout.error(xhr.responseText || 'Error occurred while deleting');
+        messageCallout.error(xhr.responseText || 'Произошла ошибка при удалении');
       });
     }
   });
@@ -172,7 +172,7 @@ jQuery(function () {
     messageCallout.hide();
     var names = getSelectedNames();
     if (names.length !== 1) {
-      return messageCallout.warn('Select archive to download');
+      return messageCallout.warn('Выберите архив для скачивания');
     }
   });
 

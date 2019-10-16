@@ -60,6 +60,6 @@
     <script src="<%= module %>/vendor/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="<%= module %>/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<%= module %>/js/common.js" type="text/javascript"></script>
-    <%- pageEndContent %>
+    <%- typeof pageEndContent !== 'undefined' ? pageEndContent : "" %>
 </body>
 </html>

@@ -39,20 +39,20 @@ module.exports = function (req, res, next) {
             let module = require(`modules/${selModule}`);
             module.configurate(selModuleData.config, err => {
               if (err) {
-                onError(scope, err, res);
-              } else {
-                module.render(params, (err, result)=> {
-                  if (err) {
-                    onError(scope, err, res);
-                  } else {
-                    params.dashboardContent = result;
-                  }
-                  ionAdmin.render(TEMPLATE, params);
-                });
+                return onError(scope, err, res);
               }
+              module.render(params, (err, result)=> {
+                if (err) {
+                  onError(scope, err, res);
+                } else {
+                  params.dashboardContent = result;
+                }
+                ionAdmin.render(TEMPLATE, params);
+              });
             });
           } catch (err) {
-            onError(scope, err, res);
+            params.error = `${selModule} module not installed`;
+            ionAdmin.render(TEMPLATE, params);
           }
         } else {
           ionAdmin.render(TEMPLATE, params);

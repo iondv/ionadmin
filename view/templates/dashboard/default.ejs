@@ -14,7 +14,13 @@
     </div>
   </div>
 
+  <% if (typeof error !== 'undefined') { %>
+  <div class="alert alert-danger">
+    <%- error %>
+  </div>
+  <% } else { %>
   <%- dashboardContent %>
+  <% } %>
 
 </div>
 
