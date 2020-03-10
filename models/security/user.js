@@ -1,167 +1,120 @@
-'use strict';
-
-const Base = require('../base2');
-const async = require('async');
-const Acl = require('../acl');
-
-class User extends Base {
-
-  cast(u) {
-    return {
-      id: u.id(),
-      login: u.id().split('@')[0],
-      name: u.name(),
-      type: u.type(),
-      email: u.email(),
-      pwd: u.pwdHash(),
-      disabled: u.isDisabled()
-    };
-  }
-
-  findAllWithRoles(cb) {
-    async.waterfall([
-      (cb) => {
-        (new Role()).findAll(cb);
-      },
-      (roles, cb) => {
-        roles = this.indexObjectsByKey(roles, 'id');
-        this.scope.accounts.list(null, true)
-          .then(
-            (users) => {
-              cb(null, users.map(u => this.cast(u)), roles);
-            }
-          )
-          .catch(cb);
-      },
-      (users, indexedRoles, cb) => {
-        async.eachSeries(
-          users,
-          (user, cb) => {
-            Acl.getRoles(user.id)
-              .then(
-                (roles) => {
-                  user.roles = roles ? roles.map(role => indexedRoles[role]) : [];
-                  cb();
-                }
-              )
-              .catch(cb);
-          },
-          err => cb(err, users)
-        );
-      }
-    ], cb);
-  }
-
-  findAll(cb) {
-    this.scope.accounts.list(null, true).then(users => cb(null, users.map(u => this.cast(u)))).catch(cb);
-  }
-
-  findById(id, cb) {
-    this.scope.accounts.get(id, null, true).then(u => cb(null, [this.cast(u)])).catch(cb);
-  }
-
-  removeList(ids, cb) {
-    let p = Promise.resolve();
-    ids.forEach((id) => {
-      p = p.then(() => Acl.getRoles(id))
-        .then(roles => Acl.getManager().unassignRoles([id], roles))
-        .then(() => this.scope.accounts.unregister(id));
-    });
-    p.then(() => cb(null, ids)).catch(cb);
-  }
-
-  findOne (id, cb) {
-    let user = null;
-    async.waterfall([
-      cb => this.findById(id, cb),
-      (doc, cb) => {
-        if (!doc.length) {
-          cb(null, []);
-        }
-        user = doc[0];
-        this.attrs = doc;
-        user ?
-          Acl.getRoles(user.id)
-            .then(roles => cb(null, roles))
-            .catch(cb) : cb(null, []);
-      }
-    ], (err, roles) => {
-      if (user) {
-        user.roles = roles;
-        delete user.pwd;
-      }
-      cb(err, user);
-    });
-  }
-
-  insert (data, cb) {
-    let roles = data.roles ? data.roles.split(',') : [];
-    async.waterfall([
-      (cb) => {
-        delete data.roles;
-        if (data.login) {
-          data.id = data.login;
-          delete data.login;
-        }
-        data.needPwdReset = true;
-        this.scope.accounts.register(data).then(u => cb(null, this.cast(u))).catch(cb);
-      },
-      (inserted, cb) => {
-        data = inserted;
-        delete data.pwd;
-        roles.length ? Acl.addUserRoles(inserted.id, roles, cb) : cb();
-      }
-    ], err => cb(err, data));
-  }
-
-  update (id, data, cb) {
-    let user = {};
-    let roles = data.roles ? data.roles.split(',') : [];
-    async.waterfall([
-      cb => this.findOne(id, cb),
-      (doc, cb) => {
-        user = doc;
-        if (!data.pwd) {
-          return cb();
-        }
-        this.scope.accounts.setPassword(id, null, data.pwd).then(() => cb()).catch(cb);
-      },
-      (cb) => {
-        delete data.roles;
-        if (data.login) {
-          data.id = data.login;
-          delete data.login;
-        }
-        data.disabled = !!data.disabled;
-        delete data.pwd;
-        data.needPwdReset = true;
-        this.scope.accounts.set(id, data).then(u => cb(null, u)).catch(cb);
-      },
-      (result, cb) => {
-        user = this.cast(result);
-        Acl.getRoles(id).then(roles => cb(null, roles)).catch(cb);
-      },
-      (roles, cb) => Acl.removeUserRoles(id, roles, cb),
-      (cb) => {
-        roles.length ? Acl.addUserRoles(user.id, roles, () => {
-          user.roles = roles;
-          cb();
-        }) : cb();
-      }
-    ], err => cb(err, user));
-  }
-
-  remove (id, cb) {
-    async.waterfall(
-      [
-        cb => Acl.getRoles(id).then(roles => cb(null, roles)).catch(cb),
-        (roles, cb) => Acl.removeUserRoles(id, roles, cb)
-      ],
-      err => err ? cb(err) : this.scope.accounts.unregister(id).then(() => cb()).catch(cb)
-    );
-  }
+/**
+ * @param {User} user 
+ */
+function cast(user) {
+  return {
+    id: user.id(),
+    login: user.id().split('@')[0],
+    name: user.name(),
+    type: user.type(),
+    email: user.email(),
+    //pwd: u.pwdHash(),
+    disabled: user.isDisabled()
+  };
 }
 
-module.exports = User;
+module.exports = (getScope) => {
 
-const Role = require('./role');
+  function getAccounts() {
+    return getScope().accounts;
+  }
+
+  function getManager() {
+    return getScope().roleAccessManager;
+  }
+
+  return {
+    findAll: () => getAccounts().list(null, true).then(users => users.map(u => cast(u))),
+
+    findOne: id => getAccounts().get(id, null, true)
+      .then(user => cast(user))
+      .then(user => getManager().getRoles(user.id)
+        .then((roles) => {
+          user.roles = roles;
+          return user;
+        })),
+
+    insert: (data, author) => {
+      const roles = data.roles ? data.roles.split(',') : [];
+      delete data.roles;
+      if (data.login) {
+        data.id = data.login;
+        delete data.login;
+      }
+      data.needPwdReset = true;
+      return getAccounts().register(data)
+        .then(u => cast(u))
+        .then((inserted) => {
+          let p = Promise.resolve();
+          if (roles.length)
+            p = getManager().assignRoles([inserted.id], roles, author);
+          return p.then(() => inserted);
+        });
+    },
+
+    // eslint-disable-next-line max-statements
+    update: (id, data, author) => {
+      const roles = data.roles ? data.roles.split(',') : [];
+      delete data.roles;
+      if (data.login) {
+        data.id = data.login;
+        delete data.login;
+      }
+      data.disabled = Boolean(data.disabled);
+      data.needPwdReset = true;
+
+      let p0 = Promise.resolve();
+      if (data.pwd) {
+        p0 = getAccounts().setPassword(id, null, data.pwd);
+        delete data.pwd;
+      }
+      return p0.then(() => getAccounts().set(id, data))
+        .then((result) => {
+          const user = cast(result);
+          let p = getManager().getRoles(id)
+            .then(tmp => getManager().unassignRoles([id], tmp, author));
+          if (roles.length) {
+            p = p.then(() => getManager().assignRoles([user.id], roles, author))
+              .then(() => {
+                user.roles = roles;
+              });
+          }
+          return p.then(() => user);
+        });
+    },
+
+    remove: (id, author) => getManager().getRoles(id)
+      .then(roles => getManager().unassignRoles([id], roles, author))
+      .then(() => getAccounts().unregister(id)),
+
+    removeList: (ids, author) => {
+      let p = Promise.resolve();
+      ids.forEach((id) => {
+        p = p.then(() => getManager().getRoles(id))
+          .then(roles => getManager().unassignRoles([id], roles, author))
+          .then(() => getAccounts().unregister(id));
+      });
+      return p.then(() => ids);
+    },
+
+    findAllWithRoles: () => getManager().getRoles()
+      .then((rolesArr) => {
+        const roles = {};
+        rolesArr.forEach((role) => {
+          roles[role.id] = role;
+        });
+        return getAccounts().list(null, true)
+          .then(users => users.map(user => cast(user)))
+          .then((users) => {
+            let p = Promise.resolve();
+            users.forEach((user) => {
+              p = p.then(() => getManager().getRoles(user.id))
+                .then((roles2) => {
+                  user.roles = roles2 ? roles2.map(rid => roles[rid]) : [];
+                });
+            });
+            return p.then(() => users);
+          });
+      })
+  };
+};

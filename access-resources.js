@@ -25,9 +25,21 @@ module.exports = {
     id: 'ionadmin:::profiling-slow-query',
     name: 'Профилирование Медленные запросы'
   },
+  activity: {
+    id: 'ionadmin:::activity',
+    name: 'Активность'
+  },
   changelog: {
     id: 'ionadmin:::changelog',
     name: 'Журнал изменений'
+  },
+  accesslog: {
+    id: 'ionadmin:::accesslog',
+    name: 'Журнал разрешений'
+  },
+  authlog: {
+    id: 'ionadmin:::authlog',
+    name: 'Журнал доступа'
   },
   token: {
     id: 'ionadmin:::token',

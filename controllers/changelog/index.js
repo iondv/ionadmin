@@ -1,31 +1,21 @@
-'use strict';
-
-const async = require('async');
 const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
-const Db = require('../../backend/db');
 
-exports.index = function (req, res, next) {
-  ionAdmin.can(req, res, accessResources.changelog.id).then(()=> {
-    try {
-      async.series({
-        users: cb => (new Db('ion_user')).find({}, cb),
-        classes: cb => (new Db('ion_meta')).find({}, cb)
-      }, (err, result)=> {
-        if (err) {
-          return ionAdmin.error(err, {req, res});
-        }
-        result.users.sort((a, b)=> a.name.localeCompare(b.name));
-        result.classes.sort((a, b)=> a.caption.localeCompare(b.caption));
-        ionAdmin.render('changelog/index', Object.assign({
-          req, res,
-          title: 'Журнал изменений'
-        }, result));
-      });
-    } catch (err) {
-      ionAdmin.error(err, {req, res});
-    }
-  }).catch(err => {
-    ionAdmin.renderError(req, res, err);
-  });
+exports.index = (req, res) => {
+  const scope = ionAdmin.getScope();
+  const result = {
+    req, res,
+    title: 'Журнал изменений'
+  };
+  return ionAdmin.can(req, res, accessResources.changelog.id)
+    .then(() => scope.accounts.list([], true))
+    .then((users) => {
+      result.users = users.sort((aa, bb) => aa.name().localeCompare(bb.name()));
+      return scope.metaRepo.listMeta();
+    })
+    .then((classes) => {
+      result.classes = classes.sort((aa, bb) => aa.getCaption().localeCompare(bb.getCaption()));
+      return ionAdmin.render('changelog/index', result);
+    })
+    .catch(err => ionAdmin.renderError(req, res, err));
 };

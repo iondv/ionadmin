@@ -1,114 +1,62 @@
-'use strict';
-
 const moduleName = require('../../../module-name');
 const ionAdmin = require('../../../index');
 const accessResources = require('../../../access-resources');
-const Model = require('../../../models/security/role');
-const Resource = require('../../../models/security/resource');
-const Permissions = require('core/Permissions');
+const model = require('../../../models/security/role')(() => ionAdmin.getScope());
 
-let items = require('../crud')({
-  Model,
-  resource: accessResources.securityRoles.id
-});
+const items = require('../crud2')(model,
+  () => ionAdmin.getScope(),
+  (req, res, permissions) => ionAdmin.can(req, res, accessResources.securityRoles.id, permissions),
+  (req, res, err) => ionAdmin.renderError(req, res, err));
 
-module.exports = Object.assign(items, {
-
-  resources: function (req, res) {
-    ionAdmin.can(req, res, accessResources.securityRoles.id).then(() => {
-      let params = ionAdmin.getScope().settings.get(`${moduleName}.securityParams`) || {};
-      let resTypes = params.resourceTypes || {};
-      try {
-        (new Resource()).findAll((err, docs) => {
-          if (err) {
-            return res.status(500).send(err);
+items.resources = (req, res) => items.wrapper(req, res,
+  scope => scope.roleAccessManager.getResources()
+    .then(docs => (docs || []).sort((a, b) => (typeof a.name === 'string' ? a.name : '')
+      .localeCompare((typeof b.name === 'string' ? b.name : ''))))
+    .then((docs) => {
+      const resTypes = (scope.settings.get(`${moduleName}.securityParams`) || {}
+      ).resourceTypes || {};
+      const result = {'*': []};
+      docs.forEach((doc) => {
+        if (doc.id === '*' && doc.name === '*')
+          doc.name = 'Все';
+        let classified = false;
+        Object.keys(resTypes).forEach((type) => {
+          if (type !== '*' && (new RegExp(`^${type}`)).test(doc.id)) {
+            if (!result[type])
+              result[type] = [];
+            result[type].push(doc);
+            classified = true;
           }
-          docs = docs || [];
-          docs = docs.sort((a, b) => (typeof a.name === 'string' ? a.name : '').localeCompare((typeof b.name === 'string' ? b.name : '')));
-          let result = {'*': []};
-          let checkers = {};
-          Object.keys(resTypes).forEach((k) => {
-            if (k !== '*') {
-              result[k] = [];
-              checkers[k] = new RegExp(`^${k}`);
-            }
-          });
-          let accessKeys = [];
-          docs.forEach((d) => {
-            if (d.id === '*' && d.name === '*') {
-              d.name = 'Все';
-            }
-            accessKeys.push(d.id);
-            let classified = false;
-            Object.keys(checkers).forEach((k) => {
-              if (checkers[k].test(d.id)) {
-                result[k].push(d);
-                classified = true;
-              }
-            });
-            if (!classified) {
-              result['*'].push(d);
-            }
-          });
-          res.json(result);
         });
-      } catch (err) {
-        console.error(err);
-      }
-    }).catch((err) => {
-      ionAdmin.renderError(req, res, err);
-    });
-  },
-
-  list: function (req, res) {
-    ionAdmin.can(req, res, accessResources.securityRoles.id).then(() => {
-      let model = new Model();
-      model.findAllWithUsers((err, docs) => {
-        if (err) {
-          return res.status(500).send(err);
-        }
-        res.json(docs || []);
+        if (!classified)
+          result['*'].push(doc);
       });
-    }).catch((err) => {
-      ionAdmin.renderError(req, res, err);
-    });
-  },
+      return result;
+    })
+    .then(results => res.json(results)));
 
-  listDefault: function (req, res, next) {
-    items.can(Permissions.READ, req, res, next, () => {
-      let model = new Model();
-      model.findAll((err, docs) => {
-        if (err) {
-          return res.status(500).send(err);
+items.list = (req, res) => items.wrapper(req, res,
+  scope => model.findAllWithUsers().then(docs => res.json(docs || [])));
+
+items.listDefault = (req, res) => items.wrapper(req, res,
+  scope => model.findAll()
+    .then((docs) => {
+      let result = [];
+      if (Array.isArray(docs)) {
+        const params = ionAdmin.getSettings('securityParams');
+        if (Array.isArray(params.hiddenRoles)) {
+          params.hiddenRoles.forEach((role) => {
+            docs.forEach((doc) => {
+              if (!(new RegExp(role)).test(doc.id))
+                result.push(doc);
+            });
+          });
+        } else {
+          result = docs;
         }
-        res.json(filterRoles(docs));
-      });
-    });
-  }
-});
-
-function filterRoles (docs) {
-  if (!(docs instanceof Array)) {
-    return [];
-  }
-  let params = ionAdmin.getSettings('securityParams');
-  let hiddenRoles = params && params.hiddenRoles;
-  if (!(hiddenRoles instanceof Array)) {
-    return docs;
-  }
-  hiddenRoles = hiddenRoles.map((role) => {
-    try {
-      return new RegExp(role);
-    } catch (e) {
-      return false;
-    }
-  });
-  return docs.filter((doc) => {
-    for (let role of hiddenRoles) {
-      if (role && role.test(doc.id)) {
-        return false;
       }
-    }
-    return true;
-  });
-}
+      return result;
+    })
+    .then(results => res.json(results)));
+
+module.exports = items;

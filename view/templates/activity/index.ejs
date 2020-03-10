@@ -1,0 +1,60 @@
+<% layout('../layouts/content') -%>
+
+<% script(`/${module}/js/activity/index.js`) -%>
+
+<div class="box">
+  <div class="list-loader overlay" style="display: none;">
+    <i class="fa fa-refresh fa-spin"></i>
+  </div>
+  <div class="box-body">
+    <div class="list-tools">
+      <div class="row">
+
+        <div class="col-lg-2">
+          <div class="form-group filter-form-group">
+            <label>Период</label>
+            <input type="text" class="period-filter form-control">
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label>Пользователь</label>
+            <select class="user-filter form-control">
+              <option value="">-</option>
+                <% for (let user of users) { %>
+                  <option value="<%- user.login() %>">
+                    <%- user.name() %>
+                  </option>
+                <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>Блокировка</label>
+            <select class="disabled-filter form-control">
+              <option value="" selected>Все</option>
+              <option value="false">Только допущенные</option>
+              <option value="true">Только заблокированные</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="filter btn btn-primary">Фильтровать</button>
+        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped multi-selectable activity-table">
+        <thead>
+        <tr></tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

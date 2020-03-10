@@ -10,7 +10,7 @@ exports.list = function (req, res) {
      * @param scope
      * @param ChangeLogger scope.changelogFactory
      */
-  .then(()=> {
+  .then(() => {
     let params = req.body;
     let scope = ionAdmin.getScope();
     let logger = scope.changelogFactory.logger();
@@ -33,7 +33,7 @@ exports.list = function (req, res) {
         list[i] = result[i];
         let meta = scope.metaRepo.getMeta(list[i].className, list[i].classVersion);
         if (meta) {
-          list[i].className = `${meta.getCaption()} [${meta.getName()}]`;
+          list[i].className = `${meta.getCaption()} [${meta.getCanonicalName()}]`;
         }
       }
 

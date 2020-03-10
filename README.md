@@ -53,7 +53,7 @@ _Ionadmin_ module is used in several demo projects:
 
  #### [Licence](/LICENCE) &ensp;  [Contact us](https://iondv.com) &ensp;  [Russian](/README_RU.md)   &ensp; [FAQs](/faqs.md)          
 
-<div><img src="https://mc.iondv.com/watch/github/docs/ionadmin" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
+<div><img src="https://mc.iondv.com/watch/local/docs/ionadmin" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
 
 --------------------------------------------------------------------------  
 

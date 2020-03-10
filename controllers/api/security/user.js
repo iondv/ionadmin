@@ -1,31 +1,13 @@
-'use strict';
-
 const ionAdmin = require('../../../index');
 const accessResources = require('../../../access-resources');
-const Model = require('../../../models/security/user');
+const model = require('../../../models/security/user')(() => ionAdmin.getScope());
 
-let items = require('../crud')({
-  Model,
-  resource: accessResources.securityUsers.id
-});
+const items = require('../crud2')(model,
+  () => ionAdmin.getScope(),
+  (req, res, permissions) => ionAdmin.can(req, res, accessResources.securityUsers.id, permissions),
+  (req, res, err) => ionAdmin.renderError(req, res, err));
 
-module.exports = Object.assign(items, {
-  list: function (req, res) {
-    ionAdmin.can(req, res, accessResources.securityUsers.id).then(() => {
-      try {
-        let model = new Model();
-        model.findAllWithRoles((err, docs) => {
-          if (err) {
-            ionAdmin.renderError(req, res, err);
-          } else if (docs) {
-            res.json(docs);
-          }
-        });
-      } catch (err) {
-        ionAdmin.renderError(req, res, err);
-      }
-    }).catch((err) => {
-      ionAdmin.renderError(req, res, err);
-    });
-  }
-});
+items.list = (req, res) => items.wrapper(req, res,
+  scope => model.findAllWithRoles().then(docs => res.json(docs)));
+
+module.exports = items;

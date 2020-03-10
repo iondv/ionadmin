@@ -14,6 +14,9 @@ module.exports = {
     },
     notifications: require('./api/notifications'),
     changelog: require('./api/changelog/list'),
+    accesslog: require('./api/accesslog/list'),
+    authlog: require('./api/authlog/list'),
+    activity: require('./api/activity/list'),
     backup: {
       db: require('./api/backup/db')
     },
@@ -49,6 +52,9 @@ module.exports = {
   notifications: require('./notify/index'),
   token: require('./token/index'),
   changelog: require('./changelog/index'),
+  accesslog: require('./accesslog/index'),
+  authlog: require('./authlog/index'),
+  activity: require('./activity/index'),
   backup: {
     db: require('./backup/db')
   },

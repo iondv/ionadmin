@@ -124,8 +124,9 @@
   });
 
   function viewItem (data) {
-    $view.find('.timestamp-value').html((new Date(data.timestamp)).toLocaleString());
+    $view.find('.timestamp-value').html((new Date(data.time)).toLocaleString());
     $view.find('.user-value').html(formatUser(data.author));
+    $view.find('.ip-value').html(data.authorIp);
     $view.find('.type-value').html(formatType(data.type));
     $view.find('.class-value').html(data.className);
     $view.find('.version-value').html(data.classVersion);

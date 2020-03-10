@@ -1,0 +1,248 @@
+<% layout('../layouts/content') -%>
+
+<div class="box">
+  <div class="list-loader overlay" style="display: none;">
+    <i class="fa fa-refresh fa-spin"></i>
+  </div>
+  <div class="box-body">
+    <div class="list-tools">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="form-group filter-form-group">
+            <label>Период</label>
+            <input type="text" class="period-filter form-control">
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>Тип</label>
+            <select class="type-filter form-control">
+              <option value="">-</option>
+              <% for (let t in types) { %>
+              <option value="<%- t %>"><%- types[t] %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label>Пользователь</label>
+            <select class="user-filter form-control">
+              <option value="">-</option>
+              <% for (let user of users) { %>
+              <option value="<%- user.id() %>">
+                  <%- user.name() || user.id() %>
+              </option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>IP-адрес пользователя</label>
+            <input class="ip-filter form-control">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="filter btn btn-primary">Фильтровать</button>
+        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped multi-selectable">
+        <thead>
+        <tr></tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="record-view" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Запись журнала</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form form-horizontal view-form">
+          <div class="form-group">
+            <label class="control-label col-sm-3">Дата</label>
+            <div class="col-sm-9">
+              <p class="timestamp-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Тип</label>
+            <div class="col-sm-9">
+              <p class="type-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Пользователь</label>
+            <div class="col-sm-9">
+              <p class="user-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">IP-адресс пользователя</label>
+            <div class="col-sm-9">
+              <p class="ip-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">До</label>
+            <div class="col-sm-9">
+              <p class="before-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Обновления</label>
+            <div class="col-sm-9">
+              <p class="updates-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Сообщение</label>
+            <div class="col-sm-9">
+              <p class="message-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group text-right mb0">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function () {
+  moment.locale('ru');
+
+  var today = new Date();
+  var defaultTill = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  var defaultSince = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+  var since = defaultSince;
+  var till = defaultTill;
+
+  var $tools = $('.list-tools');
+  var $box = $tools.closest('.box');
+  var $table = $box.find('.table');
+  var $view = $('#record-view');
+  var $filter = $tools.find('.filter');
+  var filters = {
+    $period: $tools.find('.period-filter'),
+    $type: $tools.find('.type-filter'),
+    $user: $tools.find('.user-filter'),
+    $ip: $tools.find('.ip-filter')
+  };
+
+  filters.$period.daterangepicker({
+    startDate: moment(defaultSince),
+    endDate: moment(defaultTill),
+    linkedCalendars: false,
+    autoUpdateInput: true
+  }, function(start, end) {
+    since = start;
+    till = end;
+  });
+
+  filters.$user.select2({
+    width: '100%'
+  });
+
+  $tools.find('.reset-filter').click(function () {
+    filters.$period.data('daterangepicker').setStartDate(defaultSince);
+    filters.$period.data('daterangepicker').setEndDate(defaultTill);
+    filters.$user.val('').change();
+    filters.$type.val('');
+    filters.$ip.val('');
+    $filter.click();
+  });
+
+  $filter.click(function () {
+    dt.draw();
+  });
+
+  var dt = $table.DataTable({
+    sDom: "t<'row'<'col-sm-6'i><'col-sm-6'p>>",
+    serverSide: true,
+    processing: false,
+    order: [],
+    pageLength: 20,
+    ajax: {
+      url: 'ionadmin/api/authlog/list',
+      type: 'POST',
+      data: function (data) {
+        var s = moment(since);
+        var t = new Date(till);
+        t.setDate(t.getDate() + 1);
+        t = moment(t);
+        data.filter = {
+          type: filters.$type.val(),
+          since: s.toISOString(),
+          till: t.toISOString(),
+          user: filters.$user.val(),
+          ip: filters.$ip.val()
+        };
+      }
+    },
+    aoColumns: [{
+      mData: "timestamp",
+      sTitle: "Дата",
+      mRender: function (data, type, full) {
+        return type === "display" ? (new Date(data)).toLocaleString() : data;
+      },
+      orderable: false
+    },{
+      mData: "type",
+      sTitle: "Тип",
+      orderable: false
+    },{
+      mData: "name",
+      sTitle: "Пользователь",
+      orderable: false
+    },{
+      mData: "ip",
+      sTitle: "IP-адрес пользователя",
+      orderable: false
+    }]/*,
+    rowCallback: function (row, data, index) {
+      if (data.type) {
+        $(row).addClass(data.type.toLowerCase());
+      }
+    }*/
+  });
+
+  $table.on('click', 'tr', function (event) {
+    $table.find('tr.selected').removeClass('selected');
+    $(this).toggleClass('selected');
+  });
+
+  $table.on('dblclick', 'tr', function () {
+    $table.find('tr.selected').removeClass('selected');
+    $(this).addClass('selected');
+    viewItem(dt.rows(this).data()[0]);
+  });
+
+  function viewItem (data) {
+    $view.find('.timestamp-value').html((new Date(data.timestamp)).toLocaleString());
+    $view.find('.user-value').html(data.name);
+    $view.find('.type-value').html(data.type);
+    $view.find('.ip-value').html(data.ip);
+    $view.find('.before-value').html(data.before ? '<pre>'+ JSON.stringify(data.before, null, 2) +'</pre>' : '');
+    $view.find('.updates-value').html(data.updates ? '<pre>'+ JSON.stringify(data.updates, null, 2) +'</pre>' : '');
+    $view.find('.message-value').html(data.message ? data.message : '');
+    $view.modal();
+  }
+});
+</script>

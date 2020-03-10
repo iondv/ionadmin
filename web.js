@@ -20,6 +20,13 @@ router.get('/dashboard', controllers.dashboard);
 
 router.get('/changelog', controllers.changelog.index);
 router.post('/api/changelog/list', api.changelog.list);
+router.get('/accesslog', controllers.accesslog.index);
+router.post('/api/accesslog/list', api.accesslog.list);
+router.get('/authlog', controllers.authlog.index);
+router.post('/api/authlog/list', api.authlog.list);
+
+router.get('/activity', controllers.activity.index);
+router.post('/api/activity/list', api.activity.list);
 
 router.get('/token', controllers.token);
 router.post('/token', controllers.token);

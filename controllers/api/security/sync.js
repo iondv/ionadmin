@@ -6,16 +6,11 @@ const accessResources = require('../../../access-resources');
 const Permissions = require('core/Permissions');
 const respond = require('../../../backend/respond');
 const moduleName = require('../../../module-name');
-const Role = require('../../../models/security/role');
-const Resource = require('../../../models/security/resource');
 
 exports.syncAcl = function (req, res) {
   ionAdmin.can(req, res, accessResources.securitySync.id, Permissions.WRITE).then(() => {
     async.series(
-      [
-        cb => Role.sync(cb),
-        cb => Resource.sync(cb)
-      ],
+      [],
       (err) => {
         if (err) {
           return res.status(400).send(err.toString());

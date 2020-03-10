@@ -27,8 +27,8 @@ var _params = typeof params === 'undefined' ? {} : params;
             <select class="user-filter form-control">
               <option value="">-</option>
                 <% for (let user of users) { %>
-              <option value="<%- user.id %>@<%- user.type %>">
-                  <%- user.name || user.id %>
+              <option value="<%- user.id() %>">
+                  <%- user.name() || user.id() %>
               </option>
                 <% } %>
             </select>
@@ -53,8 +53,8 @@ var _params = typeof params === 'undefined' ? {} : params;
             <select class="class-filter form-control">
               <option value="">-</option>
                 <% for (let cls of classes) { %>
-              <option value="<%- cls.name %>@<%- cls.namespace %>">
-                  <%- cls.caption %> [<%- cls.name %>@<%- cls.namespace %>]
+              <option value="<%- cls.getName() %>@<%- cls.getNamespace() %>">
+                  <%- cls.getCaption() %> [<%- cls.getName() %>@<%- cls.getNamespace() %>]
               </option>
                 <% } %>
             </select>
@@ -104,6 +104,12 @@ var _params = typeof params === 'undefined' ? {} : params;
             <label class="control-label col-sm-3">Пользователь</label>
             <div class="col-sm-9">
               <p class="user-value form-control-static"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">IP-адрес пользователя</label>
+            <div class="col-sm-9">
+              <p class="ip-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
