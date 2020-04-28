@@ -1,7 +1,7 @@
 /.idea/*
 /.git/*
 /node_modules/*
-/view/node_modules/*
+/view/static/node_modules/*
 /view/vendor/*
 /view/static/vendor/*
 /view/static/css/*.less.css

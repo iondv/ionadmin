@@ -61,11 +61,11 @@ module.exports = (getScope) => {
         delete data.login;
       }
       data.disabled = Boolean(data.disabled);
-      data.needPwdReset = true;
 
       let p0 = Promise.resolve();
       if (data.pwd) {
         p0 = getAccounts().setPassword(id, null, data.pwd);
+        data.needPwdReset = true;
         delete data.pwd;
       }
       return p0.then(() => getAccounts().set(id, data))
