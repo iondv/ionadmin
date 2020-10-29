@@ -1,6 +1,7 @@
 const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
-const title = 'Активность';
+const {t} = require('core/i18n');
+const title = t('Activity');
 
 exports.index = (req, res) => {
   ionAdmin.can(req, res, accessResources.activity.id)

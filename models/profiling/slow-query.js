@@ -6,6 +6,7 @@ const async = require('async');
 const extend = require('extend');
 const fs = require('fs');
 const path = require('path');
+const {t} = require('core/i18n');
 
 module.exports = class SlowQuery extends Base {
 
@@ -60,7 +61,7 @@ module.exports = class SlowQuery extends Base {
     let config = this.constructor.getConfig();
     if (config.sources instanceof Array) {
       if (!config.sources.length) {
-        return cb('Не указан источник логов');
+        return cb(t('Log source not specified'));
       }
     } else {
       config.sources = [{
@@ -74,7 +75,7 @@ module.exports = class SlowQuery extends Base {
       } else if (source.collection) {
         method = this.importFromCollection;
       } else {
-        return cb('Неизвестный источник логов');
+        return cb(t('Unknown log source'));
       }
       method.call(this, source, lastDate, (err, data)=> {
         err || !data ? cb(err) : this.insert(data, cb);

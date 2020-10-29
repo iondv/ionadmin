@@ -4,6 +4,7 @@ const moduleName = require('./module-name');
 const di = require('core/di');
 const Permissions = require('core/Permissions');
 const moment = require('moment-timezone');
+const {t} = require('core/i18n');
 
 class IonAdmin {
 
@@ -55,13 +56,13 @@ class IonAdmin {
     let status = err === 404 ? 404 : err === 403 ? 403 : 500;
     res.status(status);
     if (req.xhr) {
-      if (err.message) {
-        res.send(err.message);
+      if (err.getMessage) {
+        res.send(err.getMessage(req.locals.lang));
       } else {
         switch (status) {
-          case 403: res.send('Доступ запрещен'); break;
-          case 404: res.send('Ресурс не найден'); break;
-          default: res.send('Ошибка сервера'); break;
+          case 403: res.send(t('Access denied')); break;
+          case 404: res.send(t('Resource not found')); break;
+          default: res.send(t('Server error')); break;
         }
       }
     } else {

@@ -16,14 +16,14 @@ var _params = typeof params === 'undefined' ? {} : params;
 
         <div class="col-lg-2">
           <div class="form-group filter-form-group">
-            <label>Период</label>
+            <label><%=t('Период')%></label>
             <input type="text" class="period-filter form-control">
           </div>
         </div>
 
         <div class="col-lg-3">
           <div class="form-group">
-            <label>Пользователь</label>
+            <label><%=t('Пользователь')%></label>
             <select class="user-filter form-control">
               <option value="">-</option>
                 <% for (let user of users) { %>
@@ -37,19 +37,19 @@ var _params = typeof params === 'undefined' ? {} : params;
 
         <div class="col-lg-2">
           <div class="form-group">
-            <label>Действие</label>
+            <label><%=t('Действие')%></label>
             <select class="type-filter form-control">
               <option value="">-</option>
-              <option value="CREATE">Создание</option>
-              <option value="UPDATE">Изменение</option>
-              <option value="DELETE">Удаление</option>
+              <option value="CREATE"><%=t('Создание')%></option>
+              <option value="UPDATE"><%=t('Изменение')%></option>
+              <option value="DELETE"><%=t('Удаление')%></option>
             </select>
           </div>
         </div>
 
         <div class="col-lg-3">
           <div class="form-group">
-            <label>Класс</label>
+            <label><%=t('Класс')%></label>
             <select class="class-filter form-control">
               <option value="">-</option>
                 <% for (let cls of classes) { %>
@@ -63,15 +63,15 @@ var _params = typeof params === 'undefined' ? {} : params;
 
         <div class="col-lg-2">
           <div class="form-group">
-            <label>Объект</label>
+            <label><%=t('Объект')%></label>
             <input class="id-filter form-control">
           </div>
         </div>
       </div>
 
       <div>
-        <button class="filter btn btn-primary">Фильтровать</button>
-        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+        <button class="filter btn btn-primary"><%=t('Фильтровать')%></button>
+        <button class="reset-filter btn btn-default"><%=t('Сбросить фильтр')%></button>
       </div>
     </div>
 
@@ -90,66 +90,66 @@ var _params = typeof params === 'undefined' ? {} : params;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Запись журнала</h4>
+        <h4 class="modal-title"><%=t('Запись журнала')%></h4>
       </div>
       <div class="modal-body">
         <form class="form form-horizontal view-form">
           <div class="form-group">
-            <label class="control-label col-sm-3">Дата</label>
+            <label class="control-label col-sm-3"><%=t('Дата')%></label>
             <div class="col-sm-9">
               <p class="timestamp-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Пользователь</label>
+            <label class="control-label col-sm-3"><%=t('Пользователь')%></label>
             <div class="col-sm-9">
               <p class="user-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">IP-адрес пользователя</label>
+            <label class="control-label col-sm-3">IP-<%=t('адрес пользователя')%></label>
             <div class="col-sm-9">
               <p class="ip-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Класс</label>
+            <label class="control-label col-sm-3"><%=t('Класс')%></label>
             <div class="col-sm-9">
               <p class="class-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Версия класса</label>
+            <label class="control-label col-sm-3"><%=t('Версия класса')%></label>
             <div class="col-sm-9">
               <p class="version-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Объект</label>
+            <label class="control-label col-sm-3"><%=t('Объект')%></label>
             <div class="col-sm-9">
               <p class="id-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Действие</label>
+            <label class="control-label col-sm-3"><%=t('Действие')%></label>
             <div class="col-sm-9">
               <p class="type-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">До</label>
+            <label class="control-label col-sm-3"><%=t('До')%></label>
             <div class="col-sm-9">
               <p class="base-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">После</label>
+            <label class="control-label col-sm-3"><%=t('После')%></label>
             <div class="col-sm-9">
               <p class="data-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group text-right mb0">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('Закрыть')%></button>
           </div>
         </form>
       </div>

@@ -5,16 +5,16 @@
   <div class="list-loader overlay"><i class="fa fa-refresh fa-spin"></i></div>
   <div class="box-body">
     <div class="list-tools">
-      <button class="create btn btn-success" title="Создать"><span class="fa fa-plus"></span></button>
-      <button class="start-all btn btn-success" title="Запустить все"><span class="fa fa-play"></span></button>
-      <button class="stop-all btn btn-warning" title="Остановить все"><span class="fa fa-stop"></span></button>
-      <button class="restart-all btn btn-primary" title="Перезапустить все"><span class="fa fa-refresh"></span></button>
+      <button class="create btn btn-success" title="<%=t('Создать')%>"><span class="fa fa-plus"></span></button>
+      <button class="start-all btn btn-success" title="<%=t('Запустить все')%>"><span class="fa fa-play"></span></button>
+      <button class="stop-all btn btn-warning" title="<%=t('Остановить все')%>"><span class="fa fa-stop"></span></button>
+      <button class="restart-all btn btn-primary" title="<%=t('Перезапустить все')%>"><span class="fa fa-refresh"></span></button>
     </div>
     <table id="object-list" class="table table-bordered table-striped multi-selectable">
       <thead>
         <tr>
-          <th>Название</th>
-          <th>Описание</th>
+          <th><%=t('Название')%></th>
+          <th><%=t('Описание')%></th>
           <th></th>
         </tr>
       </thead>
@@ -24,11 +24,11 @@
             <td class="name"><%= nm %></td>
             <td class="description"><%= jobs[nm].description || '' %></td>
             <td style="width: 200px">
-              <button class="stop btn btn-warning" title="Остановить"><span class="fa fa-stop"></span></button>
-              <button class="start btn btn-success" title="Запустить"><span class="fa fa-play"></span></button>
-              <button class="manually btn btn-primary" title="Запустить сейчас"><span class="fa fa-hand-o-right"></span></button>
-              <button class="edit btn btn-primary" title="Редактировать"><span class="fa fa-pencil"></span></button>
-              <button class="remove btn btn-danger" title="Удалить"><span class="fa fa-times"></span></button>
+              <button class="stop btn btn-warning" title="<%=t('Остановить')%>"><span class="fa fa-stop"></span></button>
+              <button class="start btn btn-success" title="<%=t('Запустить')%>"><span class="fa fa-play"></span></button>
+              <button class="manually btn btn-primary" title="<%=t('Запустить сейчас')%>"><span class="fa fa-hand-o-right"></span></button>
+              <button class="edit btn btn-primary" title="<%=t('Редактировать')%>"><span class="fa fa-pencil"></span></button>
+              <button class="remove btn btn-danger" title="<%=t('Удалить')%>"><span class="fa fa-times"></span></button>
             </td>
           </tr>
         <% } %>

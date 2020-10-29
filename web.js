@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const di = require('core/di');
+const {load} = require('core/i18n');
 const config = require('./config');
 const moduleName = require('./module-name');
 const controllers = require('./controllers');
@@ -87,27 +88,26 @@ app.engine('ejs', require('ejs-locals'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view/templates'));
 
-app._init = () => new Promise((resolve, reject) => {
-  di(moduleName, extendDi(moduleName, config.di), {module: app}, 'app', [], `modules/${moduleName}`).then((scope) => {
-    extViews(app, scope.settings.get(`${moduleName}.templates`));
-    app.use(`/${moduleName}`, router);
-    const statics = staticRouter(scope.settings.get(`${moduleName}.statics`));
-    if (statics)
-      app.use(`/${moduleName}`, statics);
+app._init = () => 
+  load(path.join(__dirname, 'i18n'))
+    .then(di(moduleName, extendDi(moduleName, config.di), {module: app}, 'app', [], `modules/${moduleName}`))
+    .then(scope => {
+      extViews(app, scope.settings.get(`${moduleName}.templates`));
+      app.use(`/${moduleName}`, router);
+      const statics = staticRouter(scope.settings.get(`${moduleName}.statics`));
+      if (statics)
+        app.use(`/${moduleName}`, statics);
 
-    scope.auth.bindAuth(app, moduleName);
-    for (const key of Object.keys(accessResources))
-      scope.roleAccessManager.defineResource(accessResources[key].id, accessResources[key].name);
+      scope.auth.bindAuth(app, moduleName);
+      for (const key of Object.keys(accessResources))
+        scope.roleAccessManager.defineResource(accessResources[key].id, accessResources[key].name);
 
-    app.locals.pageTitle = scope.settings.get(`${moduleName}.pageTitle`) ||
+      app.locals.pageTitle = scope.settings.get(`${moduleName}.pageTitle`) ||
         scope.settings.get('pageTitle') ||
         `ION ${config.sysTitle}`;
-    app.locals.pageEndContent = scope.settings.get(`${moduleName}.pageEndContent`) || scope.settings.get('pageEndContent') || '';
-    ionAdmin.scope = scope;
-    resolve();
-  })
-    .catch(reject);
-});
+      app.locals.pageEndContent = scope.settings.get(`${moduleName}.pageEndContent`) || scope.settings.get('pageEndContent') || '';
+      ionAdmin.scope = scope;
+    });
 
 function attachModelRoutes(name, controller, api) {
   if (controller) {

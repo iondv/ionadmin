@@ -96,13 +96,13 @@
           messageCallout.hide();
           return location.assign(options.urls.edit + "/" + selected.attr('id'));
         } else {
-          messageCallout.warn('Выберите один объект для редактирования.');
+          messageCallout.warn('Select one object for editing.');
         }
       });
       deleteBtn.on('click', function () {
         if (table.has('tr.selected')) {
           var selected = $('tr.selected', table);
-          if (confirm("Удалить выбранные объекты?")) {
+          if (confirm("Delete selected objects?")) {
             messageCallout.hide();
             loader.toggle(true);
             $.post(options.urls.delete, {
@@ -120,7 +120,7 @@
 
           }
         } else {
-          messageCallout.warn('Выберите объекты для удаления.');
+          messageCallout.warn('Select objects for deletion.');
         }
       });
     }
@@ -134,7 +134,7 @@
       } else if ( typeof method === 'object' || ! method ) {
         return methods.init.apply(this, args);
       } else {
-        $.error( 'Метод с именем ' +  method + ' не определён для listManager' );
+        $.error( 'Method ' +  method + ' not defined for listManager' );
       }
     });
   }

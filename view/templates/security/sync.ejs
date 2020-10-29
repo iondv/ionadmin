@@ -2,8 +2,8 @@
 
 <div>
   <% if (permissions[Permissions.WRITE]) { %>
-  <button id="sync-acl" class="btn btn-primary">Синхронизация прав доступа</button>
-  <button id="import-res" class="btn btn-success">Импорт ресурсов</button>
+  <button id="sync-acl" class="btn btn-primary"><%=t('Синхронизация прав доступа')%></button>
+  <button id="import-res" class="btn btn-success"><%=t('Импорт ресурсов')%></button>
   <% } %>
 </div>
 
@@ -17,9 +17,9 @@
       messageCallout.hide();
       $loader.show();
       $.post('/ionadmin/api/security/sync/sync-acl').done(function () {
-        messageCallout.success('Синхронизация прав доступа успешно проведена!');
+        messageCallout.success('<%=t('Синхронизация прав доступа успешно проведена')%>!');
       }).fail(function (xhr) {
-        messageCallout.error('Произошла ошибка при синхронизации');
+        messageCallout.error('<%=t('Произошла ошибка при синхронизации')%>');
       }).always(function () {
         $loader.hide();
       });
@@ -29,9 +29,9 @@
       messageCallout.hide();
       $loader.show();
       $.post('/ionadmin/api/security/sync/import-resources').done(function () {
-        messageCallout.success('Импорт успешно завершен!');
+        messageCallout.success('<%=t('Импорт успешно завершен')%>!');
       }).fail(function (xhr) {
-        messageCallout.error('Произошла ошибка при импорте ресурсов');
+        messageCallout.error('<%=t('Произошла ошибка при импорте ресурсов')%>');
       }).always(function () {
         $loader.hide();
       });

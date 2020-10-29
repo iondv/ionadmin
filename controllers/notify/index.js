@@ -6,6 +6,7 @@ const Permissions = require('core/Permissions');
 const model = "notifications";
 const path = `${model}/`;
 const locale = require('locale');
+const {t} = require('core/i18n');
 
 exports.index = function (req, res) {
   ionAdmin.can(req, res, accessResources.notify.id).then(permissions => {
@@ -13,7 +14,7 @@ exports.index = function (req, res) {
     let lang = locales[0] ? locales[0].language : 'ru';
     ionAdmin.render(path, {
       req, res,
-      title: 'Уведомления',
+      title: t('Notifications'),
       pageCode: model,
       permissions
     }, lang);
@@ -26,7 +27,7 @@ exports.create = function (req, res) {
   ionAdmin.can(req, res, accessResources.notify.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Создать уведомление',
+      title: t('Create notification'),
       pageCode: model,
       scenario: 'create',
       permissions
@@ -40,7 +41,7 @@ exports.update = function (req, res) {
   ionAdmin.can(req, res, accessResources.notify.id, Permissions.WRITE).then(permissions => {
     ionAdmin.render(`${path}form`, {
       req, res,
-      title: 'Просмотреть уведомление',
+      title: t('View notification'),
       pageCode: model,
       scenario: 'update',
       permissions,

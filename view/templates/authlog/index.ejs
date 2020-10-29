@@ -9,14 +9,14 @@
       <div class="row">
         <div class="col-lg-2">
           <div class="form-group filter-form-group">
-            <label>Период</label>
+            <label><%=t('Период')%></label>
             <input type="text" class="period-filter form-control">
           </div>
         </div>
 
         <div class="col-lg-2">
           <div class="form-group">
-            <label>Тип</label>
+            <label><%=t('Тип')%></label>
             <select class="type-filter form-control">
               <option value="">-</option>
               <% for (let t in types) { %>
@@ -28,7 +28,7 @@
 
         <div class="col-lg-3">
           <div class="form-group">
-            <label>Пользователь</label>
+            <label><%=t('Пользователь')%></label>
             <select class="user-filter form-control">
               <option value="">-</option>
               <% for (let user of users) { %>
@@ -42,15 +42,15 @@
 
         <div class="col-lg-2">
           <div class="form-group">
-            <label>IP-адрес пользователя</label>
+            <label>IP-<%=t('адрес пользователя')%></label>
             <input class="ip-filter form-control">
           </div>
         </div>
       </div>
 
       <div>
-        <button class="filter btn btn-primary">Фильтровать</button>
-        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+        <button class="filter btn btn-primary"><%=t('Фильтровать')%></button>
+        <button class="reset-filter btn btn-default"><%=t('Сбросить фильтр')%></button>
       </div>
     </div>
 
@@ -69,54 +69,54 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Запись журнала</h4>
+        <h4 class="modal-title"><%=t('Запись журнала')%></h4>
       </div>
       <div class="modal-body">
         <form class="form form-horizontal view-form">
           <div class="form-group">
-            <label class="control-label col-sm-3">Дата</label>
+            <label class="control-label col-sm-3"><%=t('Дата')%></label>
             <div class="col-sm-9">
               <p class="timestamp-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Тип</label>
+            <label class="control-label col-sm-3"><%=t('Тип')%></label>
             <div class="col-sm-9">
               <p class="type-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Пользователь</label>
+            <label class="control-label col-sm-3"><%=t('Пользователь')%></label>
             <div class="col-sm-9">
               <p class="user-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">IP-адресс пользователя</label>
+            <label class="control-label col-sm-3">IP-<%=t('адресс пользователя')%></label>
             <div class="col-sm-9">
               <p class="ip-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">До</label>
+            <label class="control-label col-sm-3"><%=t('До')%></label>
             <div class="col-sm-9">
               <p class="before-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Обновления</label>
+            <label class="control-label col-sm-3"><%=t('Обновления')%></label>
             <div class="col-sm-9">
               <p class="updates-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-3">Сообщение</label>
+            <label class="control-label col-sm-3"><%=t('Сообщение')%></label>
             <div class="col-sm-9">
               <p class="message-value form-control-static"></p>
             </div>
           </div>
           <div class="form-group text-right mb0">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('Закрыть')%></button>
           </div>
         </form>
       </div>
@@ -198,22 +198,22 @@ $( document ).ready(function () {
     },
     aoColumns: [{
       mData: "timestamp",
-      sTitle: "Дата",
+      sTitle: "<%=t('Дата')%>",
       mRender: function (data, type, full) {
         return type === "display" ? (new Date(data)).toLocaleString() : data;
       },
       orderable: false
     },{
       mData: "type",
-      sTitle: "Тип",
+      sTitle: "<%=t('Тип')%>",
       orderable: false
     },{
       mData: "name",
-      sTitle: "Пользователь",
+      sTitle: "<%=t('Пользователь')%>",
       orderable: false
     },{
       mData: "ip",
-      sTitle: "IP-адрес пользователя",
+      sTitle: "IP-<%=t('адрес пользователя')%>",
       orderable: false
     }]/*,
     rowCallback: function (row, data, index) {

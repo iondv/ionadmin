@@ -8,6 +8,7 @@ const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
 const respond = require('../../backend/respond');
 const onError = require('../../backend/error');
+const {t} = require('core/i18n');
 
 const TEMPLATE = 'schedule/job';
 
@@ -17,7 +18,7 @@ module.exports = function (req, res) {
       try {
         ionAdmin.render(TEMPLATE, {
           req, res,
-          title: 'Новое задание'
+          title: t('New job')
         });
       } catch (err) {
         onError(scope, err, res, true);

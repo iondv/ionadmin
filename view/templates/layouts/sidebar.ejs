@@ -11,51 +11,51 @@
       <% } %>
       <div class="pull-left info">
         <p><%= user.name() %></p>
-        <a href="#"><i class="fa fa-circle text-success"></i> Онлайн</a>
+        <a href="#"><i class="fa fa-circle text-success"></i> <%=t('Онлайн')%></a>
       </div>
     </div>
 
     <ul id="sidebar-menu" class="sidebar-menu">
-      <li class="header">ГЛАВНОЕ МЕНЮ</li>
+      <li class="header"><%=t('ГЛАВНОЕ МЕНЮ')%></li>
 
       <% include security-menu %>
 
       <li class="treeview">
-        <a href="#"><i class="fa fa-cogs"></i> <span>Профилирование</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-cogs"></i> <span><%=t('Профилирование')%></span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
           <li id="sidemenu-item-security-user">
-            <a href="ionadmin/profiling/slow-query"><i class="fa fa-circle-o text-green"></i> Медленные запросы</a>
+            <a href="ionadmin/profiling/slow-query"><i class="fa fa-circle-o text-green"></i> <%=t('Медленные запросы')%></a>
           </li>
         </ul>
       </li>
 
       <li>
-        <a href="ionadmin/activity"><i class="fa fa-history"></i> <span>Активность</span></a>
+        <a href="ionadmin/activity"><i class="fa fa-history"></i> <span><%=t('Активность')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/changelog"><i class="fa fa-history"></i> <span>Журнал изменений</span></a>
+        <a href="ionadmin/changelog"><i class="fa fa-history"></i> <span><%=t('Журнал изменений')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/accesslog"><i class="fa fa-history"></i> <span>Журнал разрешений</span></a>
+        <a href="ionadmin/accesslog"><i class="fa fa-history"></i> <span><%=t('Журнал разрешений')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/authlog"><i class="fa fa-history"></i> <span>Журнал доступа</span></a>
+        <a href="ionadmin/authlog"><i class="fa fa-history"></i> <span><%=t('Журнал доступа')%></span></a>
       </li>
 
       <li>
-        <a href="ionadmin/backup"><i class="fa fa-hdd-o"></i> <span>Резервирование</span></a>
+        <a href="ionadmin/backup"><i class="fa fa-hdd-o"></i> <span><%=t('Резервирование')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/schedule"><i class="fa fa-clock-o"></i> <span>Задания по расписанию</span></a>
+        <a href="ionadmin/schedule"><i class="fa fa-clock-o"></i> <span><%=t('Задания по расписанию')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/token"><i class="fa fa-history"></i> <span>Ключи безопасности веб-сервисов</span></a>
+        <a href="ionadmin/token"><i class="fa fa-history"></i> <span><%=t('Ключи безопасности веб')%>-<%=t('сервисов')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/recache"><i class="fa fa-history"></i> <span>Пересчет кешей семантики</span></a>
+        <a href="ionadmin/recache"><i class="fa fa-history"></i> <span><%=t('Пересчет кешей семантики')%></span></a>
       </li>
       <li>
-        <a href="ionadmin/notifications"><i class="fa fa-bell"></i> <span>Уведомления</span></a>
+        <a href="ionadmin/notifications"><i class="fa fa-bell"></i> <span><%=t('Уведомления')%></span></a>
       </li>
       <% menuExt.forEach(function (entry) { %>
       <li class="treeview">

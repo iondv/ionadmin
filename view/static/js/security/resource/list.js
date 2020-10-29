@@ -4,11 +4,11 @@
     aoColumns: [
       {
         "mData": "id",
-        "sTitle": "Идентификатор"
+        "sTitle": "ID"
       },
       {
         "mData": "name",
-        "sTitle": "Название"
+        "sTitle": "Name"
       }
     ],
     order: [[0, "asc"]]

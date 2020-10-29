@@ -2,6 +2,7 @@ const ionAdmin = require('../../index');
 const access = require('../../access-resources').recache;
 const respond = require('../../backend/respond');
 const onError = require('../../backend/error');
+const {t} = require('core/i18n');
 
 const TEMPLATE = 'recache/index';
 
@@ -12,7 +13,7 @@ module.exports = function(req, res) {
       try {
         ionAdmin.render(TEMPLATE, {
           req, res,
-          title: 'Пересчет кешей семантики'
+          title: t('Semantics cache recalculation')
         });
       } catch (err) {
         onError(scope, err, res, true);

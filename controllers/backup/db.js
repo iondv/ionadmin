@@ -3,6 +3,7 @@
 const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
 const Db = require('../../backend/db');
+const {t} = require('core/i18n');
 
 exports.index = function (req, res) {
   ionAdmin.can(req, res, accessResources.backup.id).then(permissions => {
@@ -15,7 +16,7 @@ exports.index = function (req, res) {
         ionAdmin.render('backup/db', {
           req,
           res,
-          title: 'Резервирование данных',
+          title: t('Backups'),
           permissions: permissions || {},
           namespaces
         });

@@ -1,68 +1,70 @@
 'use strict';
 
+const {t} = require('core/i18n');
+
 module.exports = {
   dashboard: {
     id: 'ionadmin:::dashboard',
-    name: 'Контрольная панель'
+    name: t('Control panel')
   },
   securityUsers: {
     id: 'ionadmin:::security-users',
-    name: 'Безопасность Пользователи'
+    name: t('Security Users')
   },
   securityRoles: {
     id: 'ionadmin:::security-roles',
-    name: 'Безопасность Роли'
+    name: t('Security Roles')
   },
   securityResources: {
     id: 'ionadmin:::security-resources',
-    name: 'Безопасность Ресурсы'
+    name: t('Security Resources')
   },
   securitySync: {
     id: 'ionadmin:::security-sync',
-    name: 'Безопасность Синхронизация'
+    name: t('Security Sync')
   },
   profilingSlowQuery: {
     id: 'ionadmin:::profiling-slow-query',
-    name: 'Профилирование Медленные запросы'
+    name: t('Profiling Slow queries')
   },
   activity: {
     id: 'ionadmin:::activity',
-    name: 'Активность'
+    name: t('Activity')
   },
   changelog: {
     id: 'ionadmin:::changelog',
-    name: 'Журнал изменений'
+    name: t('Changelog')
   },
   accesslog: {
     id: 'ionadmin:::accesslog',
-    name: 'Журнал разрешений'
+    name: t('Access log')
   },
   authlog: {
     id: 'ionadmin:::authlog',
-    name: 'Журнал доступа'
+    name: t('Auth log')
   },
   token: {
     id: 'ionadmin:::token',
-    name: 'Генератор токенов безопасности'
+    name: t('Security token generator')
   },
   backup: {
     id: 'ionadmin:::backup',
-    name: 'Резервирование'
+    name: t('Backups')
   },
   schedule: {
     id: 'ionadmin:::schedule',
-    name: 'Задания по расписанию'
+    name: t('Scheduling')
   },
   wstoken: {
     id: 'ws:::gen-ws-token',
-    name: 'Генерация токенов безопасности посредством веб-сервисов'
+    name: t('Web service security token generation')
   },
   recache: {
     id: 'ionadmin:::recache',
-    name: 'Пересчет кешей семантики'
+    name: t('Semantics cache recalculation')
   },
   notify: {
     id: 'ionadmin:::notify',
-    name: 'Уведомления'
+    name: t('Notifications')
   }
 };

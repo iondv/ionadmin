@@ -6,6 +6,8 @@ const mkdirp = require('mkdirp');
 const path = require('path');
 const archiver = require('archiver');
 const worker = require('lib/export');
+const {t} = require('core/i18n');
+const {format} = require('util');
 
 /**
  * @param {{}} options
@@ -65,7 +67,7 @@ module.exports = function (options) {
               }
               fs.stat(file, (err, stat) => {
                 if (stat) {
-                  reject(new Error(`Файл ${name} уже существует`));
+                  reject(new Error(format(t('File %s already exists'), name)));
                 }
                 try {
                   resolve(options.bg.start(uid, 'backupProvider', name, opts));
@@ -248,7 +250,7 @@ module.exports = function (options) {
           return false;
         }
         if (!archPath) {
-          throw new Error('Процесс резервирования был прерван.');
+          throw new Error(t('Backup process was unexpectedly ended.'));
         }
         return new Promise((resolve, reject) => {
           fs.stat(

@@ -77,32 +77,32 @@
     },
     aoColumns: [{
       mData: "time",
-      sTitle: "Дата",
+      sTitle: "Date",
       mRender: function (data, type, full) {
         return type === "display" ? (new Date(data)).toLocaleString() : data;
       },
       orderable: false
     },{
       mData: "author",
-      sTitle: "Пользователь",
+      sTitle: "User",
       orderable: false,
       mRender: function (data, type, full) {
         return type === "display" ? formatUser(data) : data;
       }
     },{
       mData: "type",
-      sTitle: "Действие",
+      sTitle: "Action",
       orderable: false,
       mRender: function (data, type, full) {
         return type === "display" ? formatType(data) : data;
       }
     },{
       mData: "className",
-      sTitle: "Класс",
+      sTitle: "Class",
       orderable: false
     },{
       mData: "id",
-      sTitle: "Объект",
+      sTitle: "Object",
       orderable: false
     }],
     rowCallback: function (row, data, index) {
@@ -142,9 +142,9 @@
 
   function formatType (type) {
     switch (type) {
-      case 'UPDATE': return 'Изменение';
-      case 'CREATE': return 'Создание';
-      case 'DELETE': return 'Удаление';
+      case 'UPDATE': return 'Updating';
+      case 'CREATE': return 'Creation';
+      case 'DELETE': return 'Deletion';
     }
     return type;
   }

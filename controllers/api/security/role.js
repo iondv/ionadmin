@@ -2,6 +2,7 @@ const moduleName = require('../../../module-name');
 const ionAdmin = require('../../../index');
 const accessResources = require('../../../access-resources');
 const model = require('../../../models/security/role')(() => ionAdmin.getScope());
+const {t} = require('core/i18n');
 
 const items = require('../crud2')(model,
   () => ionAdmin.getScope(),
@@ -18,7 +19,7 @@ items.resources = (req, res) => items.wrapper(req, res,
       const result = {'*': []};
       docs.forEach((doc) => {
         if (doc.id === '*' && doc.name === '*')
-          doc.name = 'Все';
+          doc.name = t('All');
         let classified = false;
         Object.keys(resTypes).forEach((type) => {
           if (type !== '*' && (new RegExp(`^${type}`)).test(doc.id)) {

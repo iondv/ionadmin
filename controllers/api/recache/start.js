@@ -3,6 +3,7 @@ const access = require('../../../access-resources').recache;
 const respond = require('../../../backend/respond');
 const onError = require('../../../backend/error');
 const recache = require('lib/util/recache');
+const {t} = require('core/i18n');
 
 module.exports = function start(req, res) {
   ionAdmin.can(req, res, access.id)
@@ -36,7 +37,7 @@ module.exports = function start(req, res) {
         recache(classes, recacheOptions, scope.metaRepo, scope.dataRepo, logger)
           .then(() => res.end())
           .catch((err) => {
-            logger('Ошибка импорта!', 'err');
+            logger(t('Import error!'), 'err');
             onError(scope, err, null, true);
           });
       } else {
