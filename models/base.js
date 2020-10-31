@@ -75,7 +75,7 @@ module.exports = class Base {
 
   validateRequire (attrName, data, cb, msg) {
     if (data[attrName] === undefined || data[attrName] === null || data[attrName] === '') {
-      cb(msg ?  msg : format(t('Field <b>%s</b> is required'), attrName);
+      cb(msg ?  msg : format(t('Field <b>%s</b> is required'), attrName));
     } else {
       cb();
     }
