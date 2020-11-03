@@ -11,7 +11,7 @@
     }
   }
   if (options.length === 0) {
-      options.push({value: '', label: '<%=t('Общие')%>'});
+      options.push({value: '', label: t('Общие')});
   }
 %>
 
@@ -34,6 +34,6 @@
   </div>
 </div>
 
-<%- partial('../../attrs/_input', { attr: 'id', title: '<%=t('Идентификатор')%>', required:'required' }) %>
+<%- partial('../../attrs/_input', { attr: 'id', title: t('Идентификатор'), required:'required' }) %>
 
-<%- partial('../../attrs/_input', { attr: 'name', title: '<%=t('Название')%>', required:'' }) %>
+<%- partial('../../attrs/_input', { attr: 'name', title: t('Название'), required:'' }) %>
