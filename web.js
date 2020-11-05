@@ -90,7 +90,11 @@ app.set('views', path.join(__dirname, 'view/templates'));
 
 app._init = () => 
   load(path.join(__dirname, 'i18n'))
-    .then(() => di(moduleName, extendDi(moduleName, config.di), {module: app}, 'app', [], `modules/${moduleName}`))
+    .then(() => di(
+      moduleName,
+      extendDi(moduleName, config.di),
+      {module: app}, 'app', [], `modules/${moduleName}`
+    ))
     .then(scope => {
       extViews(app, scope.settings.get(`${moduleName}.templates`));
       app.use(`/${moduleName}`, router);
