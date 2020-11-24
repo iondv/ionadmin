@@ -60,7 +60,7 @@ function resourceAccess (field, $field) {
             formatCheckboxAccess($field.val(), $list);
             openAssignedGroups($list);
           } else {
-            $list.append('<i>Нет данных</i>');
+            $list.append('<i>No data</i>');
           }
         }
       }

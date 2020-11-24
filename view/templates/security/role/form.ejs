@@ -6,21 +6,21 @@
 
 <%- partial('../../attrs/_input', {
   attr: 'id',
-  title: 'Идентификатор',
+  title: t('Идентификатор'),
   required:'required'
 }) %>
 
 <%- partial('../../attrs/_input', {
   attr: 'name',
-  title: 'Название',
+  title: t('Название'),
   required:''
 }) %>
 
 <%- partial('../../attrs/_resource-access', {
   attr: 'access',
-  title: 'Права доступа',
+  title: t('Права доступа'),
   required:'',
   resourceTypes: Object.assign({
-    '*': {title: 'Общие'}
+    '*': {title: t('Общие')}
   }, securityParams.resourceTypes)
 }) %>

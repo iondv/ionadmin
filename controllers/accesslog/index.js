@@ -1,10 +1,11 @@
 const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
+const {t} = require('core/i18n');
 
 exports.index = (req, res) => {
   const result = {
     req, res,
-    title: 'Журнал разрешений',
+    title: t('Access log'),
     types: ionAdmin.getScope().accessLogger.types()
   };
   return ionAdmin.can(req, res, accessResources.accesslog.id)

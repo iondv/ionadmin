@@ -70,22 +70,22 @@
     },
     aoColumns: [{
       mData: "lastVisit",
-      sTitle: "Дата/время последнего входа",
+      sTitle: "Datetime of last sign in",
       mRender: function (data, type, full) {
         return type === "display" ? (new Date(data)).toLocaleString() : data;
       },
       orderable: false
     },{
       mData: "userName",
-      sTitle: "Пользователь",
+      sTitle: "User",
       orderable: false
     },{
       mData: "isDisabled",
-      sTitle: "Метка о блокировке",
+      sTitle: "Block flag",
       orderable: false,
       mRender: function (data, type, full) {
         if (typeof data === 'boolean') {
-          return data ? 'Заблокирован' : 'Допущен';
+          return data ? 'Blocked' : 'Active';
         }
         return data;
       },

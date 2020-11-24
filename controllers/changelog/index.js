@@ -1,11 +1,12 @@
 const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
+const {t} = require('core/i18n');
 
 exports.index = (req, res) => {
   const scope = ionAdmin.getScope();
   const result = {
     req, res,
-    title: 'Журнал изменений'
+    title: t('Changelog')
   };
   return ionAdmin.can(req, res, accessResources.changelog.id)
     .then(() => scope.accounts.list([], true))

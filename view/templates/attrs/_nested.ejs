@@ -2,8 +2,8 @@
 <div role="tabpanel" class="tab-pane nested-doc" id="obj-tab-<%= attr %>" data-options="<%= JSON.stringify(options) %>">
   <input class="nested-value"  type="hidden" id="obj-<%= attr %>" name="obj-<%= attr %>">
   <div class="list-tools">
-    <button type="button" class="add-btn btn btn-success" title="Добавить">Добавить</button>
-    <button type="button" class="delete-btn btn btn-danger" title="Удалить">Удалить</button>
+    <button type="button" class="add-btn btn btn-success" title="<%=t('Добавить')%>"><%=t('Добавить')%></button>
+    <button type="button" class="delete-btn btn btn-danger" title="<%=t('Удалить')%>"><%=t('Удалить')%></button>
   </div>
   <table id="nested-table-<%= attr %>" class="table table-bordered table-striped multi-selectable">
     <thead><tr></tr></thead>

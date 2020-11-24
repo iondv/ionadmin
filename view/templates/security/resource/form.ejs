@@ -11,7 +11,7 @@
     }
   }
   if (options.length === 0) {
-      options.push({value: '', label: 'Общие'});
+      options.push({value: '', label: t('Общие')});
   }
 %>
 
@@ -21,19 +21,19 @@
 <% script(`/${module}/js/security/resource/object.js`) -%>
 
 <div class="form-group">
-  <label class="col-sm-2 control-label">Форматы идентификаторов </label>
+  <label class="col-sm-2 control-label"><%=t('Форматы идентификаторов ')%></label>
   <div class="col-sm-10">
     <div class="form-control-static">
       <ul>
-        <li>Узел навигации - <b>n:::namespace@code</b></li>
-        <li>Класс - <b>c:::classname@namespace</b></li>
-        <li>Объект - <b>i:::classname@namespace@id</b></li>
-        <li>Атрибут - <b>a:::classname@namespace.propertyName</b></li>
+        <li><%=t('Узел навигации ')%>- <b>n:::namespace@code</b></li>
+        <li><%=t('Класс ')%>- <b>c:::classname@namespace</b></li>
+        <li><%=t('Объект ')%>- <b>i:::classname@namespace@id</b></li>
+        <li><%=t('Атрибут ')%>- <b>a:::classname@namespace.propertyName</b></li>
       </ul>
     </div>
   </div>
 </div>
 
-<%- partial('../../attrs/_input', { attr: 'id', title: 'Идентификатор', required:'required' }) %>
+<%- partial('../../attrs/_input', { attr: 'id', title: t('Идентификатор'), required:'required' }) %>
 
-<%- partial('../../attrs/_input', { attr: 'name', title: 'Название', required:'' }) %>
+<%- partial('../../attrs/_input', { attr: 'name', title: t('Название'), required:'' }) %>

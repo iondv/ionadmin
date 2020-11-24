@@ -1,4 +1,6 @@
 'use strict';
+const {t} = require('core/i18n');
+const {format} = require('util');
 
 module.exports = class Base {
 
@@ -73,7 +75,7 @@ module.exports = class Base {
 
   validateRequire (attrName, data, cb, msg) {
     if (data[attrName] === undefined || data[attrName] === null || data[attrName] === '') {
-      cb(msg ?  msg : `Поле <b>${attrName}</b> обязательно для заполнения`);
+      cb(msg ?  msg : format(t('Field <b>%s</b> is required'), attrName));
     } else {
       cb();
     }
@@ -85,7 +87,7 @@ module.exports = class Base {
       if (err) {
         cb(err);
       } else if (docs.length > 0) {
-        cb(docs[0]._id.toString() != id ? (msg ?  msg : (`Значение поля <b>${attrName}</b> уже используется`)) : null);
+        cb(docs[0]._id.toString() != id ? (msg ?  msg : format(t('Field <b>%s</b> value is already in use.'), attrName)) : null);
       } else {
         cb();
       }

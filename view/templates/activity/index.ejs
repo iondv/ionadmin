@@ -12,14 +12,14 @@
 
         <div class="col-lg-2">
           <div class="form-group filter-form-group">
-            <label>Период</label>
+            <label><%=t('Период')%></label>
             <input type="text" class="period-filter form-control">
           </div>
         </div>
 
         <div class="col-lg-3">
           <div class="form-group">
-            <label>Пользователь</label>
+            <label><%=t('Пользователь')%></label>
             <select class="user-filter form-control">
               <option value="">-</option>
                 <% for (let user of users) { %>
@@ -33,19 +33,19 @@
 
         <div class="col-lg-2">
           <div class="form-group">
-            <label>Блокировка</label>
+            <label><%=t('Блокировка')%></label>
             <select class="disabled-filter form-control">
-              <option value="" selected>Все</option>
-              <option value="false">Только допущенные</option>
-              <option value="true">Только заблокированные</option>
+              <option value="" selected><%=t('Все')%></option>
+              <option value="false"><%=t('Только допущенные')%></option>
+              <option value="true"><%=t('Только заблокированные')%></option>
             </select>
           </div>
         </div>
       </div>
 
       <div>
-        <button class="filter btn btn-primary">Фильтровать</button>
-        <button class="reset-filter btn btn-default">Сбросить фильтр</button>
+        <button class="filter btn btn-primary"><%=t('Фильтровать')%></button>
+        <button class="reset-filter btn btn-default"><%=t('Сбросить фильтр')%></button>
       </div>
     </div>
 

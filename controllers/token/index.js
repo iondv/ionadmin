@@ -4,6 +4,7 @@ const ionAdmin = require('../../index');
 const accessResources = require('../../access-resources');
 const UserTypes = require('core/UserTypes');
 const Permissions = require('core/Permissions');
+const {t} = require('core/i18n');
 
 module.exports = function (req, res) {
   ionAdmin.can(req, res, accessResources.token.id, Permissions.USE).then(permissions => {
@@ -11,7 +12,7 @@ module.exports = function (req, res) {
       if (req.method === 'GET') {
         ionAdmin.render('token/index', {
           req, res,
-          title: 'Генератор токенов безопасности',
+          title: t('Security token generator'),
           login: '',
           type: UserTypes.SYSTEM,
           permissions
@@ -25,7 +26,7 @@ module.exports = function (req, res) {
               login: req.body.login,
               type: req.body.type,
               token: token,
-              title: 'Генератор токенов безопасности',
+              title: t('Security token generator'),
               permissions
             });
           })

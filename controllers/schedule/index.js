@@ -8,6 +8,7 @@ const accessResources = require('../../access-resources');
 const respond = require('../../backend/respond');
 const onError = require('../../backend/error');
 const moduleName = require('../../module-name');
+const {t} = require('core/i18n');
 
 const TEMPLATE = 'schedule/index';
 
@@ -18,7 +19,7 @@ module.exports = function (req, res) {
         .then((jobs) => {
           ionAdmin.render(TEMPLATE, {
             req, res,
-            title: 'Управление расписанием',
+            title: t('Scheduling management'),
             jobs,
             runningModes: scope.schedulerAgent.statusCodes(),
             manuallyCheckInterval: scope.settings.get(moduleName + '.' + 'manuallyCheckInterval') || 30000

@@ -7,6 +7,7 @@ const accessResources = require('../access-resources');
 const moduleName = require('../module-name');
 const respond = require('../backend/respond');
 const onError = require('../backend/error');
+const {t} = require('core/i18n');
 
 module.exports = function (req, res, next) {
   ionAdmin.can(req, res, accessResources.dashboard.id).then(()=> {
@@ -14,7 +15,7 @@ module.exports = function (req, res, next) {
       try {
         let params = {
           req, res,
-          title: 'Контрольная панель',
+          title: t('Control panel'),
           modules: [],
           currentModule: req.cookies ? req.cookies['ionadmin-dashboard-module'] : '',
           currentApp: moduleName,

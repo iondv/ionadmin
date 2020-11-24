@@ -153,7 +153,7 @@ function objectManager (model, fields, options) {
       }
     }).fail(function () {
       $field.attr("disabled", true);
-      setFiedlError($field, "Ошибка загрузки списка");
+      setFiedlError($field, "Error of list loading");
     }).complete(function () {
       toggleFieldOverlay($field, false);
     });
@@ -295,12 +295,12 @@ function objectManager (model, fields, options) {
         fireEvent(currentObjectId ? objectManager.EVENTS.updated : objectManager.EVENTS.created, data);
         currentObjectId = data[OBJECT_ID];
         objectChanged = false;
-        messageCallout.info("Объект сохранен");
+        messageCallout.info("Object saved");
         if ($close.is(":visible")) {
           $close.click();
         }
       } else {
-        messageCallout.error("Ошибка при сохранении объекта");
+        messageCallout.error("Object saving error");
         console.log("Data error", data);
       }
       fireEvent('object:saved', data);
@@ -324,7 +324,7 @@ function objectManager (model, fields, options) {
   });
 
   $remove.click(function () {
-    if (!currentObjectId || !confirm("Удалить объект?")) return;
+    if (!currentObjectId || !confirm("Delete object?")) return;
     $loader.toggle(true);
     restApi.remove(model, currentObjectId)
         .done(function (data) {
@@ -360,7 +360,7 @@ function objectManager (model, fields, options) {
 
   $(window).on("beforeunload", function () {
     if (!objectChanged) return;
-    return 'Объект не сохранен. Внесенные изменения будут потеряны.';
+    return 'Object not saved. Changes will be lost.';
   });
 
   /*** ERRORS ***/
@@ -459,38 +459,38 @@ function objectManager (model, fields, options) {
   }
 
   function validateRequired($field, data) {
-    return ($field.length && $field.val().length === 0) ? getValidateMessage(data, "Поле обязательно для заполнения") : null;
+    return ($field.length && $field.val().length === 0) ? getValidateMessage(data, "Field is required") : null;
   }
 
   function validateEmail($field, data) {
     var value = $field.val();
     if (value.length === 0) return null; // pass empty value
     var reg = /^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;
-    return reg.test(value) ? null : getValidateMessage(data, "Значение поля не является электронным адресом");
+    return reg.test(value) ? null : getValidateMessage(data, "Field value is not an email");
   }
 
   function validateDate($field, data) {
     var value = $field.val();
     if (value.length === 0) return null; // pass empty value
-    return $.isNumeric(value) ? null : getValidateMessage(data, "Значение поля не является числом");
+    return $.isNumeric(value) ? null : getValidateMessage(data, "Field value is not a number");
   }
 
   function validateMatch($field, data) {
     var value = $field.val();
-    return data.regex.test(value) ? null : getValidateMessage(data, "Значение поля неправильно");
+    return data.regex.test(value) ? null : getValidateMessage(data, "Wrong field value");
   }
 
   function validateNumber($field, data) {
     var value = $field.val();
     if (value.length === 0) return null; // pass empty value
-    return $.isNumeric(value) ? null : getValidateMessage(data, "Значение поля не является числом");
+    return $.isNumeric(value) ? null : getValidateMessage(data, "Field value is not a number");
   }
 
   function validateString($field, data) {
     var length = $field.val().length;
     if (length === 0) return null; // pass empty value
-    if (data.min && data.min > length) return "Минимальная длина строки - " + data.min + " зн.";
-    if (data.max && data.max < length) return "Максимальная длина строки - " + data.max + " зн.";
+    if (data.min && data.min > length) return "Min string length is " + data.min + " symbols.";
+    if (data.max && data.max < length) return "Max string length is - " + data.max + " symbols.";
     return null;
   }
 
@@ -498,7 +498,7 @@ function objectManager (model, fields, options) {
     try {
       var d = JSON.parse($field.val());
     } catch (err) {
-      return "Некорректный JSON формат";
+      return "Invalid JSON";
     }
     return null;
   }
