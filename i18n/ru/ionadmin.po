@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 04:29+0000\n"
+"POT-Creation-Date: 2021-01-21 05:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: backend/error.js:13
+msgid "Internal server error."
+msgstr ""
+
 #: backend/backupProvider.js:70
 #, javascript-format
 msgid "File %s already exists"
@@ -24,10 +28,6 @@ msgstr ""
 
 #: backend/backupProvider.js:253
 msgid "Backup process was unexpectedly ended."
-msgstr ""
-
-#: backend/error.js:13
-msgid "Internal server error."
 msgstr ""
 
 #: backend/respond.js:12
@@ -40,8 +40,169 @@ msgstr ""
 msgid "Required component %s not set up"
 msgstr ""
 
-#: controllers/dashboard.js:18
+#: controllers/schedule/new.js:21
+msgid "New job"
+msgstr ""
+
+#: controllers/schedule/index.js:22
+msgid "Scheduling management"
+msgstr ""
+
+#: controllers/security/role.js:14
+msgid "User roles"
+msgstr ""
+
+#: controllers/security/role.js:27
+msgid "Create role"
+msgstr ""
+
+#: controllers/security/role.js:41
+msgid "Edit role"
+msgstr ""
+
+#: controllers/security/index.js:12
+msgid "Sync"
+msgstr ""
+
+#: controllers/security/user.js:14
+msgid "Users"
+msgstr ""
+
+#: controllers/security/user.js:27
+msgid "Create user"
+msgstr ""
+
+#: controllers/security/user.js:41
+msgid "Edit user"
+msgstr ""
+
+#: controllers/security/resource.js:14
+msgid "Resources"
+msgstr ""
+
+#: controllers/security/resource.js:27
+msgid "Create resource"
+msgstr ""
+
+#: controllers/security/resource.js:41
+msgid "Edit resource"
+msgstr ""
+
+#: controllers/activity/index.js:4 access-resources.js:32
+msgid "Activity"
+msgstr ""
+
+#: controllers/backup/db.js:19 access-resources.js:52
+msgid "Backups"
+msgstr ""
+
+#: controllers/recache/index.js:16 access-resources.js:64
+msgid "Semantics cache recalculation"
+msgstr ""
+
+#: controllers/api/security/role.js:22
+msgid "All"
+msgstr ""
+
+#: controllers/api/security/sync.js:19
+msgid "Permission sync successfully done."
+msgstr ""
+
+#: controllers/api/security/sync.js:45
+msgid "Resources import successfully done"
+msgstr ""
+
+#: controllers/api/backup/db.js:104
+msgid "Parameter should be an array."
+msgstr ""
+
+#: controllers/api/recache/start.js:40
+msgid "Import error!"
+msgstr ""
+
+#: controllers/profiling/slow-query.js:13
+msgid "Slow database queries"
+msgstr ""
+
+#: controllers/notify/index.js:17 access-resources.js:68
+msgid "Notifications"
+msgstr ""
+
+#: controllers/notify/index.js:30
+msgid "Create notification"
+msgstr ""
+
+#: controllers/notify/index.js:44
+msgid "View notification"
+msgstr ""
+
+#: controllers/dashboard.js:18 access-resources.js:8
 msgid "Control panel"
+msgstr ""
+
+#: controllers/changelog/index.js:9 access-resources.js:36
+msgid "Changelog"
+msgstr ""
+
+#: controllers/authlog/index.js:8 access-resources.js:44
+msgid "Auth log"
+msgstr ""
+
+#: controllers/accesslog/index.js:8 access-resources.js:40
+msgid "Access log"
+msgstr ""
+
+#: controllers/token/index.js:15 controllers/token/index.js:29
+#: access-resources.js:48
+msgid "Security token generator"
+msgstr ""
+
+#: index.js:63
+msgid "Access denied"
+msgstr ""
+
+#: index.js:64
+msgid "Resource not found"
+msgstr ""
+
+#: index.js:65
+msgid "Server error"
+msgstr ""
+
+#: access-resources.js:12
+msgid "Security Users"
+msgstr ""
+
+#: access-resources.js:16
+msgid "Security Roles"
+msgstr ""
+
+#: access-resources.js:20
+msgid "Security Resources"
+msgstr ""
+
+#: access-resources.js:24
+msgid "Security Sync"
+msgstr ""
+
+#: access-resources.js:28
+msgid "Profiling Slow queries"
+msgstr ""
+
+#: access-resources.js:56
+msgid "Scheduling"
+msgstr ""
+
+#: access-resources.js:60
+msgid "Web service security token generation"
+msgstr ""
+
+#: models/profiling/slow-query.js:64
+msgid "Log source not specified"
+msgstr ""
+
+#: models/profiling/slow-query.js:78
+msgid "Unknown log source"
 msgstr ""
 
 #: models/base.js:78
