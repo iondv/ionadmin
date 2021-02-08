@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: backend/error.js:13
@@ -215,802 +215,839 @@ msgstr ""
 msgid "Field <b>%s</b> value is already in use."
 msgstr ""
 
-#: view/templates/notifications/form.ejs:11
-#: view/templates/notifications/index.ejs:59
+#: ./view/templates/notifications/form.ejs:11
+#: ./view/templates/notifications/index.ejs:59
 msgid "Заголовок"
 msgstr ""
 
-#: view/templates/notifications/form.ejs:22
-#: view/templates/notifications/index.ejs:64
-#: view/templates/authlog/index.ejs:113
+#: ./view/templates/notifications/form.ejs:22
+#: ./view/templates/notifications/index.ejs:64
+#: ./view/templates/authlog/index.ejs:113
 msgid "Сообщение"
 msgstr ""
 
-#: view/templates/notifications/form.ejs:33
+#: ./view/templates/notifications/form.ejs:33
 msgid "Получатели"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:46
+#: ./view/templates/notifications/index.ejs:46
 msgid "Время отправки"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:54
-#: view/templates/notifications/index.ejs:103
+#: ./view/templates/notifications/index.ejs:54
+#: ./view/templates/notifications/index.ejs:103
 msgid "Отправитель"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:88 view/templates/backup/db.ejs:11
-#: view/templates/profiling/slow-query/index.ejs:16
-#: view/templates/crud/list-tools.ejs:10
+#: ./view/templates/notifications/index.ejs:88
+#: ./view/templates/backup/db.ejs:11
+#: ./view/templates/profiling/slow-query/index.ejs:16
+#: ./view/templates/crud/list-tools.ejs:10
 msgid "Обновить"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:90
-#: view/templates/schedule/index.ejs:8 view/templates/backup/db.ejs:14
-#: view/templates/backup/db.ejs:109 view/templates/crud/list-tools.ejs:12
+#: ./view/templates/notifications/index.ejs:90
+#: ./view/templates/schedule/index.ejs:8
+#: ./view/templates/backup/db.ejs:14
+#: ./view/templates/backup/db.ejs:109
+#: ./view/templates/crud/list-tools.ejs:12
 msgid "Создать"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:91
-#: view/templates/schedule/index.ejs:30
-#: view/templates/attrs/_dt-object-list.ejs:10
-#: view/templates/attrs/_dt-object.ejs:11 view/templates/crud/list-tools.ejs:13
+#: ./view/templates/notifications/index.ejs:91
+#: ./view/templates/schedule/index.ejs:30
+#: ./view/templates/attrs/_dt-object-list.ejs:10
+#: ./view/templates/attrs/_dt-object.ejs:11
+#: ./view/templates/crud/list-tools.ejs:13
 msgid "Редактировать"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:91
-#: view/templates/attrs/_dt-object-list.ejs:10
-#: view/templates/attrs/_dt-object.ejs:11 view/templates/crud/list-tools.ejs:13
+#: ./view/templates/notifications/index.ejs:91
+#: ./view/templates/attrs/_dt-object-list.ejs:10
+#: ./view/templates/attrs/_dt-object.ejs:11
+#: ./view/templates/crud/list-tools.ejs:13
 msgid "Править"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:94
-#: view/templates/schedule/index.ejs:31 view/templates/backup/db.ejs:19
-#: view/templates/attrs/_dt-object-list.ejs:11
-#: view/templates/attrs/_nested.ejs:6
-#: view/templates/attrs/_image-uploader.ejs:22
-#: view/templates/attrs/_dt-object.ejs:12
-#: view/templates/attrs/_nested-tab.ejs:11
-#: view/templates/crud/list-tools.ejs:16
+#: ./view/templates/notifications/index.ejs:94
+#: ./view/templates/schedule/index.ejs:31
+#: ./view/templates/backup/db.ejs:19
+#: ./view/templates/attrs/_dt-object-list.ejs:11
+#: ./view/templates/attrs/_nested.ejs:6
+#: ./view/templates/attrs/_image-uploader.ejs:22
+#: ./view/templates/attrs/_dt-object.ejs:12
+#: ./view/templates/attrs/_nested-tab.ejs:11
+#: ./view/templates/crud/list-tools.ejs:16
 msgid "Удалить"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:100
+#: ./view/templates/notifications/index.ejs:100
 msgid "Фильровать"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:100
+#: ./view/templates/notifications/index.ejs:100
 msgid "Применить фильтры"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:106
+#: ./view/templates/notifications/index.ejs:106
 msgid "Получатель"
 msgstr ""
 
-#: view/templates/notifications/index.ejs:109
+#: ./view/templates/notifications/index.ejs:109
 msgid "Отправленные после"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:9
+#: ./view/templates/schedule/index.ejs:9
 msgid "Запустить все"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:10
+#: ./view/templates/schedule/index.ejs:10
 msgid "Остановить все"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:11
+#: ./view/templates/schedule/index.ejs:11
 msgid "Перезапустить все"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:16 view/templates/schedule/job.ejs:39
-#: view/templates/schedule/job.ejs:42 view/templates/security/role/form.ejs:23
-#: view/templates/security/resource/form.ejs:54
+#: ./view/templates/schedule/index.ejs:16
+#: ./view/templates/schedule/job.ejs:39
+#: ./view/templates/schedule/job.ejs:42
+#: ./view/templates/security/role/form.ejs:23
+#: ./view/templates/security/resource/form.ejs:54
 msgid "Название"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:17 view/templates/schedule/job.ejs:47
+#: ./view/templates/schedule/index.ejs:17
+#: ./view/templates/schedule/job.ejs:47
 msgid "Описание"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:27
+#: ./view/templates/schedule/index.ejs:27
 msgid "Остановить"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:28
+#: ./view/templates/schedule/index.ejs:28
 msgid "Запустить"
 msgstr ""
 
-#: view/templates/schedule/index.ejs:29
+#: ./view/templates/schedule/index.ejs:29
 msgid "Запустить сейчас"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:32
-#: view/templates/profiling/slow-query/index.ejs:56
-#: view/templates/crud/object.ejs:6
+#: ./view/templates/schedule/job.ejs:32
+#: ./view/templates/profiling/slow-query/index.ejs:56
+#: ./view/templates/crud/object.ejs:6
 msgid "Сохранить"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:33
+#: ./view/templates/schedule/job.ejs:33
 msgid "Отмена"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:34
+#: ./view/templates/schedule/job.ejs:34
 msgid "Назад"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:55
+#: ./view/templates/schedule/job.ejs:55
 msgid "Расписание"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:63 view/templates/schedule/job.ejs:66
+#: ./view/templates/schedule/job.ejs:63
+#: ./view/templates/schedule/job.ejs:66
 msgid "Обработчик"
 msgstr ""
 
-#: view/templates/schedule/job.ejs:71
+#: ./view/templates/schedule/job.ejs:71
 msgid "Контекст"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:9 view/templates/authlog/index.ejs:19
-#: view/templates/authlog/index.ejs:83 view/templates/authlog/index.ejs:208
-#: view/templates/accesslog/index.ejs:19 view/templates/accesslog/index.ejs:90
-#: view/templates/accesslog/index.ejs:218
+#: ./view/templates/security/user/form.ejs:9
+#: ./view/templates/authlog/index.ejs:19
+#: ./view/templates/authlog/index.ejs:83
+#: ./view/templates/authlog/index.ejs:208
+#: ./view/templates/accesslog/index.ejs:19
+#: ./view/templates/accesslog/index.ejs:90
+#: ./view/templates/accesslog/index.ejs:218
 msgid "Тип"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:10
+#: ./view/templates/security/user/form.ejs:10
 msgid "Локальный"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:11
+#: ./view/templates/security/user/form.ejs:11
 msgid "Внешняя система"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:13
+#: ./view/templates/security/user/form.ejs:13
 msgid "Логин"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:21
+#: ./view/templates/security/user/form.ejs:21
 msgid "Пароль"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:25
+#: ./view/templates/security/user/form.ejs:25
 msgid "Имя"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:27
+#: ./view/templates/security/user/form.ejs:27
 msgid "Заблокирован"
 msgstr ""
 
-#: view/templates/security/user/form.ejs:29
-#: view/templates/layouts/security-menu.ejs:9
+#: ./view/templates/security/user/form.ejs:29
+#: ./view/templates/layouts/security-menu.ejs:9
 msgid "Роли"
 msgstr ""
 
-#: view/templates/security/role/form.ejs:13
-#: view/templates/security/resource/form.ejs:52
+#: ./view/templates/security/role/form.ejs:13
+#: ./view/templates/security/resource/form.ejs:52
 msgid "Идентификатор"
 msgstr ""
 
-#: view/templates/security/role/form.ejs:36
+#: ./view/templates/security/role/form.ejs:36
 msgid "Права доступа"
 msgstr ""
 
-#: view/templates/security/role/form.ejs:39
-#: view/templates/security/resource/form.ejs:29
+#: ./view/templates/security/role/form.ejs:39
+#: ./view/templates/security/resource/form.ejs:29
 msgid "Общие"
 msgstr ""
 
-#: view/templates/security/sync.ejs:5
+#: ./view/templates/security/sync.ejs:5
 msgid "Синхронизация прав доступа"
 msgstr ""
 
-#: view/templates/security/sync.ejs:6
+#: ./view/templates/security/sync.ejs:6
 msgid "Импорт ресурсов"
 msgstr ""
 
-#: view/templates/security/sync.ejs:20
+#: ./view/templates/security/sync.ejs:20
 msgid "Синхронизация прав доступа успешно проведена"
 msgstr ""
 
-#: view/templates/security/sync.ejs:22
+#: ./view/templates/security/sync.ejs:22
 msgid "Произошла ошибка при синхронизации"
 msgstr ""
 
-#: view/templates/security/sync.ejs:32
+#: ./view/templates/security/sync.ejs:32
 msgid "Импорт успешно завершен"
 msgstr ""
 
-#: view/templates/security/sync.ejs:34
+#: ./view/templates/security/sync.ejs:34
 msgid "Произошла ошибка при импорте ресурсов"
 msgstr ""
 
-#: view/templates/security/resource/form.ejs:39
+#: ./view/templates/security/resource/form.ejs:39
 msgid "Форматы идентификаторов "
 msgstr ""
 
-#: view/templates/security/resource/form.ejs:43
+#: ./view/templates/security/resource/form.ejs:43
 msgid "Узел навигации "
 msgstr ""
 
-#: view/templates/security/resource/form.ejs:44
+#: ./view/templates/security/resource/form.ejs:44
 msgid "Класс "
 msgstr ""
 
-#: view/templates/security/resource/form.ejs:45
+#: ./view/templates/security/resource/form.ejs:45
 msgid "Объект "
 msgstr ""
 
-#: view/templates/security/resource/form.ejs:46
+#: ./view/templates/security/resource/form.ejs:46
 msgid "Атрибут "
 msgstr ""
 
-#: view/templates/activity/index.ejs:15 view/templates/changelog/index.ejs:21
-#: view/templates/authlog/index.ejs:12 view/templates/accesslog/index.ejs:12
+#: ./view/templates/activity/index.ejs:15
+#: ./view/templates/changelog/index.ejs:21
+#: ./view/templates/authlog/index.ejs:12
+#: ./view/templates/accesslog/index.ejs:12
 msgid "Период"
 msgstr ""
 
-#: view/templates/activity/index.ejs:22 view/templates/changelog/index.ejs:28
-#: view/templates/changelog/index.ejs:106 view/templates/authlog/index.ejs:31
-#: view/templates/authlog/index.ejs:89 view/templates/authlog/index.ejs:212
+#: ./view/templates/activity/index.ejs:22
+#: ./view/templates/changelog/index.ejs:28
+#: ./view/templates/changelog/index.ejs:106
+#: ./view/templates/authlog/index.ejs:31
+#: ./view/templates/authlog/index.ejs:89
+#: ./view/templates/authlog/index.ejs:212
 msgid "Пользователь"
 msgstr ""
 
-#: view/templates/activity/index.ejs:36
+#: ./view/templates/activity/index.ejs:36
 msgid "Блокировка"
 msgstr ""
 
-#: view/templates/activity/index.ejs:38
+#: ./view/templates/activity/index.ejs:38
 msgid "Все"
 msgstr ""
 
-#: view/templates/activity/index.ejs:39
+#: ./view/templates/activity/index.ejs:39
 msgid "Только допущенные"
 msgstr ""
 
-#: view/templates/activity/index.ejs:40
+#: ./view/templates/activity/index.ejs:40
 msgid "Только заблокированные"
 msgstr ""
 
-#: view/templates/activity/index.ejs:47 view/templates/changelog/index.ejs:75
-#: view/templates/authlog/index.ejs:52 view/templates/accesslog/index.ejs:59
+#: ./view/templates/activity/index.ejs:47
+#: ./view/templates/changelog/index.ejs:75
+#: ./view/templates/authlog/index.ejs:52
+#: ./view/templates/accesslog/index.ejs:59
 msgid "Фильтровать"
 msgstr ""
 
-#: view/templates/activity/index.ejs:48 view/templates/changelog/index.ejs:76
-#: view/templates/authlog/index.ejs:53 view/templates/accesslog/index.ejs:60
+#: ./view/templates/activity/index.ejs:48
+#: ./view/templates/changelog/index.ejs:76
+#: ./view/templates/authlog/index.ejs:53
+#: ./view/templates/accesslog/index.ejs:60
 msgid "Сбросить фильтр"
 msgstr ""
 
-#: view/templates/backup/db.ejs:34
+#: ./view/templates/backup/db.ejs:34
 msgid "Создать резервную копию"
 msgstr ""
 
-#: view/templates/backup/db.ejs:39
+#: ./view/templates/backup/db.ejs:39
 msgid "Приложение"
 msgstr ""
 
-#: view/templates/backup/db.ejs:50
+#: ./view/templates/backup/db.ejs:50
 msgid "Название архива"
 msgstr ""
 
-#: view/templates/backup/db.ejs:59
+#: ./view/templates/backup/db.ejs:59
 msgid "Версия меты"
 msgstr ""
 
-#: view/templates/backup/db.ejs:67
+#: ./view/templates/backup/db.ejs:67
 msgid "Файловая директория"
 msgstr ""
 
-#: view/templates/backup/db.ejs:76
+#: ./view/templates/backup/db.ejs:76
 msgid "Импорт параметров безопасности"
 msgstr ""
 
-#: view/templates/backup/db.ejs:79
+#: ./view/templates/backup/db.ejs:79
 msgid "не импортировать"
 msgstr ""
 
-#: view/templates/backup/db.ejs:91
+#: ./view/templates/backup/db.ejs:91
 msgid "Не экспортировать объекты классов"
 msgstr ""
 
-#: view/templates/backup/db.ejs:102
+#: ./view/templates/backup/db.ejs:102
 msgid "Не экспортировать файлы"
 msgstr ""
 
-#: view/templates/backup/db.ejs:110
-#: view/templates/profiling/slow-query/index.ejs:58
-#: view/templates/crud/object.ejs:8 view/templates/changelog/index.ejs:154
-#: view/templates/authlog/index.ejs:119 view/templates/accesslog/index.ejs:126
+#: ./view/templates/backup/db.ejs:110
+#: ./view/templates/profiling/slow-query/index.ejs:58
+#: ./view/templates/crud/object.ejs:8
+#: ./view/templates/changelog/index.ejs:154
+#: ./view/templates/authlog/index.ejs:119
+#: ./view/templates/accesslog/index.ejs:126
 msgid "Закрыть"
 msgstr ""
 
-#: view/templates/recache/index.ejs:17
+#: ./view/templates/recache/index.ejs:17
 msgid "Пересчитать"
 msgstr ""
 
-#: view/templates/recache/index.ejs:20
+#: ./view/templates/recache/index.ejs:20
 msgid "Пропускать зависимости"
 msgstr ""
 
-#: view/templates/recache/index.ejs:27
+#: ./view/templates/recache/index.ejs:27
 msgid "Классы"
 msgstr ""
 
-#: view/templates/recache/index.ejs:32
+#: ./view/templates/recache/index.ejs:32
 msgid "Лог"
 msgstr ""
 
-#: view/templates/recache/index.ejs:40
+#: ./view/templates/recache/index.ejs:40
 msgid "Выделить все"
 msgstr ""
 
-#: view/templates/recache/index.ejs:43
+#: ./view/templates/recache/index.ejs:43
 msgid "Снять выделение"
 msgstr ""
 
-#: view/templates/login.ejs:4 view/templates/login.ejs:41
+#: ./view/templates/login.ejs:4
+#: ./view/templates/login.ejs:41
 msgid "Sign in"
 msgstr ""
 
-#: view/templates/login.ejs:26
+#: ./view/templates/login.ejs:26
 msgid "Signing in"
 msgstr ""
 
-#: view/templates/login.ejs:29
+#: ./view/templates/login.ejs:29
 msgid "Login"
 msgstr ""
 
-#: view/templates/login.ejs:33
+#: ./view/templates/login.ejs:33
 msgid "Password"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:18
+#: ./view/templates/profiling/slow-query/index.ejs:18
 msgid "Загрузить новые логи"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:19
+#: ./view/templates/profiling/slow-query/index.ejs:19
 msgid "Перезагрузить все"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:21
+#: ./view/templates/profiling/slow-query/index.ejs:21
 msgid "Настройки"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:34
+#: ./view/templates/profiling/slow-query/index.ejs:34
 msgid "Настройка профилирования запросов"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:40
+#: ./view/templates/profiling/slow-query/index.ejs:40
 msgid "Уровень профилирования"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:43
+#: ./view/templates/profiling/slow-query/index.ejs:43
 msgid "Отключено"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:44
+#: ./view/templates/profiling/slow-query/index.ejs:44
 msgid "Записывать медленные запросы"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:45
+#: ./view/templates/profiling/slow-query/index.ejs:45
 msgid "Записывать все запросы"
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:50
+#: ./view/templates/profiling/slow-query/index.ejs:50
 msgid "Порог медленного запроса "
 msgstr ""
 
-#: view/templates/profiling/slow-query/index.ejs:50
+#: ./view/templates/profiling/slow-query/index.ejs:50
 msgid "мс"
 msgstr ""
 
-#: view/templates/attrs/_dt-object-list.ejs:9
-#: view/templates/attrs/_nested.ejs:5 view/templates/attrs/_dt-object.ejs:10
-#: view/templates/attrs/_nested-tab.ejs:10
+#: ./view/templates/attrs/_dt-object-list.ejs:9
+#: ./view/templates/attrs/_nested.ejs:5
+#: ./view/templates/attrs/_dt-object.ejs:10
+#: ./view/templates/attrs/_nested-tab.ejs:10
 msgid "Добавить"
 msgstr ""
 
-#: view/templates/attrs/_date.ejs:7 view/templates/changelog/index.ejs:100
-#: view/templates/authlog/index.ejs:77 view/templates/authlog/index.ejs:201
-#: view/templates/accesslog/index.ejs:84 view/templates/accesslog/index.ejs:211
+#: ./view/templates/attrs/_date.ejs:7
+#: ./view/templates/changelog/index.ejs:100
+#: ./view/templates/authlog/index.ejs:77
+#: ./view/templates/authlog/index.ejs:201
+#: ./view/templates/accesslog/index.ejs:84
+#: ./view/templates/accesslog/index.ejs:211
 msgid "Дата"
 msgstr ""
 
-#: view/templates/attrs/_image-uploader.ejs:10
+#: ./view/templates/attrs/_image-uploader.ejs:10
 msgid "Перетащите изображение сюда"
 msgstr ""
 
-#: view/templates/attrs/_image-uploader.ejs:11
+#: ./view/templates/attrs/_image-uploader.ejs:11
 msgid "или выберите из папки"
 msgstr ""
 
-#: view/templates/attrs/_resource-access.ejs:35
-#: view/templates/attrs/_checkbox-access.ejs:10
+#: ./view/templates/attrs/_resource-access.ejs:35
+#: ./view/templates/attrs/_checkbox-access.ejs:10
 msgid "Полный доступ"
 msgstr ""
 
-#: view/templates/attrs/_resource-access.ejs:36
-#: view/templates/attrs/_checkbox-access.ejs:11
+#: ./view/templates/attrs/_resource-access.ejs:36
+#: ./view/templates/attrs/_checkbox-access.ejs:11
 msgid "Чтение"
 msgstr ""
 
-#: view/templates/attrs/_resource-access.ejs:37
-#: view/templates/attrs/_checkbox-access.ejs:12
+#: ./view/templates/attrs/_resource-access.ejs:37
+#: ./view/templates/attrs/_checkbox-access.ejs:12
 msgid "Запись"
 msgstr ""
 
-#: view/templates/attrs/_resource-access.ejs:38
-#: view/templates/attrs/_checkbox-access.ejs:13
-#: view/templates/changelog/index.ejs:47
+#: ./view/templates/attrs/_resource-access.ejs:38
+#: ./view/templates/attrs/_checkbox-access.ejs:13
+#: ./view/templates/changelog/index.ejs:47
 msgid "Удаление"
 msgstr ""
 
-#: view/templates/attrs/_resource-access.ejs:39
-#: view/templates/attrs/_checkbox-access.ejs:14
+#: ./view/templates/attrs/_resource-access.ejs:39
+#: ./view/templates/attrs/_checkbox-access.ejs:14
 msgid "Использование"
 msgstr ""
 
-#: view/templates/crud/list-tools.ejs:9
+#: ./view/templates/crud/list-tools.ejs:9
 msgid "Выбрать"
 msgstr ""
 
-#: view/templates/layouts/security-menu.ejs:3
+#: ./view/templates/layouts/security-menu.ejs:3
 msgid "Безопасность"
 msgstr ""
 
-#: view/templates/layouts/security-menu.ejs:6
+#: ./view/templates/layouts/security-menu.ejs:6
 msgid "Пользователи"
 msgstr ""
 
-#: view/templates/layouts/security-menu.ejs:12
+#: ./view/templates/layouts/security-menu.ejs:12
 msgid "Ресурсы"
 msgstr ""
 
-#: view/templates/layouts/security-menu.ejs:15
+#: ./view/templates/layouts/security-menu.ejs:15
 msgid "Синхронизация"
 msgstr ""
 
-#: view/templates/layouts/header.ejs:41
+#: ./view/templates/layouts/header.ejs:41
 msgid "Выйти"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:2
-#: view/templates/layouts/_menu-messages.ejs:2
-#: view/templates/layouts/_menu-tasks.ejs:2
+#: ./view/templates/layouts/_menu-notices.ejs:2
+#: ./view/templates/layouts/_menu-messages.ejs:2
+#: ./view/templates/layouts/_menu-tasks.ejs:2
 msgid "У вас "
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:2
+#: ./view/templates/layouts/_menu-notices.ejs:2
 msgid "уведомлений"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:7
+#: ./view/templates/layouts/_menu-notices.ejs:7
 msgid "Сегодня присоединилось "
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:7
+#: ./view/templates/layouts/_menu-notices.ejs:7
 msgid "новых участников"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:12
+#: ./view/templates/layouts/_menu-notices.ejs:12
 msgid "Очень длинное уведомление"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:12
+#: ./view/templates/layouts/_menu-notices.ejs:12
 msgid ""
 "которое может не поместиться в дизайнерский блок и вызвать проблемы с "
 "отображением"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:17
+#: ./view/templates/layouts/_menu-notices.ejs:17
 msgid "Собрание участников в "
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:17
+#: ./view/templates/layouts/_menu-notices.ejs:17
 msgid "утра"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:22
-#: view/templates/layouts/_menu-notices.ejs:32
+#: ./view/templates/layouts/_menu-notices.ejs:22
+#: ./view/templates/layouts/_menu-notices.ejs:32
 msgid "Сделано "
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:22
-#: view/templates/layouts/_menu-notices.ejs:32
+#: ./view/templates/layouts/_menu-notices.ejs:22
+#: ./view/templates/layouts/_menu-notices.ejs:32
 msgid "продаж"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:27
+#: ./view/templates/layouts/_menu-notices.ejs:27
 msgid "Вы изменили имя пользователя"
 msgstr ""
 
-#: view/templates/layouts/_menu-notices.ejs:37
+#: ./view/templates/layouts/_menu-notices.ejs:37
 msgid "Все уведомления"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:2
+#: ./view/templates/layouts/_menu-messages.ejs:2
 msgid "сообщения"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:8
+#: ./view/templates/layouts/_menu-messages.ejs:8
 msgid "Служба поддержки"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:9
+#: ./view/templates/layouts/_menu-messages.ejs:9
 msgid "минут"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:11
-#: view/templates/layouts/_menu-messages.ejs:20
+#: ./view/templates/layouts/_menu-messages.ejs:11
+#: ./view/templates/layouts/_menu-messages.ejs:20
 msgid "Разработка новой темы для основного шаблона панели"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:17
+#: ./view/templates/layouts/_menu-messages.ejs:17
 msgid "Команда разработчиков"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:18
+#: ./view/templates/layouts/_menu-messages.ejs:18
 msgid "часа"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:26
+#: ./view/templates/layouts/_menu-messages.ejs:26
 msgid "Менеджеры проекта"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:27
+#: ./view/templates/layouts/_menu-messages.ejs:27
 msgid "Сегодня"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:29
+#: ./view/templates/layouts/_menu-messages.ejs:29
 msgid "Согласование постановок и задач"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:35
+#: ./view/templates/layouts/_menu-messages.ejs:35
 msgid "Отдел продаж"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:36
+#: ./view/templates/layouts/_menu-messages.ejs:36
 msgid "Вчера"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:38
+#: ./view/templates/layouts/_menu-messages.ejs:38
 msgid "Отчет по последним данным о реализации продукта"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:44
+#: ./view/templates/layouts/_menu-messages.ejs:44
 msgid "Обозреватели"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:45
+#: ./view/templates/layouts/_menu-messages.ejs:45
 msgid "дня"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:47
+#: ./view/templates/layouts/_menu-messages.ejs:47
 msgid "Новые возможности продукта"
 msgstr ""
 
-#: view/templates/layouts/_menu-messages.ejs:52
+#: ./view/templates/layouts/_menu-messages.ejs:52
 msgid "Все сообщения"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:15
+#: ./view/templates/layouts/sidebar.ejs:15
 msgid "Онлайн"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:20
+#: ./view/templates/layouts/sidebar.ejs:20
 msgid "ГЛАВНОЕ МЕНЮ"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:25
+#: ./view/templates/layouts/sidebar.ejs:25
 msgid "Профилирование"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:28
+#: ./view/templates/layouts/sidebar.ejs:28
 msgid "Медленные запросы"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:34
+#: ./view/templates/layouts/sidebar.ejs:34
 msgid "Активность"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:37
+#: ./view/templates/layouts/sidebar.ejs:37
 msgid "Журнал изменений"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:40
+#: ./view/templates/layouts/sidebar.ejs:40
 msgid "Журнал разрешений"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:43
+#: ./view/templates/layouts/sidebar.ejs:43
 msgid "Журнал доступа"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:47
+#: ./view/templates/layouts/sidebar.ejs:47
 msgid "Резервирование"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:50
+#: ./view/templates/layouts/sidebar.ejs:50
 msgid "Задания по расписанию"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:53
+#: ./view/templates/layouts/sidebar.ejs:53
 msgid "Ключи безопасности веб"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:53
+#: ./view/templates/layouts/sidebar.ejs:53
 msgid "сервисов"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:56
+#: ./view/templates/layouts/sidebar.ejs:56
 msgid "Пересчет кешей семантики"
 msgstr ""
 
-#: view/templates/layouts/sidebar.ejs:59
+#: ./view/templates/layouts/sidebar.ejs:59
 msgid "Уведомления"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:2
+#: ./view/templates/layouts/_menu-tasks.ejs:2
 msgid "задач"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:8
+#: ./view/templates/layouts/_menu-tasks.ejs:8
 msgid "Нарисовать новый дизайн"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:13
+#: ./view/templates/layouts/_menu-tasks.ejs:13
 msgid "сделано"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:21
+#: ./view/templates/layouts/_menu-tasks.ejs:21
 msgid "Создать новую тему"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:34
+#: ./view/templates/layouts/_menu-tasks.ejs:34
 msgid "Очень важная задача"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:47
+#: ./view/templates/layouts/_menu-tasks.ejs:47
 msgid "Сделать отчет пользователей"
 msgstr ""
 
-#: view/templates/layouts/_menu-tasks.ejs:60
+#: ./view/templates/layouts/_menu-tasks.ejs:60
 msgid "Все задачи"
 msgstr ""
 
-#: view/templates/layouts/content.ejs:8
+#: ./view/templates/layouts/content.ejs:8
 msgid "Главная"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:42 view/templates/changelog/index.ejs:136
+#: ./view/templates/changelog/index.ejs:42
+#: ./view/templates/changelog/index.ejs:136
 msgid "Действие"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:45
+#: ./view/templates/changelog/index.ejs:45
 msgid "Создание"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:46
+#: ./view/templates/changelog/index.ejs:46
 msgid "Изменение"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:54 view/templates/changelog/index.ejs:118
+#: ./view/templates/changelog/index.ejs:54
+#: ./view/templates/changelog/index.ejs:118
 msgid "Класс"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:68 view/templates/changelog/index.ejs:130
+#: ./view/templates/changelog/index.ejs:68
+#: ./view/templates/changelog/index.ejs:130
 msgid "Объект"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:95 view/templates/authlog/index.ejs:72
-#: view/templates/accesslog/index.ejs:79
+#: ./view/templates/changelog/index.ejs:95
+#: ./view/templates/authlog/index.ejs:72
+#: ./view/templates/accesslog/index.ejs:79
 msgid "Запись журнала"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:112 view/templates/authlog/index.ejs:45
-#: view/templates/authlog/index.ejs:216
+#: ./view/templates/changelog/index.ejs:112
+#: ./view/templates/authlog/index.ejs:45
+#: ./view/templates/authlog/index.ejs:216
 msgid "адрес пользователя"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:124
+#: ./view/templates/changelog/index.ejs:124
 msgid "Версия класса"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:142 view/templates/authlog/index.ejs:101
-#: view/templates/accesslog/index.ejs:114
+#: ./view/templates/changelog/index.ejs:142
+#: ./view/templates/authlog/index.ejs:101
+#: ./view/templates/accesslog/index.ejs:114
 msgid "До"
 msgstr ""
 
-#: view/templates/changelog/index.ejs:148
+#: ./view/templates/changelog/index.ejs:148
 msgid "После"
 msgstr ""
 
-#: view/templates/authlog/index.ejs:95
+#: ./view/templates/authlog/index.ejs:95
 msgid "адресс пользователя"
 msgstr ""
 
-#: view/templates/authlog/index.ejs:107 view/templates/accesslog/index.ejs:120
+#: ./view/templates/authlog/index.ejs:107
+#: ./view/templates/accesslog/index.ejs:120
 msgid "Обновления"
 msgstr ""
 
-#: view/templates/errors/500.ejs:8
+#: ./view/templates/errors/500.ejs:8
 msgid "Что-то пошло не так"
 msgstr ""
 
-#: view/templates/errors/500.ejs:10
+#: ./view/templates/errors/500.ejs:10
 msgid "Прямо сейчас мы работаем над устранением ошибки"
 msgstr ""
 
-#: view/templates/errors/404.ejs:8
+#: ./view/templates/errors/404.ejs:8
 msgid "Страница не найдена"
 msgstr ""
 
-#: view/templates/errors/404.ejs:10
+#: ./view/templates/errors/404.ejs:10
 msgid "Мы не смогли найти страницу, которую вы ищите"
 msgstr ""
 
-#: view/templates/errors/403.ejs:8
+#: ./view/templates/errors/403.ejs:8
 msgid "Доступ запрещен"
 msgstr ""
 
-#: view/templates/errors/403.ejs:10
+#: ./view/templates/errors/403.ejs:10
 msgid "Извините, но доступ к данному ресурсу запрещен"
 msgstr ""
 
-#: view/templates/dashboard/default.ejs:7
+#: ./view/templates/dashboard/default.ejs:7
 msgid "Модуль"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:31 view/templates/accesslog/index.ejs:96
-#: view/templates/accesslog/index.ejs:222
+#: ./view/templates/accesslog/index.ejs:31
+#: ./view/templates/accesslog/index.ejs:96
+#: ./view/templates/accesslog/index.ejs:222
 msgid "Автор"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:45
+#: ./view/templates/accesslog/index.ejs:45
 msgid "IP-адрес автора"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:52
+#: ./view/templates/accesslog/index.ejs:52
 msgid "Субъект"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:102
+#: ./view/templates/accesslog/index.ejs:102
 msgid "адресс автора"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:108
-#: view/templates/accesslog/index.ejs:230
+#: ./view/templates/accesslog/index.ejs:108
+#: ./view/templates/accesslog/index.ejs:230
 msgid "Предмет"
 msgstr ""
 
-#: view/templates/accesslog/index.ejs:226
+#: ./view/templates/accesslog/index.ejs:226
 msgid "адрес автора"
 msgstr ""
 
-#: view/templates/token/index.ejs:7
+#: ./view/templates/token/index.ejs:7
 msgid "Имя пользователя"
 msgstr ""
 
-#: view/templates/token/index.ejs:13
+#: ./view/templates/token/index.ejs:13
 msgid "Тип учетной записи"
 msgstr ""
 
-#: view/templates/token/index.ejs:20
+#: ./view/templates/token/index.ejs:20
 msgid "Токен"
 msgstr ""
 
-#: view/templates/token/index.ejs:28
+#: ./view/templates/token/index.ejs:28
 msgid "Сгенерировать токен"
 msgstr ""
 
-#: modules/dashboard/layouts/server.ejs:29
+#: ./modules/dashboard/layouts/server.ejs:29
 msgid "CPU load"
 msgstr ""
 
-#: modules/dashboard/layouts/server.ejs:48
+#: ./modules/dashboard/layouts/server.ejs:48
 msgid "RAM usage"
 msgstr ""
 
-#: modules/dashboard/layouts/server.ejs:67
+#: ./modules/dashboard/layouts/server.ejs:67
 msgid "HDD usage"
 msgstr ""
