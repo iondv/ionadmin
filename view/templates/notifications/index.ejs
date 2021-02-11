@@ -43,7 +43,7 @@
         columns: [
           {
             data: "date",
-            title: "<%=t('Время отправки')%>",
+            title: "<%=t('Sending time')%>",
             orderable: false,
             render: function ( data, type, row, meta ) {
               return moment(data, moment.ISO_8601).format("<%= locale.dateTimeFormat %>");
@@ -51,17 +51,17 @@
           },
           {
             data: "sender",
-            title: "<%=t('Отправитель')%>",
+            title: "<%=t('Sender')%>",
             orderable: false
           },
           {
             data: "subject",
-            title: "<%=t('Заголовок')%>",
+            title: "<%=t('Headline')%>",
             orderable: false
           },
           {
             data: "message",
-            title: "<%=t('Сообщение')%>",
+            title: "<%=t('Message')%>",
             orderable: false
           }
         ],
@@ -82,28 +82,28 @@
     <div class="list-tools row">
       <div class="col-lg-6">
         <div class="form-group filter-form-group">
-          <button class="reload-btn btn btn-default" title="<%=t('Обновить')%>"><span class="fa fa-refresh"></span></button>
+          <button class="reload-btn btn btn-default" title="<%=t('Refresh')%>"><span class="fa fa-refresh"></span></button>
           <% if (permissions[Permissions.WRITE]) { %>
-          <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="<%=t('Создать')%>"><%=t('Создать')%></button>
-          <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="<%=t('Редактировать')%>"><%=t('Править')%></button>
+          <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="<%=t('Create')%>"><%=t('Create')%></button>
+          <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="<%=t('Edit')%>"><%=t('Edit')%></button>
           <% } %>
           <% if (permissions[Permissions.DELETE]) { %>
-          <button class="delete-btn btn btn-danger" title="<%=t('Удалить')%>"><%=t('Удалить')%></button>
+          <button class="delete-btn btn btn-danger" title="<%=t('Delete')%>"><%=t('Delete')%></button>
           <% } %>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="col-lg-3">
-          <button class="reload-btn btn btn-primary" title="<%=t('Фильровать')%>"><%=t('Применить фильтры')%></button>
+          <button class="reload-btn btn btn-primary" title="<%=t('Filter')%>"><%=t('Apply filters')%></button>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control autocomplete" type="text" name="sender" placeholder="<%=t('Отправитель')%>"/>
+          <input class="filter form-control autocomplete" type="text" name="sender" placeholder="<%=t('Sender')%>"/>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control autocomplete" type="text" name="reciever" placeholder="<%=t('Получатель')%>"/>
+          <input class="filter form-control autocomplete" type="text" name="reciever" placeholder="<%=t('Receiver')%>"/>
         </div>
         <div class="col-lg-3">
-          <input class="filter form-control" type="text" name="since" placeholder="<%=t('Отправленные после')%>"/>
+          <input class="filter form-control" type="text" name="since" placeholder="<%=t('Sent after')%>"/>
         </div>
       </div>
     </div>

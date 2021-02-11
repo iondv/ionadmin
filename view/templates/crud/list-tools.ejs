@@ -3,14 +3,14 @@
   var customTools = typeof listTools === 'undefined' ? '' : listTools;
 %>
 <div class="list-tools">
-    <button id="select-btn" class="btn btn-info"><%=t('Выбрать')%></button>
-    <button class="reload-btn btn btn-default" title="<%=t('Обновить')%>"><span class="fa fa-refresh"></span></button>
+    <button id="select-btn" class="btn btn-info"><%=t('Select')%></button>
+    <button class="reload-btn btn btn-default" title="<%=t('Refresh')%>"><span class="fa fa-refresh"></span></button>
     <% if (permissions[Permissions.WRITE]) { %>
-    <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="<%=t('Создать')%>"><%=t('Создать')%></button>
-    <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="<%=t('Редактировать')%>"><%=t('Править')%></button>
+    <button class="create-btn btn btn-success" <% if (_params.actionCreate) { %>data-url="<%= _params.actionCreate %>"<% } %> title="<%=t('Create')%>"><%=t('Create')%></button>
+    <button class="edit-btn btn btn-primary" <% if (_params.actionUpdate) { %>data-url="<%= _params.actionUpdate %>"<% } %>title="<%=t('Edit')%>"><%=t('Edit')%></button>
     <% } %>
     <% if (permissions[Permissions.DELETE]) { %>
-    <button class="delete-btn btn btn-danger" title="<%=t('Удалить')%>"><%=t('Удалить')%></button>
+    <button class="delete-btn btn btn-danger" title="<%=t('Delete')%>"><%=t('Delete')%></button>
     <% } %>
     <%- blocks.customTools %>
 </div>

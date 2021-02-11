@@ -3,20 +3,20 @@
 <% script(`/${module}/js/object/manager.js`) -%>
 <% script(`/${module}/js/security/user/object.js`) -%>
 
-<%- partial('../../attrs/_select', { attr: 'type', title: t('Тип'), required:'required', options: [
-    { value: 'local', label: t('Локальный') },
-    { value: 'system', label: t('Внешняя система') }
+<%- partial('../../attrs/_select', { attr: 'type', title: t('Type'), required:'required', options: [
+    { value: 'local', label: t('Local') },
+    { value: 'system', label: t('External system') }
 ]}) %>
-<%-partial('../../attrs/_input', {attr: 'login', title: t('Логин'), required: 'required'})%>
+<%-partial('../../attrs/_input', {attr: 'login', title: t('Login'), required: 'required'})%>
 
 <%- partial('../../attrs/_input', {
   attr: 'pwd',
-  title: t('Пароль'),
+  title: t('Password'),
   required: scenario === 'create' ? 'required' : ''
 }) %>
 
-<%- partial('../../attrs/_input', { attr: 'name', title: t('Имя'), required:'required' }) %>
+<%- partial('../../attrs/_input', { attr: 'name', title: t('Name'), required:'required' }) %>
 
-<%- partial('../../attrs/_checkbox', { attr: 'disabled', title: t('Заблокирован'), required:''}) %>
+<%- partial('../../attrs/_checkbox', { attr: 'disabled', title: t('Blocked'), required:''}) %>
 
-<%- partial('../../attrs/_checkbox-list', { attr: 'roles', title: t('Роли'), required:''}) %>
+<%- partial('../../attrs/_checkbox-list', { attr: 'roles', title: t('Roles'), required:''}) %>
