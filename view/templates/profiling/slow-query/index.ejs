@@ -11,12 +11,12 @@ var _params = typeof params === 'undefined' ? {} : params;
   <div class="list-loader overlay"><i class="fa fa-refresh fa-spin"></i></div>
   <div class="box-body">
     <div class="list-tools">
-      <button class="reload-btn btn btn-default" title="<%=t('Обновить')%>"><span class="fa fa-refresh"></span></button>
+      <button class="reload-btn btn btn-default" title="<%=t('Refresh')%>"><span class="fa fa-refresh"></span></button>
       <% if (permissions[Permissions.WRITE]) { %>
-      <button id="import-slow-query" class="btn btn-success"><%=t('Загрузить новые логи')%></button>
-      <button id="import-all" class="btn btn-default"><%=t('Перезагрузить все')%></button>
+      <button id="import-slow-query" class="btn btn-success"><%=t('Upload new logs')%></button>
+      <button id="import-all" class="btn btn-default"><%=t('Reload all')%></button>
       <% } %>
-      <button id="slow-settings" class="btn btn-default" disabled><%=t('Настройки')%></button>
+      <button id="slow-settings" class="btn btn-default" disabled><%=t('Settings')%></button>
     </div>
     <table id="object-list" class="table table-bordered table-striped multi-selectable">
       <thead><tr></tr></thead>
@@ -29,31 +29,31 @@ var _params = typeof params === 'undefined' ? {} : params;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><%=t('Настройка профилирования запросов')%></h4>
+        <h4 class="modal-title"><%=t('Configure query profiling')%></h4>
       </div>
       <div class="modal-body">
         <form class="form">
           <div class="form-group">
             <label class="form-control-label">
-              <%=t('Уровень профилирования')%>
+              <%=t('Profiling level')%>
             </label>
             <select id="slow-settings-level" class="form-control">
-              <option value="0"><%=t('Отключено')%></option>
-              <option value="1"><%=t('Записывать медленные запросы')%></option>
-              <option value="2"><%=t('Записывать все запросы')%></option>
+              <option value="0"><%=t('Disabled')%></option>
+              <option value="1"><%=t('Write slow queries')%></option>
+              <option value="2"><%=t('Write all queries')%></option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-control-label">
-              <%=t('Порог медленного запроса ')%>(<%=t('мс')%>)
+              <%=t('Slow request threshold ')%>(<%=t('ms')%>)
             </label>
             <input id="slow-settings-threshold" class="form-control" value="45">
           </div>
           <div class="form-group text-right">
             <% if (permissions[Permissions.WRITE]) { %>
-            <button type="button" class="save btn btn-primary"><%=t('Сохранить')%></button>
+            <button type="button" class="save btn btn-primary"><%=t('Save')%></button>
             <% } %>
-            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('Закрыть')%></button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('Close')%></button>
           </div>
         </form>
       </div>

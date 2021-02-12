@@ -14,22 +14,22 @@
 
 <div id="recache-container" class="box box-primary" style="position: relative; left: 0px; top: 0px;">
   <div class="box-header ui-sortable-handle with-border">
-    <button type="button" id="refresh" class="btn btn-primary pull-left"><i class="fa fa-refresh"></i> <%=t('Пересчитать')%></button> 
+    <button type="button" id="refresh" class="btn btn-primary pull-left"><i class="fa fa-refresh"></i> <%=t(' Recount')%></button> 
   </div>
   <div class="box-body">
-    <input type="checkbox" id="skipcd" /><span class="text"> <%=t('Пропускать зависимости')%></span>
+    <input type="checkbox" id="skipcd" /><span class="text"> <%=t(' Skip dependencies')%></span>
   </div>
   <div class="box-body">
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
         <li class="active">
           <a href="#tab_classes" data-toggle="tab" aria-expanded="true">
-             <i class="fa fa-file-code-o"></i> <%=t('Классы')%>
+             <i class="fa fa-file-code-o"></i> <%=t('Classes')%>
           </a>
         </li>
         <li class="">
           <a href="#tab_log" data-toggle="tab" aria-expanded="false">
-            <i class="fa fa-terminal"></i> <%=t('Лог')%>
+            <i class="fa fa-terminal"></i> <%=t('Log')%>
           </a>
         </li>
       </ul>
@@ -37,10 +37,10 @@
         <div class="tab-pane active" id="tab_classes">
           <div class="clearfix" style="margin-bottom: 10px;">
             <button type="button" id="check-all" class="btn btn-default pull-left" style="margin-right: 10px;">
-              <i class="fa fa-check-square-o"></i> <%=t('Выделить все')%>
+              <i class="fa fa-check-square-o"></i> <%=t(' Select all')%>
             </button> 
             <button type="button" id="uncheck-all" class="btn btn-default pull-left">
-              <i class="fa fa-square-o"></i> <%=t('Снять выделение')%>
+              <i class="fa fa-square-o"></i> <%=t('Remove selection')%>
             </button>
           </div>
           <ul class="todo-list ui-sortable">
