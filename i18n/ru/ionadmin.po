@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-19 20:16+0000\n"
-"PO-Revision-Date: 2021-02-18 02:23+0000\n"
+"POT-Creation-Date: 2021-02-12 20:16+0000\n"
+"PO-Revision-Date: 2021-02-19 20:17+0000\n"
 "Last-Translator: Alena Kremenetskaya <alena.kremenetskaya@mail.ru>\n"
 "Language-Team: Russian <http://weblate.iondv.ru/projects/iondv-framework/"
 "ionadmin/ru/>\n"
@@ -27,140 +27,140 @@ msgstr "Внутренняя ошибка сервера."
 #: backend/backupProvider.js:70
 #, javascript-format
 msgid "File %s already exists"
-msgstr ""
+msgstr "Файл %s уже существует"
 
 #: backend/backupProvider.js:253
 msgid "Backup process was unexpectedly ended."
-msgstr ""
+msgstr "Процесс резервного копирования неожиданно завершился."
 
 #: backend/respond.js:12
 #, javascript-format
 msgid "DI-container %s not found"
-msgstr ""
+msgstr "DI-контейнер %s не найден"
 
 #: backend/respond.js:17
 #, javascript-format
 msgid "Required component %s not set up"
-msgstr ""
+msgstr "Необходимый компонент %s не настроен"
 
 #: controllers/schedule/new.js:21
 msgid "New job"
-msgstr ""
+msgstr "Новое задание"
 
 #: controllers/schedule/index.js:22
 msgid "Scheduling management"
-msgstr ""
+msgstr "Управление расписанием"
 
 #: controllers/security/role.js:14
 msgid "User roles"
-msgstr ""
+msgstr "Роли пользователей"
 
 #: controllers/security/role.js:27
 msgid "Create role"
-msgstr ""
+msgstr "Создать роль"
 
 #: controllers/security/role.js:41
 msgid "Edit role"
-msgstr ""
+msgstr "Изменить роль"
 
 #: controllers/security/index.js:12
 msgid "Sync"
-msgstr ""
+msgstr "Синхронизация"
 
 #: controllers/security/user.js:14
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: controllers/security/user.js:27
 msgid "Create user"
-msgstr ""
+msgstr "Создать пользователя"
 
 #: controllers/security/user.js:41
 msgid "Edit user"
-msgstr ""
+msgstr "Редактировать пользователя"
 
 #: controllers/security/resource.js:14
 msgid "Resources"
-msgstr ""
+msgstr "Ресурсы"
 
 #: controllers/security/resource.js:27
 msgid "Create resource"
-msgstr ""
+msgstr "Создать ресурс"
 
 #: controllers/security/resource.js:41
 msgid "Edit resource"
-msgstr ""
+msgstr "Редактировать ресурс"
 
 #: controllers/activity/index.js:4 access-resources.js:32
 #: view/templates/layouts/sidebar.ejs:34
 msgid "Activity"
-msgstr ""
+msgstr "Активность"
 
 #: controllers/backup/db.js:19 access-resources.js:52
 msgid "Backups"
-msgstr ""
+msgstr "Резервные копии"
 
 #: controllers/recache/index.js:16 access-resources.js:64
 msgid "Semantics cache recalculation"
-msgstr ""
+msgstr "Вычисление семантического кеша"
 
 #: controllers/api/security/role.js:22 view/templates/activity/index.ejs:38
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 #: controllers/api/security/sync.js:19
 msgid "Permission sync successfully done."
-msgstr ""
+msgstr "Синхронизация разрешений успешно выполнена."
 
 #: controllers/api/security/sync.js:45
 msgid "Resources import successfully done"
-msgstr ""
+msgstr "Импорт ресурсов успешно выполнен"
 
 #: controllers/api/backup/db.js:104
 msgid "Parameter should be an array."
-msgstr ""
+msgstr "Параметр должен быть массивом."
 
 #: controllers/api/recache/start.js:40
 msgid "Import error!"
-msgstr ""
+msgstr "Ошибка импорта!"
 
 #: controllers/profiling/slow-query.js:13
 msgid "Slow database queries"
-msgstr ""
+msgstr "Медленные запросы к базе данных"
 
 #: controllers/notify/index.js:17 access-resources.js:68
 #: view/templates/layouts/sidebar.ejs:59
 msgid "Notifications"
-msgstr ""
+msgstr "Уведомления"
 
 #: controllers/notify/index.js:30
 msgid "Create notification"
-msgstr ""
+msgstr "Создать уведомление"
 
 #: controllers/notify/index.js:44
 msgid "View notification"
-msgstr ""
+msgstr "Просмотр уведомления"
 
 #: controllers/dashboard.js:18 access-resources.js:8
 msgid "Control panel"
-msgstr ""
+msgstr "Панель управления"
 
 #: controllers/changelog/index.js:9 access-resources.js:36
 msgid "Changelog"
-msgstr ""
+msgstr "Журнал изменений"
 
 #: controllers/authlog/index.js:8 access-resources.js:44
 msgid "Auth log"
-msgstr ""
+msgstr "Журнал авторизации"
 
 #: controllers/accesslog/index.js:8 access-resources.js:40
 msgid "Access log"
-msgstr ""
+msgstr "Журнал доступа"
 
 #: controllers/token/index.js:15 controllers/token/index.js:29
 #: access-resources.js:48
 msgid "Security token generator"
-msgstr ""
+msgstr "Генератор токенов безопасности"
 
 #: index.js:63 view/templates/errors/403.ejs:8
 msgid "Access denied"
@@ -172,86 +172,86 @@ msgstr "Ресурс не найден"
 
 #: index.js:65
 msgid "Server error"
-msgstr ""
+msgstr "Ошибка сервера"
 
 #: access-resources.js:12
 msgid "Security Users"
-msgstr ""
+msgstr "Безопасность Пользователи"
 
 #: access-resources.js:16
 msgid "Security Roles"
-msgstr ""
+msgstr "Безопасность Роли"
 
 #: access-resources.js:20
 msgid "Security Resources"
-msgstr ""
+msgstr "Безопасность Ресурсы"
 
 #: access-resources.js:24
 msgid "Security Sync"
-msgstr ""
+msgstr "Безопасность Синхронизация"
 
 #: access-resources.js:28
 msgid "Profiling Slow queries"
-msgstr ""
+msgstr "Профилирование Медленных запросов"
 
 #: access-resources.js:56
 msgid "Scheduling"
-msgstr ""
+msgstr "Управление расписанием"
 
 #: access-resources.js:60
 msgid "Web service security token generation"
-msgstr ""
+msgstr "Генерация токенов безопасности веб-служб"
 
 #: models/profiling/slow-query.js:64
 msgid "Log source not specified"
-msgstr ""
+msgstr "Источник логов не указан"
 
 #: models/profiling/slow-query.js:78
 msgid "Unknown log source"
-msgstr ""
+msgstr "Неизвестный источник логов"
 
 #: models/base.js:78
 #, javascript-format
 msgid "Field <b>%s</b> is required"
-msgstr ""
+msgstr "Поле <b>%s</b> обязательно для заполнения"
 
 #: models/base.js:90
 #, javascript-format
 msgid "Field <b>%s</b> value is already in use."
-msgstr ""
+msgstr "Значение поля <b>%s</b> уже используется."
 
 #: view/templates/notifications/form.ejs:11
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: view/templates/notifications/form.ejs:22
 #: view/templates/notifications/index.ejs:64
 #: view/templates/authlog/index.ejs:113
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 #: view/templates/notifications/form.ejs:33
 msgid "Receivers"
-msgstr ""
+msgstr "Получатели"
 
 #: view/templates/notifications/index.ejs:46
 msgid "Sending time"
-msgstr ""
+msgstr "Время отправки"
 
 #: view/templates/notifications/index.ejs:54
 #: view/templates/notifications/index.ejs:103
 msgid "Sender"
-msgstr ""
+msgstr "Отправитель"
 
 #: view/templates/notifications/index.ejs:59
 msgid "Headline"
-msgstr ""
+msgstr "Заголовок"
 
 #: view/templates/notifications/index.ejs:88
 #: view/templates/profiling/slow-query/index.ejs:16
 #: view/templates/crud/list-tools.ejs:10
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 #: view/templates/notifications/index.ejs:90
 #: view/templates/schedule/index.ejs:8 view/templates/backup/db.ejs:14
@@ -285,55 +285,55 @@ msgstr "Удалить"
 #: view/templates/activity/index.ejs:47 view/templates/changelog/index.ejs:75
 #: view/templates/authlog/index.ejs:52 view/templates/accesslog/index.ejs:59
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 #: view/templates/notifications/index.ejs:100
 msgid "Apply filters"
-msgstr ""
+msgstr "Применить фильтры"
 
 #: view/templates/notifications/index.ejs:106
 msgid "Receiver"
-msgstr ""
+msgstr "Получатель"
 
 #: view/templates/notifications/index.ejs:109
 msgid "Sent after"
-msgstr ""
+msgstr "Отправлено после"
 
 #: view/templates/schedule/index.ejs:9
 msgid "Start all"
-msgstr ""
+msgstr "Запустить все"
 
 #: view/templates/schedule/index.ejs:10
 msgid "Stop all"
-msgstr ""
+msgstr "Остановить все"
 
 #: view/templates/schedule/index.ejs:11
 #: view/templates/profiling/slow-query/index.ejs:19
 msgid "Reload all"
-msgstr ""
+msgstr "Перезагрузить все"
 
 #: view/templates/schedule/index.ejs:16 view/templates/schedule/job.ejs:39
 #: view/templates/schedule/job.ejs:42 view/templates/security/user/form.ejs:25
 #: view/templates/security/role/form.ejs:23
 #: view/templates/security/resource/form.ejs:54
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: view/templates/schedule/index.ejs:17 view/templates/schedule/job.ejs:47
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: view/templates/schedule/index.ejs:27
 msgid "Stop"
-msgstr ""
+msgstr "Остановить"
 
 #: view/templates/schedule/index.ejs:28
 msgid "Start"
-msgstr ""
+msgstr "Начать"
 
 #: view/templates/schedule/index.ejs:29
 msgid "Start now"
-msgstr ""
+msgstr "Начать сейчас"
 
 #: view/templates/schedule/job.ejs:32
 #: view/templates/profiling/slow-query/index.ejs:56
@@ -343,38 +343,38 @@ msgstr "Сохранить"
 
 #: view/templates/schedule/job.ejs:33
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: view/templates/schedule/job.ejs:34
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: view/templates/schedule/job.ejs:55
 msgid "Schedule"
-msgstr ""
+msgstr "Расписание"
 
 #: view/templates/schedule/job.ejs:63 view/templates/schedule/job.ejs:66
 msgid "Worker"
-msgstr ""
+msgstr "Работник"
 
 #: view/templates/schedule/job.ejs:71
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: view/templates/security/user/form.ejs:9 view/templates/authlog/index.ejs:19
 #: view/templates/authlog/index.ejs:83 view/templates/authlog/index.ejs:208
 #: view/templates/accesslog/index.ejs:19 view/templates/accesslog/index.ejs:90
 #: view/templates/accesslog/index.ejs:218
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: view/templates/security/user/form.ejs:10
 msgid "Local"
-msgstr ""
+msgstr "Локальный"
 
 #: view/templates/security/user/form.ejs:11
 msgid "External system"
-msgstr ""
+msgstr "Внешняя система"
 
 #: view/templates/security/user/form.ejs:13 view/templates/login.ejs:29
 msgid "Login"
@@ -386,170 +386,169 @@ msgstr "Пароль"
 
 #: view/templates/security/user/form.ejs:27
 msgid "Blocked"
-msgstr ""
+msgstr "Заблокировано"
 
 #: view/templates/security/user/form.ejs:29
 msgid "Roles"
-msgstr ""
+msgstr "Роли"
 
 #: view/templates/security/role/form.ejs:13
 #: view/templates/security/resource/form.ejs:52
 msgid "Identifier"
-msgstr ""
+msgstr "Идентификатор"
 
 #: view/templates/security/role/form.ejs:36
 msgid "Access rights"
-msgstr ""
+msgstr "Права доступа"
 
 #: view/templates/security/role/form.ejs:39
 #: view/templates/security/resource/form.ejs:29
 msgid "Common"
-msgstr ""
+msgstr "Общий"
 
 #: view/templates/security/sync.ejs:5
 msgid "Synchronization of access rights"
-msgstr ""
+msgstr "Синхронизация прав доступа"
 
 #: view/templates/security/sync.ejs:6
 msgid "Import of resources"
-msgstr ""
+msgstr "Импорт ресурсов"
 
 #: view/templates/security/sync.ejs:20
 msgid "Synchronization of access rights successfully completed"
-msgstr ""
+msgstr "Синхронизация прав доступа успешно завершена"
 
 #: view/templates/security/sync.ejs:22
 msgid "An error occurred during synchronization"
-msgstr ""
+msgstr "Во время синхронизации произошла ошибка"
 
 #: view/templates/security/sync.ejs:32
 msgid "Import successfully completed"
-msgstr ""
+msgstr "Импорт успешно завершен"
 
 #: view/templates/security/sync.ejs:34
 msgid "An error occurred while importing resources"
-msgstr ""
+msgstr "При импорте ресурсов произошла ошибка"
 
 #: view/templates/security/resource/form.ejs:39
 msgid "ID Formats "
-msgstr ""
+msgstr "Форматы идентификаторов "
 
 #: view/templates/security/resource/form.ejs:43
 msgid "Navigation node - "
-msgstr ""
+msgstr "Узел навигации - "
 
 #: view/templates/security/resource/form.ejs:44
 msgid "Class - "
-msgstr ""
+msgstr "Класс - "
 
 #: view/templates/security/resource/form.ejs:45
 msgid "Object - "
-msgstr ""
+msgstr "Объект - "
 
 #: view/templates/security/resource/form.ejs:46
 msgid "Property - "
-msgstr ""
+msgstr "Свойство - "
 
 #: view/templates/activity/index.ejs:15 view/templates/changelog/index.ejs:21
 #: view/templates/authlog/index.ejs:12 view/templates/accesslog/index.ejs:12
 msgid "Period"
-msgstr ""
+msgstr "Период"
 
 #: view/templates/activity/index.ejs:22 view/templates/changelog/index.ejs:28
 #: view/templates/changelog/index.ejs:106 view/templates/authlog/index.ejs:31
 #: view/templates/authlog/index.ejs:89 view/templates/authlog/index.ejs:212
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: view/templates/activity/index.ejs:36
 #: view/templates/profiling/slow-query/index.ejs:43
 msgid "Disabled"
-msgstr ""
+msgstr "Деактивирован"
 
 #: view/templates/activity/index.ejs:39
 msgid "Only allowed ones"
-msgstr ""
+msgstr "Только разрешенные"
 
 #: view/templates/activity/index.ejs:40
 msgid "Only blocked ones"
-msgstr ""
+msgstr "Только заблокированные"
 
 #: view/templates/activity/index.ejs:48 view/templates/changelog/index.ejs:76
 #: view/templates/authlog/index.ejs:53 view/templates/accesslog/index.ejs:60
 msgid "Reset filter"
-msgstr ""
+msgstr "Сбросить фильтр"
 
 #: view/templates/backup/db.ejs:11
 msgid "Update"
-msgstr ""
+msgstr "Обновить"
 
 #: view/templates/backup/db.ejs:34
 msgid "Create backup"
-msgstr ""
+msgstr "Создать резервную копию"
 
 #: view/templates/backup/db.ejs:39
 msgid "Application"
-msgstr ""
+msgstr "Приложение"
 
 #: view/templates/backup/db.ejs:50
 msgid "Archive name"
-msgstr ""
+msgstr "Имя архива"
 
 #: view/templates/backup/db.ejs:59
 msgid "Meta version"
-msgstr ""
+msgstr "Мета версия"
 
 #: view/templates/backup/db.ejs:67
 msgid "File directory"
-msgstr ""
+msgstr "Каталог файлов"
 
 #: view/templates/backup/db.ejs:76
 msgid "Import security settings"
-msgstr ""
+msgstr "Импортировать настройки безопасности"
 
 #: view/templates/backup/db.ejs:79
 msgid "do not import"
-msgstr ""
+msgstr "не импортировать"
 
 #: view/templates/backup/db.ejs:91
 msgid "Do not export class objects"
-msgstr ""
+msgstr "Не экспортировать объекты класса"
 
 #: view/templates/backup/db.ejs:102
 msgid "Do not export files"
-msgstr ""
+msgstr "Не экспортировать файлы"
 
 #: view/templates/backup/db.ejs:110
 #: view/templates/profiling/slow-query/index.ejs:58
 #: view/templates/crud/object.ejs:8 view/templates/changelog/index.ejs:154
 #: view/templates/authlog/index.ejs:119 view/templates/accesslog/index.ejs:126
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: view/templates/recache/index.ejs:17
 msgid " Recount"
-msgstr ""
+msgstr " Пересчитать"
 
 #: view/templates/recache/index.ejs:20
 msgid " Skip dependencies"
-msgstr ""
+msgstr " Пропустить зависимости"
 
 #: view/templates/recache/index.ejs:27
 msgid "Classes"
-msgstr ""
+msgstr "Классы"
 
 #: view/templates/recache/index.ejs:32
-#, fuzzy
 msgid "Log"
-msgstr "Логин"
+msgstr "Лог"
 
 #: view/templates/recache/index.ejs:40
 msgid " Select all"
-msgstr ""
+msgstr " Выбрать все"
 
 #: view/templates/recache/index.ejs:43
 msgid "Remove selection"
-msgstr ""
+msgstr "Снять выделение"
 
 #: view/templates/login.ejs:4 view/templates/login.ejs:41
 msgid "Sign in"
@@ -557,39 +556,39 @@ msgstr "Войти"
 
 #: view/templates/login.ejs:26
 msgid "Signing in"
-msgstr ""
+msgstr "Вход в систему"
 
 #: view/templates/profiling/slow-query/index.ejs:18
 msgid "Upload new logs"
-msgstr ""
+msgstr "Загрузить новые логи"
 
 #: view/templates/profiling/slow-query/index.ejs:21
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: view/templates/profiling/slow-query/index.ejs:34
 msgid "Configure query profiling"
-msgstr ""
+msgstr "Настроить профилирование запросов"
 
 #: view/templates/profiling/slow-query/index.ejs:40
 msgid "Profiling level"
-msgstr ""
+msgstr "Уровень профилирования"
 
 #: view/templates/profiling/slow-query/index.ejs:44
 msgid "Write slow queries"
-msgstr ""
+msgstr "Записать медленные запросы"
 
 #: view/templates/profiling/slow-query/index.ejs:45
 msgid "Write all queries"
-msgstr ""
+msgstr "Записать все запросы"
 
 #: view/templates/profiling/slow-query/index.ejs:50
 msgid "Slow request threshold "
-msgstr ""
+msgstr "Порог медленного запроса "
 
 #: view/templates/profiling/slow-query/index.ejs:50
 msgid "ms"
-msgstr ""
+msgstr "мс"
 
 #: view/templates/attrs/_dt-object-list.ejs:9
 #: view/templates/attrs/_nested.ejs:5 view/templates/attrs/_dt-object.ejs:10
@@ -601,35 +600,35 @@ msgstr "Добавить"
 #: view/templates/authlog/index.ejs:77 view/templates/authlog/index.ejs:201
 #: view/templates/accesslog/index.ejs:84 view/templates/accesslog/index.ejs:211
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: view/templates/attrs/_image-uploader.ejs:10
 msgid "Drag image here"
-msgstr ""
+msgstr "Перетащите изображение сюда"
 
 #: view/templates/attrs/_image-uploader.ejs:11
 msgid "or select from a folder"
-msgstr ""
+msgstr "или выберите из папки"
 
 #: view/templates/attrs/_resource-access.ejs:35
 #: view/templates/attrs/_checkbox-access.ejs:10
 msgid "Full access"
-msgstr ""
+msgstr "Полный доступ"
 
 #: view/templates/attrs/_resource-access.ejs:36
 #: view/templates/attrs/_checkbox-access.ejs:11
 msgid "Read"
-msgstr ""
+msgstr "Чтение"
 
 #: view/templates/attrs/_resource-access.ejs:37
 #: view/templates/attrs/_checkbox-access.ejs:12
 msgid "Write"
-msgstr ""
+msgstr "Запись"
 
 #: view/templates/attrs/_resource-access.ejs:39
 #: view/templates/attrs/_checkbox-access.ejs:14
 msgid "Use"
-msgstr ""
+msgstr "Использование"
 
 #: view/templates/crud/list-tools.ejs:9
 msgid "Select"
@@ -637,23 +636,23 @@ msgstr "Выбрать"
 
 #: view/templates/layouts/security-menu.ejs:3
 msgid "Security"
-msgstr ""
+msgstr "Безопасность"
 
 #: view/templates/layouts/security-menu.ejs:6
 msgid " Users"
-msgstr ""
+msgstr " Пользователи"
 
 #: view/templates/layouts/security-menu.ejs:9
 msgid " Roles"
-msgstr ""
+msgstr " Роли"
 
 #: view/templates/layouts/security-menu.ejs:12
 msgid " Resources"
-msgstr ""
+msgstr " Ресурсы"
 
 #: view/templates/layouts/security-menu.ejs:15
 msgid " Synchronization"
-msgstr ""
+msgstr " Синхронизация"
 
 #: view/templates/layouts/header.ejs:41
 msgid "Exit"
@@ -663,245 +662,245 @@ msgstr "Выход"
 #: view/templates/layouts/_menu-messages.ejs:2
 #: view/templates/layouts/_menu-tasks.ejs:2
 msgid "You have "
-msgstr ""
+msgstr "У вас "
 
 #: view/templates/layouts/_menu-notices.ejs:2
 msgid "notifications"
-msgstr ""
+msgstr "уведомлений"
 
 #: view/templates/layouts/_menu-notices.ejs:7
 msgid "Today "
-msgstr ""
+msgstr "Сегодня "
 
 #: view/templates/layouts/_menu-notices.ejs:7
 msgid "new members joined"
-msgstr ""
+msgstr "присоединились новые участники"
 
 #: view/templates/layouts/_menu-notices.ejs:12
 msgid "Very long notification"
-msgstr ""
+msgstr "Очень длинное уведомление"
 
 #: view/templates/layouts/_menu-notices.ejs:12
 msgid "that may not fit into the design block and cause display problems"
-msgstr ""
+msgstr "это может не вписаться в блок дизайна и вызвать проблемы с отображением"
 
 #: view/templates/layouts/_menu-notices.ejs:17
 msgid "Meeting of participants at "
-msgstr ""
+msgstr "Встреча участников в "
 
 #: view/templates/layouts/_menu-notices.ejs:17
 msgid "am"
-msgstr ""
+msgstr "часов"
 
 #: view/templates/layouts/_menu-notices.ejs:22
 #: view/templates/layouts/_menu-notices.ejs:32
 msgid "Made "
-msgstr ""
+msgstr "Совершено "
 
 #: view/templates/layouts/_menu-notices.ejs:22
 #: view/templates/layouts/_menu-notices.ejs:32
 msgid "sales"
-msgstr ""
+msgstr "продаж"
 
 #: view/templates/layouts/_menu-notices.ejs:27
 msgid "You have changed your username"
-msgstr ""
+msgstr "Вы изменили свое имя пользователя"
 
 #: view/templates/layouts/_menu-notices.ejs:37
 msgid "All notifications"
-msgstr ""
+msgstr "Все уведомления"
 
 #: view/templates/layouts/_menu-messages.ejs:2
 msgid "messages"
-msgstr ""
+msgstr "сообщения"
 
 #: view/templates/layouts/_menu-messages.ejs:8
 msgid "Support service"
-msgstr ""
+msgstr "Служба поддержки"
 
 #: view/templates/layouts/_menu-messages.ejs:9
 msgid "minute"
-msgstr ""
+msgstr "минут"
 
 #: view/templates/layouts/_menu-messages.ejs:11
 #: view/templates/layouts/_menu-messages.ejs:20
 msgid "Development of a new theme for the main panel template"
-msgstr ""
+msgstr "Разработка новой темы для шаблона главной панели"
 
 #: view/templates/layouts/_menu-messages.ejs:17
 msgid "Team of developers"
-msgstr ""
+msgstr "Команда разработчиков"
 
 #: view/templates/layouts/_menu-messages.ejs:18
 msgid "hour"
-msgstr ""
+msgstr "часа"
 
 #: view/templates/layouts/_menu-messages.ejs:26
 msgid "Project managers"
-msgstr ""
+msgstr "Менеджеры проекта"
 
 #: view/templates/layouts/_menu-messages.ejs:27
 msgid "Today"
-msgstr ""
+msgstr "Сегодня"
 
 #: view/templates/layouts/_menu-messages.ejs:29
 msgid "Coordination of statements and tasks"
-msgstr ""
+msgstr "Согласование постановок и задач"
 
 #: view/templates/layouts/_menu-messages.ejs:35
 msgid "Sales department"
-msgstr ""
+msgstr "Отдел продаж"
 
 #: view/templates/layouts/_menu-messages.ejs:36
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 #: view/templates/layouts/_menu-messages.ejs:38
 msgid "Latest product sales report"
-msgstr ""
+msgstr "Последний отчет о продажах продукции"
 
 #: view/templates/layouts/_menu-messages.ejs:44
 msgid "Observer"
-msgstr ""
+msgstr "Наблюдатель"
 
 #: view/templates/layouts/_menu-messages.ejs:45
 msgid "days"
-msgstr ""
+msgstr "дней"
 
 #: view/templates/layouts/_menu-messages.ejs:47
 msgid "New product features"
-msgstr ""
+msgstr "Новые возможности продукта"
 
 #: view/templates/layouts/_menu-messages.ejs:52
 msgid "All messages"
-msgstr ""
+msgstr "Все сообщения"
 
 #: view/templates/layouts/sidebar.ejs:15
 msgid " Online"
-msgstr ""
+msgstr " Онлайн"
 
 #: view/templates/layouts/sidebar.ejs:20
 msgid "MAIN MENU"
-msgstr ""
+msgstr "ГЛАВНОЕ МЕНЮ"
 
 #: view/templates/layouts/sidebar.ejs:25
 msgid "Profiling"
-msgstr ""
+msgstr "Профилирование"
 
 #: view/templates/layouts/sidebar.ejs:28
 msgid " Slow queries"
-msgstr ""
+msgstr " Медленные запросы"
 
 #: view/templates/layouts/sidebar.ejs:37
 msgid "Change Log"
-msgstr ""
+msgstr "Журнал изменений"
 
 #: view/templates/layouts/sidebar.ejs:40
 msgid "Permission Log"
-msgstr ""
+msgstr "Журнал разрешений"
 
 #: view/templates/layouts/sidebar.ejs:43
 msgid "Access Log"
-msgstr ""
+msgstr "Журнал доступа"
 
 #: view/templates/layouts/sidebar.ejs:47
 msgid "Reservation"
-msgstr ""
+msgstr "Бронирование"
 
 #: view/templates/layouts/sidebar.ejs:50
 msgid "Scheduled tasks"
-msgstr ""
+msgstr "Запланированные задачи"
 
 #: view/templates/layouts/sidebar.ejs:53
 msgid "Web security keys"
-msgstr ""
+msgstr "Ключи веб-безопасности"
 
 #: view/templates/layouts/sidebar.ejs:53
 msgid "services"
-msgstr ""
+msgstr "сервисы"
 
 #: view/templates/layouts/sidebar.ejs:56
 msgid "Recalculation of semantics caches"
-msgstr ""
+msgstr "Пересчет семантического кэша"
 
 #: view/templates/layouts/_menu-tasks.ejs:2
 msgid "tasks"
-msgstr ""
+msgstr "задачи"
 
 #: view/templates/layouts/_menu-tasks.ejs:8
 msgid "Draw a new design"
-msgstr ""
+msgstr "Нарисуйте новый дизайн"
 
 #: view/templates/layouts/_menu-tasks.ejs:13
 msgid "done"
-msgstr ""
+msgstr "выполнено"
 
 #: view/templates/layouts/_menu-tasks.ejs:21
 msgid "Create a new topic"
-msgstr ""
+msgstr "Создайте новую тему"
 
 #: view/templates/layouts/_menu-tasks.ejs:34
 msgid "Very important task"
-msgstr ""
+msgstr "Очень важная задача"
 
 #: view/templates/layouts/_menu-tasks.ejs:47
 msgid "Make a user report"
-msgstr ""
+msgstr "Сделать отчет пользователя"
 
 #: view/templates/layouts/_menu-tasks.ejs:60
 msgid "All tasks"
-msgstr ""
+msgstr "Все задачи"
 
 #: view/templates/layouts/content.ejs:8
 msgid "Main"
-msgstr ""
+msgstr "Главный"
 
 #: view/templates/changelog/index.ejs:42 view/templates/changelog/index.ejs:136
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 #: view/templates/changelog/index.ejs:54 view/templates/changelog/index.ejs:118
 msgid "Class"
-msgstr ""
+msgstr "Класс"
 
 #: view/templates/changelog/index.ejs:68 view/templates/changelog/index.ejs:130
 msgid "Object"
-msgstr ""
+msgstr "Объект"
 
 #: view/templates/changelog/index.ejs:95 view/templates/authlog/index.ejs:72
 #: view/templates/accesslog/index.ejs:79
 msgid "Change log"
-msgstr ""
+msgstr "Журнал изменений"
 
 #: view/templates/changelog/index.ejs:112 view/templates/authlog/index.ejs:45
 #: view/templates/authlog/index.ejs:95 view/templates/authlog/index.ejs:216
 msgid "address user"
-msgstr ""
+msgstr "обратиться к пользователю"
 
 #: view/templates/changelog/index.ejs:124
 msgid "Class version"
-msgstr ""
+msgstr "Версия класса"
 
 #: view/templates/changelog/index.ejs:142 view/templates/authlog/index.ejs:101
 #: view/templates/accesslog/index.ejs:114
 msgid "To"
-msgstr ""
+msgstr "К"
 
 #: view/templates/changelog/index.ejs:148
 msgid "After"
-msgstr ""
+msgstr "После"
 
 #: view/templates/authlog/index.ejs:107 view/templates/accesslog/index.ejs:120
 msgid "Updates"
-msgstr ""
+msgstr "Обновления"
 
 #: view/templates/errors/500.ejs:8
 msgid "Something went wrong"
-msgstr ""
+msgstr "Что-то пошло не так"
 
 #: view/templates/errors/500.ejs:10
 msgid "Right now we are working on fixing the error"
-msgstr ""
+msgstr "Мы работаем над устранением ошибки прямо сейчас"
 
 #: view/templates/errors/404.ejs:8
 msgid "Page not found"
@@ -909,55 +908,55 @@ msgstr "Страница не найдена"
 
 #: view/templates/errors/404.ejs:10
 msgid "We could not find the page"
-msgstr ""
+msgstr "Мы не смогли найти страницу"
 
 #: view/templates/errors/403.ejs:10
 msgid "Sorry, but access to this resource is denied"
-msgstr ""
+msgstr "Извините, но доступ к этому ресурсу запрещен"
 
 #: view/templates/dashboard/default.ejs:7
 msgid "Module"
-msgstr ""
+msgstr "Модуль"
 
 #: view/templates/accesslog/index.ejs:31 view/templates/accesslog/index.ejs:96
 #: view/templates/accesslog/index.ejs:222
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: view/templates/accesslog/index.ejs:45 view/templates/accesslog/index.ejs:102
 #: view/templates/accesslog/index.ejs:226
 msgid "address authors"
-msgstr ""
+msgstr "обратиться к авторам"
 
 #: view/templates/accesslog/index.ejs:52 view/templates/accesslog/index.ejs:108
 #: view/templates/accesslog/index.ejs:230
 msgid "Subject"
-msgstr ""
+msgstr "Объект"
 
 #: view/templates/token/index.ejs:7
 msgid "User name"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: view/templates/token/index.ejs:13
 msgid "Account Type"
-msgstr ""
+msgstr "Тип Аккаунта"
 
 #: view/templates/token/index.ejs:20
 msgid "Token"
-msgstr ""
+msgstr "Токен"
 
 #: view/templates/token/index.ejs:28
 msgid "Generate token"
-msgstr ""
+msgstr "Сгенерировать токен"
 
 #: modules/dashboard/layouts/server.ejs:29
 msgid "CPU load"
-msgstr ""
+msgstr "Загрузка процессора"
 
 #: modules/dashboard/layouts/server.ejs:48
 msgid "RAM usage"
-msgstr ""
+msgstr "Использование оперативной памяти"
 
 #: modules/dashboard/layouts/server.ejs:67
 msgid "HDD usage"
-msgstr ""
+msgstr "Использование жесткого диска"
