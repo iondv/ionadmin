@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-12 20:16+0000\n"
+"POT-Creation-Date: 2021-02-26 20:16+0000\n"
 "PO-Revision-Date: 2021-02-19 20:17+0000\n"
 "Last-Translator: Alena Kremenetskaya <alena.kremenetskaya@mail.ru>\n"
 "Language-Team: Russian <http://weblate.iondv.ru/projects/iondv-framework/"
@@ -682,7 +682,8 @@ msgstr "Очень длинное уведомление"
 
 #: view/templates/layouts/_menu-notices.ejs:12
 msgid "that may not fit into the design block and cause display problems"
-msgstr "это может не вписаться в блок дизайна и вызвать проблемы с отображением"
+msgstr ""
+"это может не вписаться в блок дизайна и вызвать проблемы с отображением"
 
 #: view/templates/layouts/_menu-notices.ejs:17
 msgid "Meeting of participants at "
