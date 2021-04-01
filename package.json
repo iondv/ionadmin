@@ -10,7 +10,7 @@
     "ion": "4.1.0"
   },
   "scripts": {
-    "install": "cd view/default/static && npm install"
+    "install": "cd view/static && npm install"
   },
   "repository": {
     "type": "git",
