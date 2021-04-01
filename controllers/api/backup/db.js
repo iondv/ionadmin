@@ -1,10 +1,10 @@
 'use strict';
 
 const path = require('path');
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
-const Permissions = require('core/Permissions');
-const {t} = require('core/i18n');
+const { Permissions } = require('@iondv/acl-contracts');
+const {t} = require('@iondv/i18n');
 
 exports.list = function (req, res) {
   ionAdmin.can(req, res, accessResources.backup.id, Permissions.READ).then(() => {

@@ -1,8 +1,7 @@
-const moduleName = require('../../../module-name');
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
 const model = require('../../../models/security/role')(() => ionAdmin.getScope());
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 const items = require('../crud2')(model,
   () => ionAdmin.getScope(),
@@ -14,7 +13,7 @@ items.resources = (req, res) => items.wrapper(req, res,
     .then(docs => (docs || []).sort((a, b) => (typeof a.name === 'string' ? a.name : '')
       .localeCompare((typeof b.name === 'string' ? b.name : ''))))
     .then((docs) => {
-      const resTypes = (scope.settings.get(`${moduleName}.securityParams`) || {}
+      const resTypes = (scope.settings.get(`${req.moduleName}.securityParams`) || {}
       ).resourceTypes || {};
       const result = {'*': []};
       docs.forEach((doc) => {

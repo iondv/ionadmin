@@ -1,9 +1,9 @@
 'use strict';
 
-let di = require('core/di');
+const { di } = require('@iondv/core');
 let moduleName = require('../module-name');
 const onError = require('./error');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 const {format} = require('util');
 
 module.exports = function (res, cb, required) {

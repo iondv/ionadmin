@@ -1,9 +1,9 @@
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const access = require('../../../access-resources').recache;
 const respond = require('../../../backend/respond');
 const onError = require('../../../backend/error');
-const recache = require('lib/util/recache');
-const {t} = require('core/i18n');
+const recache = require('@iondv/utils/lib/recache');
+const {t} = require('@iondv/i18n');
 
 module.exports = function start(req, res) {
   ionAdmin.can(req, res, access.id)

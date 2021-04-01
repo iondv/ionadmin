@@ -1,6 +1,6 @@
 'use strict';
 
-const di = require('core/di');
+const { di } = require('@iondv/core');
 const moduleName = require('../module-name');
 const mongodb = require('mongodb');
 const ObjectID = mongodb.ObjectID;

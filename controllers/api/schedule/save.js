@@ -2,11 +2,10 @@
  * Created by kalias_90 on 14.09.17.
  */
 
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
 const respond = require('../../../backend/respond');
 const onError = require('../../../backend/error');
-const moduleName = require('../../../module-name');
 
 module.exports = function (req, res) {
   ionAdmin.can(req, res, accessResources.schedule.id).then(() => {
@@ -19,7 +18,7 @@ module.exports = function (req, res) {
           worker: req.body.worker,
           di: JSON.parse(req.body.di)
         }
-      ).then(() => res.redirect(`/${moduleName}/schedule/${req.body.job}`))
+      ).then(() => res.redirect(`/${req.moduleName}/schedule/${req.body.job}`))
         .catch(err => onError(scope, err, res, true));
     });
   }).catch((err) => {

@@ -1,8 +1,8 @@
 'use strict';
 
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
-const Permissions = require('core/Permissions');
+const { Permissions } = require('@iondv/acl-contracts');
 const Model = require('../../../models/profiling/slow-query');
 
 let crud = require('../crud')({

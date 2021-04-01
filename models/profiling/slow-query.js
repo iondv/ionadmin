@@ -6,7 +6,7 @@ const async = require('async');
 const extend = require('extend');
 const fs = require('fs');
 const path = require('path');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 module.exports = class SlowQuery extends Base {
 

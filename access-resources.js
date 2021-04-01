@@ -1,6 +1,6 @@
 'use strict';
 
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 module.exports = {
   dashboard: {

@@ -1,7 +1,7 @@
 'use strict';
 
-const ionAdmin = require('../../index');
-const Permissions = require('core/Permissions');
+const ionAdmin = require('../../IonAdmin');
+const { Permissions } = require('@iondv/acl-contracts');
 
 module.exports = function (params) {
 

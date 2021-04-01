@@ -11,7 +11,7 @@
       "dashboard": {
         "config": {
           "ionadmin": {
-            "root": "modules/ionadmin/modules/dashboard"
+            "root": "@iondv/ionadmin/modules/dashboard"
           }
         }
       }
@@ -28,7 +28,7 @@
   },
   "di" : {
     "backupProvider": {
-      "module": "./backend/backupProvider",
+      "module": "@iondv/ionadmin/backend/backupProvider",
       "initMethod": "init",
       "initLevel": 2,
       "options": {
@@ -49,13 +49,13 @@
       }
     },
     "changelogFactory": {
-      "module": "core/impl/changelogger/DsChangelogFactory",
+      "module": "@iondv/commons/lib/changelogger/DsChangelogFactory",
       "options": {
         "dataSource": "ion://Db"
       }
     },
     "schedulerAgent": {
-      "module": "core/impl/SchedulerAgent",
+      "module": "@iondv/commons/lib/SchedulerAgent",
       "options": {
         "settings": "ion://settings",
         "repo": "ion://kvRepo"

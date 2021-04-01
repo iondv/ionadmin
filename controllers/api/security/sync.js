@@ -1,12 +1,11 @@
 'use strict';
 
 const async = require('async');
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
-const Permissions = require('core/Permissions');
+const { Permissions } = require('@iondv/acl-contracts');
 const respond = require('../../../backend/respond');
-const moduleName = require('../../../module-name');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 exports.syncAcl = function (req, res) {
   ionAdmin.can(req, res, accessResources.securitySync.id, Permissions.WRITE).then(() => {
@@ -28,7 +27,7 @@ exports.importResources = function (req, res) {
   ionAdmin.can(req, res, accessResources.securitySync.id, Permissions.WRITE).then(() => {
     respond(res, (scope) => {
       try {
-        let params = scope.settings.get(`${moduleName}.securityParams`) || {};
+        let params = scope.settings.get(`${req.moduleName}.securityParams`) || {};
         let resTypes = params.resourceTypes || {};
         let resources = {};
         async.series(

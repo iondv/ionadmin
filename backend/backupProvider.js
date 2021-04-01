@@ -1,12 +1,12 @@
 'use strict';
 
-const Background = require('core/impl/Background');
+const Background = require('@iondv/commons/lib/Background');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 const archiver = require('archiver');
-const worker = require('lib/export');
-const {t} = require('core/i18n');
+const worker = require('@iondv/utils/lib/export');
+const {t} = require('@iondv/i18n');
 const {format} = require('util');
 
 /**

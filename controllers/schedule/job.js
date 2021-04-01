@@ -4,7 +4,7 @@
 
 'use strict';
 
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
 const respond = require('../../backend/respond');
 const onError = require('../../backend/error');

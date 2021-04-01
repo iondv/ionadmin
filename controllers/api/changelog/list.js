@@ -1,7 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
 
 exports.list = function (req, res) {

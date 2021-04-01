@@ -1,5 +1,5 @@
 const moment = require('moment');
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
 
 exports.list = (req, res) => ionAdmin.can(req, res, accessResources.accesslog.id)

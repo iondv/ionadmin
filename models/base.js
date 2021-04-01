@@ -1,5 +1,5 @@
 'use strict';
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 const {format} = require('util');
 
 module.exports = class Base {
@@ -180,4 +180,4 @@ module.exports = class Base {
 
 const async = require('async');
 const Db = require('../backend/db');
-const ionAdmin = require('../index');
+const ionAdmin = require('../IonAdmin');

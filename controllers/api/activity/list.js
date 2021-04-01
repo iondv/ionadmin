@@ -1,7 +1,7 @@
 
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
-const F = require('core/FunctionCodes');
+const { FunctionCodes: F } = require('@iondv/meta-model-contracts');
 const moment = require('moment');
 
 exports.list = (req, res) => {

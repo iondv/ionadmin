@@ -1,4 +1,4 @@
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const accessResources = require('../../../access-resources');
 const model = require('../../../models/security/resource')(() => ionAdmin.getScope());
 

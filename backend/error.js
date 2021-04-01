@@ -1,7 +1,7 @@
 'use strict';
 
-const {t} = require('core/i18n');
-let Logger = require('core/interfaces/Logger');
+const {t} = require('@iondv/i18n');
+let { Logger } = require('@iondv/commons-contracts');
 
 module.exports = function (scope, err, res, userMsg) {
   if (scope && scope.sysLog && scope.sysLog instanceof Logger) {

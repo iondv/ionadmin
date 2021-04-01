@@ -1,13 +1,13 @@
 'use strict';
 
-const di = require('core/di');
+const { di } = require('@iondv/core');
 const config = require('../config');
-const ionAdmin = require('../index');
+const ionAdmin = require('../IonAdmin');
 const accessResources = require('../access-resources');
 const moduleName = require('../module-name');
 const respond = require('../backend/respond');
 const onError = require('../backend/error');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 module.exports = function (req, res, next) {
   ionAdmin.can(req, res, accessResources.dashboard.id).then(()=> {
@@ -18,7 +18,7 @@ module.exports = function (req, res, next) {
           title: t('Control panel'),
           modules: [],
           currentModule: req.cookies ? req.cookies['ionadmin-dashboard-module'] : '',
-          currentApp: moduleName,
+          currentApp: req.moduleName,
           dashboardContent: ''
         };
         const TEMPLATE = 'dashboard/default';

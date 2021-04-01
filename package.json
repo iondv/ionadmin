@@ -7,7 +7,6 @@
   },
   "license": "Apache License 2.0",
   "engines": {
-    "node": ">=8.11.0",
     "ion": "4.1.0"
   },
   "repository": {
@@ -16,12 +15,18 @@
   },
   "private": true,
   "dependencies": {
+    "@iondv/acl-contracts": "iondv/acl-contracts#main",
+    "@iondv/auth-contracts": "iondv/auth-contracts#main",
+    "@iondv/commons": "iondv/commons#main",
+    "@iondv/commons-contracts": "iondv/commons-contracts#main",
+    "@iondv/core": "iondv/core#main",
+    "@iondv/i18n": "iondv/i18n#main",
+    "@iondv/meta-model-contracts": "iondv/meta-model-contracts#main",
+    "@iondv/utils": "iondv/utils#main",
+    "@iondv/web": "iondv/web#main",
     "archiver": "^1.3.0",
     "async": "^1.5.2",
-    "diskspace": "^1.0.2",
     "extend": "^3.0.0",
-    "gm": "^1.20.0",
-    "mkdirp": "^0.5.1",
-    "os-utils": "^0.0.14"
+    "mkdirp": "^0.5.1"
   }
 }

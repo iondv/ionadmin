@@ -1,4 +1,4 @@
-const ionAdmin = require('../../../index');
+const ionAdmin = require('../../../IonAdmin');
 const access = require('../../../access-resources').recache;
 const respond = require('../../../backend/respond');
 const onError = require('../../../backend/error');

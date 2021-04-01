@@ -1,9 +1,9 @@
 'use strict';
 
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
-const Permissions = require('core/Permissions');
-const {t} = require('core/i18n');
+const { Permissions } = require('@iondv/acl-contracts');
+const {t} = require('@iondv/i18n');
 const model = "security/user";
 const path = `${model}/`;
 

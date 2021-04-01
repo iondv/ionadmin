@@ -1,8 +1,8 @@
 'use strict';
 
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 exports.sync = function (req, res) {
   ionAdmin.can(req, res, accessResources.securitySync.id).then(permissions => {

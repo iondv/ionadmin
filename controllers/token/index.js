@@ -1,10 +1,10 @@
 'use strict';
 
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
-const UserTypes = require('core/UserTypes');
-const Permissions = require('core/Permissions');
-const {t} = require('core/i18n');
+const { UserTypes } = require('@iondv/auth-contracts');
+const { Permissions } = require('@iondv/acl-contracts');
+const {t} = require('@iondv/i18n');
 
 module.exports = function (req, res) {
   ionAdmin.can(req, res, accessResources.token.id, Permissions.USE).then(permissions => {

@@ -1,11 +1,10 @@
 'use strict';
 
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
-const Permissions = require('core/Permissions');
-const moduleName = require('../../module-name');
+const { Permissions } = require('@iondv/acl-contracts');
 const onError = require('../../backend/error');
-let di = require('core/di');
+const { di } = require('@iondv/core');
 const moment = require('moment');
 
 function can(scope, permission, req, res, next, cb) {
@@ -19,7 +18,7 @@ function can(scope, permission, req, res, next, cb) {
 
 module.exports = {
   userSearch: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     ionAdmin.can(req, res, accessResources.securityUsers.id, Permissions.READ)
       .then(() => {
         return scope.accounts.search(req.query.search)
@@ -37,7 +36,7 @@ module.exports = {
   },
 
   list: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     can(scope, Permissions.READ, req, res, next,
       () => {
         let reciever = null;
@@ -70,7 +69,7 @@ module.exports = {
   },
 
   get: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     can(scope, Permissions.READ, req, res, next, () => {
       let id = req.params.id;
       scope.notifier
@@ -89,7 +88,7 @@ module.exports = {
   },
 
   create: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     can(scope, Permissions.WRITE, req, res, next, () => {
       scope.notifier
         .notify({
@@ -106,7 +105,7 @@ module.exports = {
   },
 
   delete: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     can(scope, Permissions.DELETE, req, res, next, ()=> {
       scope.notifier.withdraw(req.params.id)
         .then(() => res.sendStatus(200))
@@ -117,7 +116,7 @@ module.exports = {
   },
 
   deleteList: function (req, res, next) {
-    let scope = di.context(moduleName);
+    let scope = di.context(req.moduleName);
     can(scope, Permissions.DELETE, req, res, next, ()=> {
       let ids = req.body.ids;
       if (Array.isArray(ids)) {

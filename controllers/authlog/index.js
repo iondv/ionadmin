@@ -1,6 +1,6 @@
-const ionAdmin = require('../../index');
+const ionAdmin = require('../../IonAdmin');
 const accessResources = require('../../access-resources');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 exports.index = (req, res) => {
   const result = {

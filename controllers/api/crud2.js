@@ -1,5 +1,5 @@
-const Permissions = require('core/Permissions');
-const IonError = require('core/IonError');
+const { Permissions } = require('@iondv/acl-contracts');
+const { IonError } = require('@iondv/core');
 
 const FORM_ATTR_PREFIX = 'obj-';
 
