@@ -10,11 +10,12 @@ const moduleName = require('./module-name');
 const controllers = require('./controllers');
 const {api} = controllers;
 const ionAdmin = require('./IonAdmin');
+const isDevelop = process.env.NODE_ENV === 'development';
 
 const { utils: { extendDi } } = require('@iondv/commons');
 const {
   util: {
-    staticRouter, extViews
+    staticRouter, extViews, theme
   }
 } = require('@iondv/web');
 const accessResources = require('./access-resources');
@@ -99,6 +100,16 @@ app._init = (moduleName) =>
       'app'
     ))
     .then(scope => {
+      let staticOptions = isDevelop ? {} : scope.settings.get('staticOptions');
+      const themePath = scope.settings.get(moduleName + '.theme') || config.theme || 'default'
+      theme(
+        app,
+        null,
+        __dirname,
+        themePath,
+        scope.sysLog,
+        staticOptions
+      );
       extViews(app, scope.settings.get(`${moduleName}.templates`));
       app.use('/', router);
       const statics = staticRouter(scope.settings.get(`${moduleName}.statics`));
