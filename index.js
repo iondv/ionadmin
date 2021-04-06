@@ -89,7 +89,7 @@ router.post('/api/delete-list/notifications', api.notifications.deleteList);
 const app = express();
 app.engine('ejs', require('ejs-locals'));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'view/templates'));
+app.set('views', path.join(__dirname, 'view/static/templates'));
 
 app._init = (moduleName) =>
   load(path.join(process.cwd(), 'i18n'))

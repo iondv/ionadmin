@@ -37,7 +37,7 @@ module.exports = function (req, res, next) {
         }
         if (selModule) {
           try {
-            let module = require(`modules/${selModule}`);
+            let module = require(`@iondv/${selModule}/Manager`);
             module.configurate(selModuleData.config, err => {
               if (err) {
                 return onError(scope, err, res);
