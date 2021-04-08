@@ -35,7 +35,7 @@ module.exports = function (options) {
         options.bg.register(
           'backupProvider',
           {
-            path: path.join('modules', 'ionadmin'),
+            path: './',
             node: po
           }
         );
